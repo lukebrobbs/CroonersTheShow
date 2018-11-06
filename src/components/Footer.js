@@ -64,8 +64,8 @@ export default () => {
       <Heading>SIGN UP FOR NEWS</Heading>
       <form>
         <Inline>
-          <FooterInput placeHolder="Name" type="text" required />
-          <FooterInput placeHolder="Email" type="email" required />
+          <FooterInput placeHolder="Name:" type="text" required />
+          <FooterInput placeHolder="Email:" type="email" required />
           <FooterSubmitButton type="submit">SUBMIT</FooterSubmitButton>
         </Inline>
       </form>
