@@ -14,7 +14,7 @@ const IndexPage = () => (
       A witty and exhilarating new comedy music show chock full of crooner
       classics, big band swing, and hilarious laugh out loud comedy has been
       wowing UK audiences with its quintessentially British take on a timeless
-      music...
+      free music...
     </p>
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
