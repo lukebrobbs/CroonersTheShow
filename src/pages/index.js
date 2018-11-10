@@ -16,6 +16,7 @@ const IndexPage = () => (
       wowing UK audiences with its quintessentially British take on a timeless
       free music...
     </p>
+
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )
