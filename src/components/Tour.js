@@ -3,29 +3,30 @@ import styled from 'styled-components'
 import moment from 'moment'
 
 const TourDateWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
-  width: 80%;
-  margin: auto;
-  line-height: 0.3rem;
-  padding-bottom: 5vh;
+  display: inline-grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 10vh 10vw;
+  grid-gap: 10px;
+  line-height: 3px;
+  padding-bottom: 5%;
 `
 
 const Logo = styled.img`
-  max-width: 100%;
-  height: auto;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
   justify-self: right;
 `
 
 const TitleAndDate = styled.div`
-  justify-self: left;
+  justify-self: center;
+  padding-top: 10px;
 `
 
 const BookButton = styled.button`
   justify-self: left;
   padding: 0px 20px;
-  max-height: 30%;
+  max-height: 45%;
 `
 
 const Tour = ({ logo, theatreName, date }) => {
