@@ -17,7 +17,8 @@ const IndexPage = () => (
       free music...
     </p>
 
-    <Link to="/page-2/">Go to page 2</Link>
+    <Link to="/about/">About page link</Link>
+    <Link to="/cast/">cast page link</Link>
   </Layout>
 )
 

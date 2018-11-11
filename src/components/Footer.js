@@ -3,54 +3,64 @@ import styled from 'styled-components'
 
 import TwitterImage from './ImageComponents/TwitterImage'
 import FacebookImage from './ImageComponents/FacebookImage'
-import InstagramLogo from '../images/instagram-logo.svg'
+import InstagramImage from './ImageComponents/InstagramImage'
 
 const Footer = styled.div`
   background-color: lightgrey;
   width: 100%;
   flex-shrink: 1;
-  @media screen and (max-width: 600px) {
+  display: grid;
+  grid-gap: 10px;
+  padding-left: 10vw;
+  grid-auto-rows: minmax(60px, auto);
+  grid-template-areas:
+    '. hd . . scl .'
+    '. form form form . .';
+  grid-template-columns: 0.5fr 0.7fr 0.7fr 0.7fr 0.25fr 1fr;
+  @media screen and (max-width: 1270px) {
+    grid-template-areas:
+      'hd'
+      'form'
+      'form'
+      'form'
+      'scl';
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    padding-left: 0;
     text-align: center;
   }
 `
+
 const Heading = styled.h3`
   padding-top: 2vh;
-  padding-left: 15vw;
-  @media screen and (max-width: 600px) {
+  margin: 0;
+  grid-area: hd;
+  @media screen and (max-width: 1270px) {
     padding-left: 0;
+    padding-top: 4vh;
   }
 `
 
-const Inline = styled.div`
-  display: inline-grid;
-  grid-gap: ${props => (props.right ? '20px' : '5%')};
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  padding-left: 15vw;
-  @media screen and (max-width: 600px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-gap: ${props => (props.right ? '0px' : '10px')};
-    padding-left: 0;
-  }
-`
 const SocialIcons = styled.div`
   display: inline-grid;
-  grid-gap: 20px;
+  padding-top: 2vh;
+  grid-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr;
-  padding-bottom: 0.5rem;
-  justify-self: right;
-  ${'' /* grid-column-start: 4;
-  grid-column-end: 6; */} @media screen and (max-width: 600px) {
+  grid-auto-rows: minmax(30px, auto);
+  grid-area: scl;
+  @media screen and (max-width: 1270px) {
     justify-self: center;
-    grid-row: 4;
+    padding-top: 1vh;
     padding-bottom: 0;
   }
 `
 const FooterInput = styled.input`
-  width: 100%;
+  max-width: 80%;
   max-height: 2rem;
   padding: 10px 10px;
+  grid-area: ${props => props.gridArea};
   border: none;
+
   ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: grey;
@@ -63,63 +73,48 @@ const FooterInput = styled.input`
     /* Microsoft Edge */
     color: grey;
   }
-  @media screen and (max-width: 600px) {
-    grid-row: ${props => props.row};
+  @media screen and (max-width: 1270px) {
+    justify-self: center;
+    min-width: 40%;
   }
 `
 const FooterSubmitButton = styled.button`
   max-height: 2rem;
   padding: 0px 0px;
   min-width: 30%;
+  max-width: 10vw;
   font-size: 0.9em;
-  @media screen and (max-width: 600px) {
-    grid-row: ${props => props.row};
+  @media screen and (max-width: 1270px) {
+    justify-self: center;
   }
 `
-const SocialMediaIcon = styled.img`
-  width: ${props => props.width};
+
+const Form = styled.form`
+  display: inline-grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-area: form;
+  @media screen and (max-width: 1270px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export default () => {
   return (
     <Footer>
       <Heading>SIGN UP FOR NEWS</Heading>
-      <form>
-        <Inline>
-          <FooterInput placeHolder="Name:" type="text" required row="1" />
-          <FooterInput placeHolder="Email:" type="email" required row="2" />
-          <FooterSubmitButton type="submit" row="3">
-            SUBMIT
-          </FooterSubmitButton>
-          <SocialIcons>
-            <a
-              href="https://twitter.com/croonerstheshow"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TwitterImage />
-            </a>
-            <a
-              href="https://www.facebook.com/croonerstheshow/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FacebookImage />
-            </a>
-            <a
-              href="https://www.instagram.com/croonerstheshow/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <SocialMediaIcon
-                src={InstagramLogo}
-                alt="Instagram Logo"
-                width="30px"
-              />
-            </a>
-          </SocialIcons>
-        </Inline>
-      </form>
+      <Form>
+        <FooterInput placeHolder="Name:" type="text" required />
+        <FooterInput placeHolder="Email:" type="email" required />
+        <FooterSubmitButton type="submit" row="3">
+          SUBMIT
+        </FooterSubmitButton>
+      </Form>
+      <SocialIcons>
+        <TwitterImage />
+        <FacebookImage />
+        <InstagramImage />
+      </SocialIcons>
     </Footer>
   )
 }

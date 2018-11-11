@@ -17,16 +17,25 @@ const TwitterImage = () => (
   <StaticQuery
     query={graphql`
       query {
-        placeholderImage: file(relativePath: { eq: "twitter-logo.png" }) {
+        file(relativePath: { eq: "twitter-logo.png" }) {
           childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
+            fixed(width: 25, height: 25) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
       }
     `}
-    render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
+    render={data => (
+      <a
+        href="https://twitter.com/croonerstheshow"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ height: '25px', width: '25px' }}
+      >
+        <Img fixed={data.file.childImageSharp.fixed} />
+      </a>
+    )}
   />
 )
 export default TwitterImage

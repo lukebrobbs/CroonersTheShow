@@ -13,24 +13,29 @@ import Img from 'gatsby-image'
  * - `StaticQuery`: https://gatsby.app/staticquery
  */
 
-const InstagramImage = () => (
+const InstagramLogo = () => (
   <StaticQuery
     query={graphql`
       query {
-        placeholderImage: file(relativePath: { eq: "instagram-logo.png" }) {
+        file(relativePath: { eq: "instagram-logo.png" }) {
           childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
+            fixed(width: 30, height: 30) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
       }
     `}
-    render={data =>
-      console.log(data) || (
-        <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-      )
-    }
+    render={data => (
+      <a
+        href="https://www.instagram.com/croonerstheshow/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ height: '30px', width: '30px' }}
+      >
+        <Img fixed={data.file.childImageSharp.fixed} />
+      </a>
+    )}
   />
 )
-export default InstagramImage
+export default InstagramLogo
