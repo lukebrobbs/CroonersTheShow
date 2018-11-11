@@ -1,14 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
+import moment from 'moment'
 
 const TourDateWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
+  grid-gap: 20px;
+  width: 80%;
+  margin: auto;
+  line-height: 0.3rem;
+  padding-bottom: 5vh;
 `
+
 const Logo = styled.img`
-  height: 80%;
-  justify-self: center;
+  max-width: 100%;
+  height: auto;
+  justify-self: right;
 `
 
 const TitleAndDate = styled.div`
@@ -26,8 +33,10 @@ const Tour = ({ logo, theatreName, date }) => {
     <TourDateWrapper>
       <Logo src={logo} alt="theatreName" />
       <TitleAndDate>
-        <p>{theatreName}</p>
-        <p>{date}</p>
+        <p>
+          <strong>{theatreName}</strong>
+        </p>
+        <p>{moment(date).format('Do MMMM YYYY')}</p>
       </TitleAndDate>
       <BookButton>Book Now</BookButton>
     </TourDateWrapper>

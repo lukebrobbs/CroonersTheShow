@@ -1,6 +1,5 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Layout from '../components/layout'
 import Tour from '../components/Tour'
 
 const Tourdates = () => (
@@ -25,7 +24,7 @@ const Tourdates = () => (
     render={({ allContentfulTourDate }) => {
       console.log(allContentfulTourDate)
       return (
-        <Layout>
+        <>
           <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>
             Crooners Logo
           </h1>
@@ -37,7 +36,7 @@ const Tourdates = () => (
               key={date.node.theatreName}
             />
           ))}
-        </Layout>
+        </>
       )
     }}
   />
