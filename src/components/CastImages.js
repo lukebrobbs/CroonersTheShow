@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 const CastWrapper = styled.div`
   display: grid;
@@ -36,18 +37,24 @@ const CastImages = () => {
     <>
       <h2 style={{ textAlign: 'center' }}>THE CAST</h2>
       <CastWrapper>
-        <CastMemberWrapper name="Phil">
-          <CastImage />
-          <h3>PHIL BARLEY</h3>
-        </CastMemberWrapper>
-        <CastMemberWrapper name="Roman">
-          <CastImage />
-          <h3>ROMAN MAREK</h3>
-        </CastMemberWrapper>
-        <CastMemberWrapper name="Jim">
-          <CastImage />
-          <h3>JIM WHITLEY</h3>
-        </CastMemberWrapper>
+        <Link to="/cast/phil">
+          <CastMemberWrapper name="Phil">
+            <CastImage />
+            <h3>PHIL BARLEY</h3>
+          </CastMemberWrapper>
+        </Link>
+        <Link to="/cast/roman">
+          <CastMemberWrapper name="Roman">
+            <CastImage />
+            <h3>ROMAN MAREK</h3>
+          </CastMemberWrapper>
+        </Link>
+        <Link to="/cast/jim">
+          <CastMemberWrapper name="Jim">
+            <CastImage />
+            <h3>JIM WHITLEY</h3>
+          </CastMemberWrapper>
+        </Link>
         <BandWrapper>
           <BandImage />
           <h3>THE MINI BIG BAND</h3>

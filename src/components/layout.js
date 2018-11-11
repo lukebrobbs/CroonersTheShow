@@ -5,6 +5,8 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Header from './header'
+import CreativeTeam from './CreativeTeam'
+import CreativeFooter from './CreativeFooter'
 import Footer from './Footer'
 import './layout.css'
 
@@ -14,7 +16,7 @@ const LayoutWrapper = styled.div`
   height: 100vh;
 `
 
-const Layout = ({ children }) => (
+const Layout = ({ children, creative }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -48,6 +50,12 @@ const Layout = ({ children }) => (
         >
           {children}
         </div>
+        {creative && (
+          <>
+            <CreativeTeam />
+            <CreativeFooter />
+          </>
+        )}
         <Footer />
       </LayoutWrapper>
     )}
