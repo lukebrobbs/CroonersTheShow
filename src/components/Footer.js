@@ -104,8 +104,8 @@ export default () => {
     <Footer>
       <Heading>SIGN UP FOR NEWS</Heading>
       <Form>
-        <FooterInput placeHolder="Name:" type="text" required />
-        <FooterInput placeHolder="Email:" type="email" required />
+        <FooterInput placeholder="Name:" type="text" required />
+        <FooterInput placeholder="Email:" type="email" required />
         <FooterSubmitButton type="submit" row="3">
           SUBMIT
         </FooterSubmitButton>

@@ -8,6 +8,7 @@ import Header from './header'
 import CreativeTeam from './CreativeTeam'
 import CreativeFooter from './CreativeFooter'
 import Footer from './Footer'
+import tash from '../images/tash.ico'
 import './layout.css'
 
 const LayoutWrapper = styled.div`
@@ -35,6 +36,7 @@ const Layout = ({ children, creative }) => (
             { name: 'description', content: 'Sample' },
             { name: 'keywords', content: 'sample, something' },
           ]}
+          link={[{ rel: 'shortcut icon', type: 'image/png', href: `${tash}` }]}
         >
           <html lang="en" />
         </Helmet>
