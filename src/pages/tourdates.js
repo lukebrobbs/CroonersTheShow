@@ -21,7 +21,7 @@ const Tourdates = () => (
               date
               website
               logo {
-                fluid(maxWidth: 300) {
+                fluid(maxWidth: 500) {
                   src
                 }
               }
