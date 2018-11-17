@@ -6,15 +6,21 @@ const TourDateWrapper = styled.div`
   display: inline-grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: 10vh 10vw;
+  grid-template-areas: 'img info booknow';
+
   grid-gap: 20px;
   line-height: 5px;
   padding-bottom: 5%;
   @media screen and (max-width: 900px) {
     grid-template-areas:
       'img info'
-      '. bookNow';
+      'img bookNow';
     grid-template-columns: 1fr 1fr;
     margin-bottom: 0;
+  }
+  @media screen and (max-width: 575px) {
+    display: block;
+    text-align: center;
   }
 `
 
@@ -26,11 +32,22 @@ const ImageWrapper = styled.div`
   height: auto;
   justify-self: right;
   overflow: hidden;
+  grid-area: img;
+  @media screen and (max-width: 575px) {
+    margin: auto;
+    padding-top: 5%;
+  }
 `
 
 const TitleAndDate = styled.div`
   justify-self: center;
   padding-top: 10px;
+  grid-area: info;
+  @media screen and (max-width: 575px) {
+    display: block;
+    margin: auto;
+    padding-bottom: 5%;
+  }
 `
 const BookLink = styled.a`
   background-color: red;
@@ -55,6 +72,10 @@ const BookLink = styled.a`
   @media screen and (max-width: 900px) {
     grid-area: bookNow;
     justify-self: center;
+  }
+  @media screen and (max-width: 575px) {
+    margin: auto;
+    padding: 0.5em 0.75em;
   }
 `
 

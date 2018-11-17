@@ -21,8 +21,8 @@ const Tourdates = () => (
               date
               website
               logo {
-                file {
-                  url
+                fluid(maxWidth: 300) {
+                  src
                 }
               }
             }
@@ -41,7 +41,7 @@ const Tourdates = () => (
               <Tour
                 theatreName={date.node.theatreName}
                 date={date.node.date}
-                logo={date.node.logo.file.url}
+                logo={date.node.logo.fluid.src}
                 key={date.node.theatreName}
                 website={date.node.website}
               />
