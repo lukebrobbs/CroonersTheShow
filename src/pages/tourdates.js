@@ -19,6 +19,7 @@ const Tourdates = () => (
             node {
               theatreName
               date
+              website
               logo {
                 file {
                   url
@@ -30,7 +31,6 @@ const Tourdates = () => (
       }
     `}
     render={({ allContentfulTourDate }) => {
-      console.log(allContentfulTourDate)
       return (
         <Layout>
           <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>
@@ -43,6 +43,7 @@ const Tourdates = () => (
                 date={date.node.date}
                 logo={date.node.logo.file.url}
                 key={date.node.theatreName}
+                website={date.node.website}
               />
             ))}
           </TourDateWrapper>
