@@ -9,6 +9,13 @@ const TourDateWrapper = styled.div`
   grid-gap: 20px;
   line-height: 5px;
   padding-bottom: 5%;
+  @media screen and (max-width: 900px) {
+    grid-template-areas:
+      'img info'
+      '. bookNow';
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 0;
+  }
 `
 
 const Logo = styled.img`
@@ -44,6 +51,10 @@ const BookLink = styled.a`
   }
   ::visited {
     background-color: #ccc;
+  }
+  @media screen and (max-width: 900px) {
+    grid-area: bookNow;
+    justify-self: center;
   }
 `
 
