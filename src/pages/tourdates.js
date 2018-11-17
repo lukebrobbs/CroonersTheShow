@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/layout'
 import Tour from '../components/Tour'
+import Map from '../components/Map'
 
 const TourDateWrapper = styled.div`
   display: grid;
@@ -25,6 +26,10 @@ const Tourdates = () => (
                   src
                 }
               }
+              location {
+                lat
+                lon
+              }
             }
           }
         }
@@ -33,10 +38,11 @@ const Tourdates = () => (
     render={({ allContentfulTourDate }) => {
       return (
         <Layout>
-          <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>
-            Crooners Logo
-          </h1>
+          <Map edges={allContentfulTourDate.edges} />
           <TourDateWrapper>
+            <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>
+              Tour Dates
+            </h1>
             {allContentfulTourDate.edges.map(date => (
               <Tour
                 theatreName={date.node.theatreName}

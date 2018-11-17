@@ -36,7 +36,16 @@ const Layout = ({ children, creative }) => (
             { name: 'description', content: 'Sample' },
             { name: 'keywords', content: 'sample, something' },
           ]}
-          link={[{ rel: 'shortcut icon', type: 'image/png', href: `${tash}` }]}
+          link={[
+            { rel: 'shortcut icon', type: 'image/png', href: `${tash}` },
+            {
+              rel: 'stylesheet',
+              href: 'https://unpkg.com/leaflet@1.3.4/dist/leaflet.css',
+              integrity:
+                'sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==',
+              crossorigin: '',
+            },
+          ]}
         >
           <html lang="en" />
         </Helmet>
