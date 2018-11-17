@@ -1,4 +1,5 @@
 import React from 'react'
+import { CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
 
 import TwitterImage from './ImageComponents/TwitterImage'
@@ -21,13 +22,13 @@ const Footer = styled.div`
     grid-template-areas:
       'hd'
       'form'
-      'form'
-      'form'
       'scl';
     grid-template-columns: 1fr;
     grid-gap: 10px;
     padding-left: 0;
     text-align: center;
+    justify-content: center;
+    grid-auto-rows: auto;
   }
 `
 
@@ -60,7 +61,6 @@ const FooterInput = styled.input`
   padding: 10px 10px;
   grid-area: ${props => props.gridArea};
   border: none;
-
   ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: grey;
@@ -91,30 +91,97 @@ const FooterSubmitButton = styled.button`
 
 const Form = styled.form`
   display: inline-grid;
-
   grid-template-columns: 1fr 1fr 1fr;
   grid-area: form;
+  grid-gap: 10px;
   @media screen and (max-width: 1270px) {
     grid-template-columns: 1fr;
+    margin-bottom: 0;
   }
 `
+export default class PageFooter extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: '',
+      email: '',
+      submitted: false,
+      showSubmitSuccess: false,
+    }
+  }
 
-export default () => {
-  return (
-    <Footer>
-      <Heading>SIGN UP FOR NEWS</Heading>
-      <Form>
-        <FooterInput placeholder="Name:" type="text" required />
-        <FooterInput placeholder="Email:" type="email" required />
-        <FooterSubmitButton type="submit" row="3">
-          SUBMIT
-        </FooterSubmitButton>
-      </Form>
-      <SocialIcons>
-        <TwitterImage />
-        <FacebookImage />
-        <InstagramImage />
-      </SocialIcons>
-    </Footer>
-  )
+  handleSubmit = e => {
+    e.preventDefault()
+    this.setState({ submitted: true })
+  }
+  handleChange = e => {
+    const { value, name } = e.target
+    this.setState({ [name]: value })
+  }
+  render() {
+    return (
+      <Footer>
+        <Heading>SIGN UP FOR NEWS</Heading>
+        <Form onSubmit={this.handleSubmit}>
+          <CSSTransition
+            classNames="example"
+            in={this.state.showSubmitSuccess}
+            timeout={500}
+            mountOnEnter
+          >
+            <p>Thanks for signing up!</p>
+          </CSSTransition>
+          <CSSTransition
+            classNames="submitted"
+            in={!this.state.submitted}
+            timeout={500}
+            unmountOnExit
+            onExited={() => {
+              this.setState({ showSubmitSuccess: true })
+            }}
+          >
+            <FooterInput
+              placeholder="Name:"
+              value={this.state.name}
+              name="name"
+              type="text"
+              required
+              onChange={this.handleChange}
+            />
+          </CSSTransition>
+          <CSSTransition
+            classNames="submitted"
+            in={!this.state.submitted}
+            timeout={500}
+            unmountOnExit
+          >
+            <FooterInput
+              placeholder="Email:"
+              type="email"
+              name="email"
+              value={this.state.email}
+              required
+              onChange={this.handleChange}
+            />
+          </CSSTransition>
+          <CSSTransition
+            classNames="submitted"
+            in={!this.state.submitted}
+            timeout={500}
+            unmountOnExit
+          >
+            <FooterSubmitButton type="submit" row="3" key="footerButton">
+              SUBMIT
+            </FooterSubmitButton>
+          </CSSTransition>
+        </Form>
+
+        <SocialIcons>
+          <TwitterImage />
+          <FacebookImage />
+          <InstagramImage />
+        </SocialIcons>
+      </Footer>
+    )
+  }
 }
