@@ -31,7 +31,16 @@ class MapComponent extends Component {
   render() {
     if (typeof window !== 'undefined') {
       return (
-        <Map center={[54.375758, -7.352028]} zoom={5.5}>
+        <Map
+          center={[54.375758, -7.352028]}
+          zoom={5.5}
+          style={{
+            height: '600px',
+            marginBottom: '6%',
+            width: '100vw',
+            marginLeft: 'calc(-50vw + 49%)',
+          }}
+        >
           <TileLayer
             attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -68,15 +77,7 @@ class MapComponent extends Component {
             )
           })}
           <MapWrapper>
-            <div
-              id="map"
-              style={{
-                height: '600px',
-                marginBottom: '6%',
-                width: '100vw',
-                marginLeft: 'calc(-50vw + 49%)',
-              }}
-            />
+            <div id="map" />
           </MapWrapper>
         </Map>
       )
