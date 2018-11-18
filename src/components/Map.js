@@ -1,15 +1,9 @@
 import React, { Component } from 'react'
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 import L from 'leaflet'
-import styled from 'styled-components'
+
 import moment from 'moment'
 import croonersPin from '../images/Pin.png'
-
-const MapWrapper = styled.div`
-  @media screen and (max-width: 575px) {
-    display: hidden;
-  }
-`
 
 class MapComponent extends Component {
   constructor(props) {
@@ -40,6 +34,7 @@ class MapComponent extends Component {
             width: '100vw',
             marginLeft: 'calc(-50vw + 49%)',
           }}
+          scrollWheelZoom={false}
         >
           <TileLayer
             attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
@@ -76,9 +71,8 @@ class MapComponent extends Component {
               </Marker>
             )
           })}
-          <MapWrapper>
-            <div id="map" />
-          </MapWrapper>
+
+          <div id="map" />
         </Map>
       )
     }
