@@ -20,12 +20,12 @@ class MapComponent extends Component {
   }
 
   createPin = () => {
-    return L.icon({
-      iconUrl: croonersPin,
-      iconSize: [38, 30],
-      iconAnchor: [16, 29],
-      popupAnchor: [-3, -76],
-    })
+    // return L.icon({
+    //   iconUrl: croonersPin,
+    //   iconSize: [38, 30],
+    //   iconAnchor: [16, 29],
+    //   popupAnchor: [-3, -76],
+    // })
   }
 
   render() {
@@ -39,7 +39,7 @@ class MapComponent extends Component {
           return (
             <Marker
               position={[node.location.lat, node.location.lon]}
-              icon={this.createPin()}
+              //   icon={this.createPin()}
             >
               <Popup>
                 <strong>{node.theatreName}</strong>
