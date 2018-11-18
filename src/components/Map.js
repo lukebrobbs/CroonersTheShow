@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
 import L from 'leaflet'
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import styled from 'styled-components'
 import moment from 'moment'
 import croonersPin from '../images/Pin.png'
 
-class Map extends Component {
+const MapWrapper = styled.div`
+  @media screen and (max-width: 575px) {
+    display: hidden;
+  }
+`
+
+class MapComponent extends Component {
   constructor(props) {
     super(props)
     this.state = {
       map: {},
     }
-  }
-  componentDidMount() {
-    this.initiateMap()
   }
 
   createPin = () => {
@@ -23,56 +28,58 @@ class Map extends Component {
     })
   }
 
-  createPopup = singleNode => {
-    return `<strong>${singleNode.theatreName}</strong>
-    <p>${moment(singleNode.date).format('Do MMMM YYYY')}</p>
-    <a href=${singleNode.website} target="about_blank"
-    style="background-color: red;
-    color: white;
-    text-align: center;
-    padding: 0.5em 0.75em;
-    max-width: 60%;
-    height: 35%;
-    margin: 10px;
-    text-decoration: none;
-    border: 1px solid red;
-    text-transform: uppercase;">Book Now</a>`
-  }
-
-  initiateMap = () => {
-    const { edges } = this.props
-    const map = L.map('map', {
-      center: [54.375758, -7.352028],
-      zoom: 5.5,
-      scrollWheelZoom: false,
-    })
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution:
-        '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(map)
-
-    const node = edges.map(edge => edge.node)
-    const icon = this.createPin()
-    node.forEach(singleNode => {
-      L.marker([singleNode.location.lat, singleNode.location.lon], { icon })
-        .bindPopup(this.createPopup(singleNode))
-        .addTo(map)
-    })
-  }
-
   render() {
     return (
-      <div
-        id="map"
-        style={{
-          height: '600px',
-          marginBottom: '6%',
-          width: '100vw',
-          marginLeft: 'calc(-50vw + 49%)',
-        }}
-      />
+      <Map center={[54.375758, -7.352028]} zoom={5.5}>
+        <TileLayer
+          attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {this.props.node.map(node => {
+          return (
+            <Marker
+              position={[node.location.lat, node.location.lon]}
+              icon={this.createPin()}
+            >
+              <Popup>
+                <strong>{node.theatreName}</strong>
+                <p>{moment(node.date).format('Do MMMM YYYY')}</p>
+                <a
+                  href={node.website}
+                  target="about_blank"
+                  style={{
+                    backgroundColor: 'red',
+                    color: 'white',
+                    textAlign: 'center',
+                    padding: '0.5em 0.75em',
+                    maxWidth: '60%',
+                    height: '35%',
+                    margin: '10px',
+                    textDecoration: 'none',
+                    border: '1px solid red',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Book Now
+                </a>
+              </Popup>
+            </Marker>
+          )
+        })}
+        <MapWrapper>
+          <div
+            id="map"
+            style={{
+              height: '600px',
+              marginBottom: '6%',
+              width: '100vw',
+              marginLeft: 'calc(-50vw + 49%)',
+            }}
+          />
+        </MapWrapper>
+      </Map>
     )
   }
 }
 
-export default Map
+export default MapComponent

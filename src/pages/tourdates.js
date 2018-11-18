@@ -38,7 +38,7 @@ const Tourdates = () => (
     render={({ allContentfulTourDate }) => {
       return (
         <Layout>
-          <Map edges={allContentfulTourDate.edges} />
+          <Map node={allContentfulTourDate.edges.map(edge => edge.node)} />
           <TourDateWrapper>
             <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>
               Tour Dates
