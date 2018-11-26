@@ -45,6 +45,7 @@ class MapComponent extends Component {
               <Marker
                 position={[node.location.lat, node.location.lon]}
                 icon={this.createPin()}
+                key={node.location.lat}
               >
                 <Popup>
                   <strong>{node.theatreName}</strong>

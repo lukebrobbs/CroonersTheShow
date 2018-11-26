@@ -1,6 +1,7 @@
 import React from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
+import addToMailChimp from 'gatsby-plugin-mailchimp'
 
 import TwitterImage from './ImageComponents/TwitterImage'
 import FacebookImage from './ImageComponents/FacebookImage'
@@ -107,12 +108,16 @@ export default class PageFooter extends React.Component {
       email: '',
       submitted: false,
       showSubmitSuccess: false,
+      message: '',
     }
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault()
-    this.setState({ submitted: true })
+    const { email, name } = this.state
+    const { result, msg } = await addToMailChimp(email, { NAME: name })
+    const message = result === 'success' ? msg : 'Oops, something went wrong'
+    this.setState({ submitted: true, message })
   }
   handleChange = e => {
     const { value, name } = e.target
@@ -129,7 +134,7 @@ export default class PageFooter extends React.Component {
             timeout={500}
             mountOnEnter
           >
-            <p>Thanks for signing up!</p>
+            <p>{this.state.message}</p>
           </CSSTransition>
           <CSSTransition
             classNames="submitted"
