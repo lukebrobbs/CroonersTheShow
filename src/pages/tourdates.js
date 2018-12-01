@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/layout'
+import Header from '../components/header'
 import Tour from '../components/Tour'
 import Map from '../components/Map'
 
@@ -9,6 +10,8 @@ const TourDateWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 20px;
+  max-width: 960px;
+  margin: auto;
 `
 
 const Tourdates = () => (
@@ -37,7 +40,8 @@ const Tourdates = () => (
     `}
     render={({ allContentfulTourDate }) => {
       return (
-        <Layout>
+        <Layout padTop>
+          <Header page="TourDates" />
           <Map node={allContentfulTourDate.edges.map(edge => edge.node)} />
           <TourDateWrapper>
             <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>

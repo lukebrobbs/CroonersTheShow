@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../../components/layout'
+import Header from '../../components/header'
 
 const Phil = () => (
-  <Layout>
+  <Layout padTop>
+    <Header page="Cast" />
+
     <h1>Crooners Logo</h1>
     <h2>Phil Barley</h2>
     <p>

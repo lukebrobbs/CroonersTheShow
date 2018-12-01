@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Header from '../../components/header'
+
 import Layout from '../../components/layout'
 
 const Jim = () => (
-  <Layout>
+  <Layout padTop>
+    <Header page="Cast" />
     <h1>Crooners Logo</h1>
     <h2>Jim Whitley</h2>
     <p>

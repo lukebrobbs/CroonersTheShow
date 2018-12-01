@@ -1,9 +1,11 @@
 import React from 'react'
 
 import Layout from '../components/layout'
+import Header from '../components/header'
 
 const About = () => (
-  <Layout>
+  <Layout padTop>
+    <Header page="About" />
     <h1>Crooners Logo</h1>
     <h2>ABOUT CROONERS</h2>
     <p>

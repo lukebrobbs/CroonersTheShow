@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/layout'
+import Header from '../components/header'
 import HomePageBg from '../components/ImageComponents/HomePageBg'
 import LeftReview from '../components/ImageComponents/LeftReview'
 import MiddleReview from '../components/ImageComponents/MiddleReview'
@@ -14,23 +15,30 @@ const Description = styled.p`
   @media screen and (max-width: 1370px) {
     margin-top: -10px;
   }
+  @media screen and (max-width: 700px) {
+    width: 100%;
+  }
 `
 const Reviews = styled.div`
   display: grid;
   width: 80%;
   margin: auto;
-  grid-template-columns: 1fr 1fr 1fr;
-  @media screen and (max-width: 1370px) {
-    grid-template-columns: 1fr;
+  grid-template-areas: 'leftReview middleReview rightReview';
+  @media screen and (max-width: 900px) {
+    grid-template-areas:
+      'middleReview middleReview middleReview'
+      'leftReview  - rightReview';
   }
 `
 const ReviewWrapper = styled.div`
   height: 70%;
   width: 70%;
-  padding-top: 5vh;
-  @media screen and (max-width: 1370px) {
-    height: 30%;
-    width: 30%;
+  padding: 5vh 0 5vh;
+  margin: auto;
+  grid-area: ${props => props.name};
+  @media screen and (max-width: 900px) {
+    height: ${props => (props.name === 'middleReview' ? '80%' : '100%')};
+    width: ${props => (props.name === 'middleReview' ? '80%' : '100%')};
     justify-self: center;
   }
 `
@@ -38,6 +46,7 @@ const IndexPage = () => (
   <>
     <Layout>
       <div style={{ height: 'auto' }}>
+        <Header page="Home" />
         <HomePageBg />
         <Description>
           A witty and exhilarating new comedy music show chock full of crooner
@@ -46,13 +55,13 @@ const IndexPage = () => (
           timeless free music...
         </Description>
         <Reviews>
-          <ReviewWrapper>
+          <ReviewWrapper name="leftReview">
             <LeftReview />
           </ReviewWrapper>
-          <ReviewWrapper>
+          <ReviewWrapper name="middleReview">
             <MiddleReview />
           </ReviewWrapper>
-          <ReviewWrapper>
+          <ReviewWrapper name="rightReview">
             <RightReview />
           </ReviewWrapper>
         </Reviews>

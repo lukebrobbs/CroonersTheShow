@@ -7,7 +7,6 @@ const TourDateWrapper = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: 10vh 10vw;
   grid-template-areas: 'img info booknow';
-
   grid-gap: 20px;
   line-height: 5px;
   padding-bottom: 5%;
@@ -70,7 +69,8 @@ const BookLink = styled.a`
   text-decoration: none;
   text-transform: uppercase;
   :hover {
-    background-color: #555;
+    color: white;
+    text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
   }
   :active {
     background-color: black;

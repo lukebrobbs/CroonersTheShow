@@ -64,6 +64,7 @@ class MapComponent extends Component {
                       textDecoration: 'none',
                       border: '1px solid red',
                       textTransform: 'uppercase',
+                      font: 'Bourton-base-drop',
                     }}
                   >
                     Book Now

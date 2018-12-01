@@ -89,12 +89,15 @@ const FooterSubmitButton = styled.button`
   max-width: 6vw;
   font-size: 1.1em;
   background-color: #f7b300;
-
   box-shadow: 1px 1px 3px black;
   cursor: pointer;
   border-radius: 3px;
   @media screen and (max-width: 1306px) {
     justify-self: center;
+  }
+  :hover {
+    color: white;
+    text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
   }
 `
 

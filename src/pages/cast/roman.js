@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../../components/layout'
 import Image from '../../components/image'
+import Header from '../../components/header'
 
 const Wrapper = styled.div`
   display: grid;
@@ -15,7 +16,8 @@ const ImageGrid = styled.div`
 `
 
 const Roman = () => (
-  <Layout>
+  <Layout padTop>
+    <Header page="Cast" />
     <h1 style={{ textAlign: 'center' }}>Crooners Logo</h1>
     <h2 style={{ textAlign: 'center' }}>Roman Marek</h2>
     <Wrapper>

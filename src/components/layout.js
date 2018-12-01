@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import Header from './header'
 import CreativeTeam from './CreativeTeam'
 import CreativeFooter from './CreativeFooter'
 import Footer from './Footer'
@@ -17,7 +16,7 @@ const LayoutWrapper = styled.div`
   height: 100vh;
 `
 
-const Layout = ({ children, creative }) => (
+const Layout = ({ children, creative, padTop }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -49,7 +48,7 @@ const Layout = ({ children, creative }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        {padTop && <div style={{ paddingTop: '10vh' }} />}
         <div
           style={{
             margin: '0 auto',
