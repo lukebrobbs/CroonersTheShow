@@ -8,7 +8,7 @@ import FacebookImage from './ImageComponents/FacebookImage'
 import InstagramImage from './ImageComponents/InstagramImage'
 
 const Footer = styled.div`
-  background-color: lightgrey;
+  background-color: #003f6d;
   width: 100%;
   flex-shrink: 1;
   display: grid;
@@ -35,8 +35,10 @@ const Footer = styled.div`
 
 const Heading = styled.h3`
   padding-top: 2vh;
+  color: #f7b300;
   margin: 0;
   grid-area: hd;
+
   @media screen and (max-width: 1270px) {
     padding-left: 0;
     padding-top: 4vh;
@@ -80,11 +82,16 @@ const FooterInput = styled.input`
   }
 `
 const FooterSubmitButton = styled.button`
+  font-family: 'Bourton-base-drop';
   max-height: 2rem;
-  padding: 0px 0px;
   min-width: 30%;
-  max-width: 10vw;
-  font-size: 0.9em;
+  border: none;
+  max-width: 6vw;
+  font-size: 1.3em;
+  background-color: #f7b300;
+  box-shadow: 1px 1px 3px black;
+  cursor: pointer;
+  border-radius: 3px;
   @media screen and (max-width: 1270px) {
     justify-self: center;
   }
@@ -134,7 +141,7 @@ export default class PageFooter extends React.Component {
             timeout={500}
             mountOnEnter
           >
-            <p>{this.state.message}</p>
+            <p style={{ color: '#f7b300' }}>{this.state.message}</p>
           </CSSTransition>
           <CSSTransition
             classNames="submitted"
@@ -176,7 +183,7 @@ export default class PageFooter extends React.Component {
             unmountOnExit
           >
             <FooterSubmitButton type="submit" row="3" key="footerButton">
-              SUBMIT
+              <strong>SUBMIT</strong>
             </FooterSubmitButton>
           </CSSTransition>
         </Form>

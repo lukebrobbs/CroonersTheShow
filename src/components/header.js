@@ -16,17 +16,9 @@ const Header = ({ siteTitle }) => (
         textAlign: 'center',
       }}
     >
-      <h1 style={{}}>
-        <Link
-          to="/"
-          style={{
-            color: 'black',
-            textDecoration: 'none',
-          }}
-        >
-          {'Nav bar here'}
-        </Link>
-      </h1>
+      <Link to="/about/">About page link</Link>
+      <Link to="/cast/">cast page link</Link>
+      <Link to="/tourdates/">Tour dates</Link>
     </div>
   </div>
 )
