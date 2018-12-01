@@ -13,20 +13,25 @@ import Img from 'gatsby-image'
  * - `StaticQuery`: https://gatsby.app/staticquery
  */
 
-const HomePageBg = () => (
+const JimHeadshot = () => (
   <StaticQuery
     query={graphql`
       query {
-        file(relativePath: { eq: "Crooners-with-description.png" }) {
+        file(relativePath: { eq: "JimCrooners.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1400) {
-              ...GatsbyImageSharpFluid
+            fixed(width: 250, height: 250) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
       }
     `}
-    render={data => <Img fluid={data.file.childImageSharp.fluid} />}
+    render={data => (
+      <Img
+        fixed={data.file.childImageSharp.fixed}
+        style={{ border: '4px solid #f7b300' }}
+      />
+    )}
   />
 )
-export default HomePageBg
+export default JimHeadshot

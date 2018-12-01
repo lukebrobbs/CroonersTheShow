@@ -13,13 +13,13 @@ import Img from 'gatsby-image'
  * - `StaticQuery`: https://gatsby.app/staticquery
  */
 
-const HomePageBg = () => (
+const LeftReview = () => (
   <StaticQuery
     query={graphql`
       query {
-        file(relativePath: { eq: "Crooners-with-description.png" }) {
+        file(relativePath: { eq: "Review.png" }) {
           childImageSharp {
-            fluid(maxWidth: 1400) {
+            fluid(maxWidth: 200) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -29,4 +29,4 @@ const HomePageBg = () => (
     render={data => <Img fluid={data.file.childImageSharp.fluid} />}
   />
 )
-export default HomePageBg
+export default LeftReview

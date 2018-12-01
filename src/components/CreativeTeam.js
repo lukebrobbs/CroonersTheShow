@@ -3,12 +3,14 @@ import styled from 'styled-components'
 
 const CreativeWrapper = styled.div`
   width: 100%;
+  background-color: #0067a6;
   border: 1px solid black;
   flex-shrink: 2;
 `
 
 const Content = styled.div`
   display: grid;
+  color: white;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 5px;
   width: 50%;
@@ -18,6 +20,7 @@ const Content = styled.div`
 `
 
 const Header = styled.h2`
+  color: #f7b300;
   grid-column: span 3;
   justify-self: center;
   padding-top: 5vh;
@@ -28,7 +31,7 @@ const CreativeTeam = () => {
     <CreativeWrapper>
       <Content>
         <Header>The Creative Team</Header>
-        <div>
+        <div style={{ lineHeight: '1.5em' }}>
           <p>Producers</p>
           <strong>Roman Marek</strong>
           <p>

@@ -19,7 +19,7 @@ const Footer = styled.div`
     '. hd . . scl .'
     '. form form form . .';
   grid-template-columns: 0.5fr 0.7fr 0.7fr 0.7fr 0.25fr 1fr;
-  @media screen and (max-width: 1270px) {
+  @media screen and (max-width: 1306px) {
     grid-template-areas:
       'hd'
       'form'
@@ -39,7 +39,7 @@ const Heading = styled.h3`
   margin: 0;
   grid-area: hd;
 
-  @media screen and (max-width: 1270px) {
+  @media screen and (max-width: 1306px) {
     padding-left: 0;
     padding-top: 4vh;
   }
@@ -52,7 +52,7 @@ const SocialIcons = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: minmax(30px, auto);
   grid-area: scl;
-  @media screen and (max-width: 1270px) {
+  @media screen and (max-width: 1306px) {
     justify-self: center;
     padding-top: 1vh;
     padding-bottom: 0;
@@ -76,7 +76,7 @@ const FooterInput = styled.input`
     /* Microsoft Edge */
     color: grey;
   }
-  @media screen and (max-width: 1270px) {
+  @media screen and (max-width: 1306px) {
     justify-self: center;
     min-width: 40%;
   }
@@ -84,15 +84,16 @@ const FooterInput = styled.input`
 const FooterSubmitButton = styled.button`
   font-family: 'Bourton-base-drop';
   max-height: 2rem;
-  min-width: 30%;
+  min-width: 40%;
   border: none;
   max-width: 6vw;
-  font-size: 1.3em;
+  font-size: 1.1em;
   background-color: #f7b300;
+
   box-shadow: 1px 1px 3px black;
   cursor: pointer;
   border-radius: 3px;
-  @media screen and (max-width: 1270px) {
+  @media screen and (max-width: 1306px) {
     justify-self: center;
   }
 `
@@ -102,7 +103,7 @@ const Form = styled.form`
   grid-template-columns: 1fr 1fr 1fr;
   grid-area: form;
   grid-gap: 10px;
-  @media screen and (max-width: 1270px) {
+  @media screen and (max-width: 1306px) {
     grid-template-columns: 1fr;
     margin-bottom: 0;
   }

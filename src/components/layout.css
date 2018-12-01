@@ -28,10 +28,12 @@
 
 html {
   font-family: 'Bourton-base';
+  background-color: #001025;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 body {
+  color: white;
   margin: 0;
 }
 article,
@@ -225,7 +227,7 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: hsla(0, 0%, 0%, 0.8);
+  color: white;
   font-family: 'Bourton-base-drop';
   font-weight: normal;
   word-wrap: break-word;

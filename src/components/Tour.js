@@ -50,15 +50,24 @@ const TitleAndDate = styled.div`
   }
 `
 const BookLink = styled.a`
-  background-color: red;
-  color: white;
+  font-family: 'Bourton-base';
+  background-image: linear-gradient(
+    to right,
+    #ff7b08,
+    #f79c08,
+    #faca00,
+    #faca00,
+    #f79c08,
+    #ff7b08
+  );
+  color: black;
+  border: none;
   text-align: center;
-  padding: 1em 1.5em;
-  max-width: 60%;
+  padding: 0.8em;
+  max-width: 45%;
   height: 35%;
-  margin: 0, auto;
+  /* margin: 0, auto; */
   text-decoration: none;
-  border: 1px solid red;
   text-transform: uppercase;
   :hover {
     background-color: #555;
@@ -72,6 +81,7 @@ const BookLink = styled.a`
   @media screen and (max-width: 900px) {
     grid-area: bookNow;
     justify-self: center;
+    padding: 0.5em;
   }
   @media screen and (max-width: 575px) {
     margin: auto;

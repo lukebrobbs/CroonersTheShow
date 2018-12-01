@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import MiniBigBand from './ImageComponents/BandImage'
+import JimHeadshot from './ImageComponents/JimHeadshot'
 
 const CastWrapper = styled.div`
   display: grid;
@@ -8,6 +10,13 @@ const CastWrapper = styled.div`
     'Phil Roman Jim'
     'band band band';
   grid-gap: 2rem;
+  @media screen and (max-width: 900px) {
+    grid-template-areas:
+      'Phil'
+      'Roman'
+      'Jim'
+      'band';
+  }
 `
 
 const CastMemberWrapper = styled.div`
@@ -23,40 +32,41 @@ const CastImage = styled.div`
 
 const BandWrapper = styled.div`
   grid-area: band;
+  width: 50%;
+  height: auto;
+  overflow: hidden;
   justify-self: center;
   text-align: center;
-`
-const BandImage = styled.div`
-  width: 450px;
-  height: 250px;
-  border: 1px solid black;
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
 `
 
 const CastImages = () => {
   return (
     <>
-      <h2 style={{ textAlign: 'center' }}>THE CAST</h2>
+      <h2 style={{ textAlign: 'center', color: '#f7b300' }}>THE CAST</h2>
       <CastWrapper>
-        <Link to="/cast/phil">
-          <CastMemberWrapper name="Phil">
+        <CastMemberWrapper name="Phil">
+          <Link to="/cast/phil">
             <CastImage />
-            <h3>PHIL BARLEY</h3>
-          </CastMemberWrapper>
-        </Link>
-        <Link to="/cast/roman">
-          <CastMemberWrapper name="Roman">
+          </Link>
+          <h3>PHIL BARLEY</h3>
+        </CastMemberWrapper>
+        <CastMemberWrapper name="Roman">
+          <Link to="/cast/roman">
             <CastImage />
-            <h3>ROMAN MAREK</h3>
-          </CastMemberWrapper>
-        </Link>
-        <Link to="/cast/jim">
-          <CastMemberWrapper name="Jim">
-            <CastImage />
-            <h3>JIM WHITLEY</h3>
-          </CastMemberWrapper>
-        </Link>
+          </Link>
+          <h3>ROMAN MAREK</h3>
+        </CastMemberWrapper>
+        <CastMemberWrapper name="Jim">
+          <Link to="/cast/jim">
+            <JimHeadshot />
+          </Link>
+          <h3>JIM WHITLEY</h3>
+        </CastMemberWrapper>
         <BandWrapper>
-          <BandImage />
+          <MiniBigBand />
           <h3>THE MINI BIG BAND</h3>
         </BandWrapper>
       </CastWrapper>

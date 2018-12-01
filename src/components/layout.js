@@ -53,7 +53,7 @@ const Layout = ({ children, creative }) => (
         <div
           style={{
             margin: '0 auto',
-            maxWidth: 960,
+            maxWidth: 1400,
             padding: '0px 1.0875rem 1.45rem',
             paddingTop: 0,
             flex: '1 0 auto',

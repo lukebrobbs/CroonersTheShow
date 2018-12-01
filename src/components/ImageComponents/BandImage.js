@@ -13,20 +13,25 @@ import Img from 'gatsby-image'
  * - `StaticQuery`: https://gatsby.app/staticquery
  */
 
-const HomePageBg = () => (
+const MiniBigBand = () => (
   <StaticQuery
     query={graphql`
       query {
-        file(relativePath: { eq: "Crooners-with-description.png" }) {
+        file(relativePath: { eq: "The-Mini-Big-Band.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1400) {
+            fluid(maxWidth: 960, maxHeight: 500) {
               ...GatsbyImageSharpFluid
             }
           }
         }
       }
     `}
-    render={data => <Img fluid={data.file.childImageSharp.fluid} />}
+    render={data => (
+      <Img
+        fluid={data.file.childImageSharp.fluid}
+        style={{ border: '4px solid #f7b300' }}
+      />
+    )}
   />
 )
-export default HomePageBg
+export default MiniBigBand
