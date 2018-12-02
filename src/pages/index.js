@@ -45,27 +45,29 @@ const ReviewWrapper = styled.div`
 const IndexPage = () => (
   <>
     <Layout>
-      <div style={{ height: 'auto' }}>
-        <Header page="Home" />
-        <HomePageBg />
-        <Description>
-          A witty and exhilarating new comedy music show chock full of crooner
-          classics, big band swing, and hilarious laugh out loud comedy has been
-          wowing UK audiences with its quintessentially British take on a
-          timeless free music...
-        </Description>
-        <Reviews>
-          <ReviewWrapper name="leftReview">
-            <LeftReview />
-          </ReviewWrapper>
-          <ReviewWrapper name="middleReview">
-            <MiddleReview />
-          </ReviewWrapper>
-          <ReviewWrapper name="rightReview">
-            <RightReview />
-          </ReviewWrapper>
-        </Reviews>
-      </div>
+      {isMobile => (
+        <div style={{ height: 'auto' }}>
+          <Header page="Home" isMobile={isMobile} />
+          <HomePageBg />
+          <Description>
+            A witty and exhilarating new comedy music show chock full of crooner
+            classics, big band swing, and hilarious laugh out loud comedy has
+            been wowing UK audiences with its quintessentially British take on a
+            timeless free music...
+          </Description>
+          <Reviews>
+            <ReviewWrapper name="leftReview">
+              <LeftReview />
+            </ReviewWrapper>
+            <ReviewWrapper name="middleReview">
+              <MiddleReview />
+            </ReviewWrapper>
+            <ReviewWrapper name="rightReview">
+              <RightReview />
+            </ReviewWrapper>
+          </Reviews>
+        </div>
+      )}
     </Layout>
   </>
 )
