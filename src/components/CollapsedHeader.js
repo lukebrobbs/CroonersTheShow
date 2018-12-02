@@ -2,53 +2,15 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import HamburgerMenu from '../images/menu.png'
+import BookNow from './ImageComponents/BookNow'
 
-const NavItem = styled.div`
-  font-family: 'Bourton-base';
-  font-size: 22px;
+const BookNowWrapper = styled.div`
+  width: 130px;
   position: absolute;
   left: 35%;
-  top: 40px;
+  top: 3vh;
   z-index: 10;
   cursor: pointer;
-  text-align: center;
-  background-image: -moz-linear-gradient(
-    25deg,
-    rgb(213, 126, 20) 0%,
-    rgb(252, 196, 69) 38%,
-    rgb(250, 184, 46) 71%,
-    rgb(213, 126, 20) 100%
-  );
-
-  background-image: -webkit-linear-gradient(
-    25deg,
-    rgb(213, 126, 20) 0%,
-    rgb(252, 196, 69) 38%,
-    rgb(250, 184, 46) 71%,
-    rgb(213, 126, 20) 100%
-  );
-
-  background-image: -ms-linear-gradient(
-    25deg,
-    rgb(213, 126, 20) 0%,
-    rgb(252, 196, 69) 38%,
-    rgb(250, 184, 46) 71%,
-    rgb(213, 126, 20) 100%
-  );
-  width: ${props => props.width || '90px'};
-  border-radius: 3px;
-  color: black;
-  margin-top: ${props => props.drop};
-  transform: rotate(${props => props.rotate || 0});
-  :hover {
-    color: white;
-    text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
-  }
-  ${props =>
-    props.selected && {
-      color: 'white',
-      textShadow: '1px 1px 10px #fff, 1px 1px 10px #ccc',
-    }};
 `
 
 const CollapsedNavBar = styled.div`
@@ -127,7 +89,7 @@ const CollapsedNavBar = styled.div`
 const Hamburger = styled.img`
   padding: 5px;
   margin: 0;
-  width: 8%;
+  width: 7%;
   height: auto;
   margin-top: 0.5vh;
   position: relative;
@@ -159,6 +121,9 @@ const Hamburger = styled.img`
     rgb(213, 126, 20) 100%
   );
   background-image: ${props => props.isOpen && 'none'};
+  @media screen and (max-width: 700px) {
+    width: 10%;
+  }
   @media screen and (max-width: 400px) {
     width: 15%;
   }
@@ -196,10 +161,10 @@ class CollapsedHeader extends React.Component {
               isOpen={this.state.isOpen}
             />
           </label>
-          <Link to="/tourdates">
-            <NavItem rotate="4deg" width="130px">
-              book now!
-            </NavItem>
+          <Link to="/tourdates/">
+            <BookNowWrapper>
+              <BookNow />
+            </BookNowWrapper>
           </Link>
           <div className="menu-content">
             <ul>
@@ -249,7 +214,7 @@ class CollapsedHeader extends React.Component {
               </li>
               <li>
                 <Link
-                  to="/Tourdates"
+                  to="/tourdates"
                   onClick={this.toggle}
                   style={{
                     color: page === 'TourDates' ? 'white' : 'black',

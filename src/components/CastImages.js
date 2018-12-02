@@ -6,6 +6,7 @@ import JimHeadshot from './ImageComponents/JimHeadshot'
 
 const CastWrapper = styled.div`
   display: grid;
+  margin: 0 auto;
   grid-template-areas:
     'Phil Roman Jim'
     'band band band';

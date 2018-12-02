@@ -4,7 +4,7 @@ import CastImages from '../components/CastImages'
 import Layout from '../components/layout'
 
 const Cast = () => (
-  <Layout creative padTop>
+  <Layout creative>
     <Header page="Cast" />
     <h1>Crooners Logo</h1>
     <CastImages />

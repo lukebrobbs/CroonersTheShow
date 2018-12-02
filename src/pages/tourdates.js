@@ -40,7 +40,7 @@ const Tourdates = () => (
     `}
     render={({ allContentfulTourDate }) => {
       return (
-        <Layout padTop>
+        <Layout>
           <Header page="TourDates" />
           <Map node={allContentfulTourDate.edges.map(edge => edge.node)} />
           <TourDateWrapper>

@@ -20,7 +20,7 @@ const FacebookImage = () => (
         file(relativePath: { eq: "facebook-logo.png" }) {
           childImageSharp {
             fixed(width: 25, height: 25) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_noBase64
             }
           }
         }

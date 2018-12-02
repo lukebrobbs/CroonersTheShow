@@ -50,8 +50,8 @@ const Layout = ({ children, creative, padTop }) => (
         {padTop && <div style={{ paddingTop: '10vh' }} />}
         <div
           style={{
-            margin: '0 auto',
             maxWidth: 1000,
+            margin: '0 auto',
             paddingTop: 0,
             flex: '1 0 auto',
           }}

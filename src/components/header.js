@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import CollapsedHeader from './CollapsedHeader'
+import BookNow from './ImageComponents/BookNow'
 
 const NavWrapper = styled.div`
   margin: 0 auto;
@@ -12,13 +13,14 @@ const NavWrapper = styled.div`
   top: 0px;
   left: 50%;
   z-index: 10;
-  transform: translate(-45%);
+  transform: translate(-50%);
 `
+
 const Nav = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   grid-gap: 10px;
-  width: 50%;
+  width: 60%;
 `
 const NavItem = styled.div`
   font-family: 'Bourton-base';
@@ -61,7 +63,9 @@ const NavItem = styled.div`
       textShadow: '1px 1px 10px #fff, 1px 1px 10px #ccc',
     }};
 `
-
+const BookNowWrapper = styled.div`
+  width: 130px;
+`
 class Header extends React.Component {
   constructor(props) {
     super(props)
@@ -112,7 +116,12 @@ class Header extends React.Component {
             </NavItem>
           </Link>
           <Link to="/gallery/" style={{ textDecoration: 'none' }}>
-            <NavItem width="120px" rotate="5deg" drop="10px">
+            <NavItem
+              width="120px"
+              rotate="5deg"
+              drop="10px"
+              active={page === 'Gallery'}
+            >
               Gallery
             </NavItem>
           </Link>
@@ -122,9 +131,14 @@ class Header extends React.Component {
             </NavItem>
           </Link>
           <Link to="/shop/" style={{ textDecoration: 'none' }}>
-            <NavItem rotate="5deg" drop="10px">
+            <NavItem rotate="5deg" drop="10px" active={page === 'Shop'}>
               Shop
             </NavItem>
+          </Link>
+          <Link to="/tourdates/" style={{ textDecoration: 'none' }}>
+            <BookNowWrapper>
+              <BookNow />
+            </BookNowWrapper>
           </Link>
         </Nav>
       </NavWrapper>

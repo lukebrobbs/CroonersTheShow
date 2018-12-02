@@ -20,7 +20,7 @@ const InstagramLogo = () => (
         file(relativePath: { eq: "instagram-logo.png" }) {
           childImageSharp {
             fixed(width: 30, height: 30) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_noBase64
             }
           }
         }

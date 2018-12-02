@@ -13,29 +13,20 @@ import Img from 'gatsby-image'
  * - `StaticQuery`: https://gatsby.app/staticquery
  */
 
-const TwitterImage = () => (
+const BookNow = () => (
   <StaticQuery
     query={graphql`
       query {
-        file(relativePath: { eq: "twitter-logo.png" }) {
+        file(relativePath: { eq: "BOOK_NOW.png" }) {
           childImageSharp {
-            fixed(width: 25, height: 25) {
-              ...GatsbyImageSharpFixed_noBase64
+            fluid(maxWidth: 1400) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
       }
     `}
-    render={data => (
-      <a
-        href="https://twitter.com/croonerstheshow"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ height: '25px', width: '25px' }}
-      >
-        <Img fixed={data.file.childImageSharp.fixed} />
-      </a>
-    )}
+    render={data => <Img fluid={data.file.childImageSharp.fluid} />}
   />
 )
-export default TwitterImage
+export default BookNow
