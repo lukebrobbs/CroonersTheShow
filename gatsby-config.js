@@ -45,5 +45,8 @@ module.exports = {
         showSpinner: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+    },
   ],
 }
