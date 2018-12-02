@@ -80,7 +80,7 @@ const Hamburger = styled.img`
   margin-top: 0.5vh;
   position: relative;
   top: 10px;
-  left: 10%;
+  left: 1%;
   z-index: 10;
   transform: translate(-45%);
   background-image: -moz-linear-gradient(

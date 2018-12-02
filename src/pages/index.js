@@ -7,11 +7,25 @@ import LeftReview from '../components/ImageComponents/LeftReview'
 import MiddleReview from '../components/ImageComponents/MiddleReview'
 import RightReview from '../components/ImageComponents/RightReview'
 
+const VideoWrapper = styled.div`
+  padding-top: 7%;
+  padding-bottom: 5%;
+  text-align: center;
+  margin: 0;
+`
+const Video = styled.div`
+  padding: 32.71% 0 0 0;
+  position: relative;
+  @media screen and (max-width: 700px) {
+    padding: 42.71% 0 0 0;
+  }
+`
+
 const Description = styled.p`
   text-align: center;
   margin: auto;
-  margin-top: -100px;
-  width: 60%;
+  margin-top: -80px;
+  width: 80%;
   @media screen and (max-width: 1370px) {
     margin-top: -10px;
   }
@@ -33,7 +47,7 @@ const Reviews = styled.div`
 const ReviewWrapper = styled.div`
   height: 70%;
   width: 70%;
-  padding: 5vh 0 5vh;
+  padding: 3vh 0 3vh;
   margin: auto;
   grid-area: ${props => props.name};
   @media screen and (max-width: 900px) {
@@ -46,7 +60,7 @@ const IndexPage = () => (
   <>
     <Layout>
       {isMobile => (
-        <div style={{ height: 'auto' }}>
+        <div>
           <Header page="Home" isMobile={isMobile} />
           <HomePageBg />
           <Description>
@@ -66,6 +80,25 @@ const IndexPage = () => (
               <RightReview />
             </ReviewWrapper>
           </Reviews>
+          <VideoWrapper>
+            <Video>
+              <iframe
+                src="https://player.vimeo.com/video/208718552?autoplay=1&color=f7b300&title=0&byline=0&portrait=0"
+                style={{
+                  position: 'absolute',
+                  top: '0',
+                  left: '0',
+                  width: '100%',
+                  height: '100%',
+                }}
+                title="Crooners Title Video"
+                frameborder="0"
+                webkitallowfullscreen
+                mozallowfullscreen
+                allowfullscreen
+              />
+            </Video>
+          </VideoWrapper>
         </div>
       )}
     </Layout>
