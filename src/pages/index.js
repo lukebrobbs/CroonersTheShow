@@ -59,48 +59,46 @@ const ReviewWrapper = styled.div`
 const IndexPage = () => (
   <>
     <Layout>
-      {isMobile => (
-        <div>
-          <Header page="Home" isMobile={isMobile} />
-          <HomePageBg />
-          <Description>
-            A witty and exhilarating new comedy music show chock full of crooner
-            classics, big band swing, and hilarious laugh out loud comedy has
-            been wowing UK audiences with its quintessentially British take on a
-            timeless free music...
-          </Description>
-          <Reviews>
-            <ReviewWrapper name="leftReview">
-              <LeftReview />
-            </ReviewWrapper>
-            <ReviewWrapper name="middleReview">
-              <MiddleReview />
-            </ReviewWrapper>
-            <ReviewWrapper name="rightReview">
-              <RightReview />
-            </ReviewWrapper>
-          </Reviews>
-          <VideoWrapper>
-            <Video>
-              <iframe
-                src="https://player.vimeo.com/video/208718552?autoplay=1&color=f7b300&title=0&byline=0&portrait=0"
-                style={{
-                  position: 'absolute',
-                  top: '0',
-                  left: '0',
-                  width: '100%',
-                  height: '100%',
-                }}
-                title="Crooners Title Video"
-                frameborder="0"
-                webkitallowfullscreen
-                mozallowfullscreen
-                allowfullscreen
-              />
-            </Video>
-          </VideoWrapper>
-        </div>
-      )}
+      <div>
+        <Header page="Home" />
+        <HomePageBg />
+        <Description>
+          A witty and exhilarating new comedy music show chock full of crooner
+          classics, big band swing, and hilarious laugh out loud comedy has been
+          wowing UK audiences with its quintessentially British take on a
+          timeless free music...
+        </Description>
+        <Reviews>
+          <ReviewWrapper name="leftReview">
+            <LeftReview />
+          </ReviewWrapper>
+          <ReviewWrapper name="middleReview">
+            <MiddleReview />
+          </ReviewWrapper>
+          <ReviewWrapper name="rightReview">
+            <RightReview />
+          </ReviewWrapper>
+        </Reviews>
+        <VideoWrapper>
+          <Video>
+            <iframe
+              src="https://player.vimeo.com/video/208718552?autoplay=1&color=f7b300&title=0&byline=0&portrait=0"
+              style={{
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+              }}
+              title="Crooners Title Video"
+              frameborder="0"
+              webkitallowfullscreen
+              mozallowfullscreen
+              allowfullscreen
+            />
+          </Video>
+        </VideoWrapper>
+      </div>
     </Layout>
   </>
 )

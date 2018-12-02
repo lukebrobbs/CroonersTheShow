@@ -41,26 +41,22 @@ const Tourdates = () => (
     render={({ allContentfulTourDate }) => {
       return (
         <Layout padTop>
-          {isMobile => (
-            <>
-              <Header page="TourDates" isMobile={isMobile} />
-              <Map node={allContentfulTourDate.edges.map(edge => edge.node)} />
-              <TourDateWrapper>
-                <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>
-                  Tour Dates
-                </h1>
-                {allContentfulTourDate.edges.map(date => (
-                  <Tour
-                    theatreName={date.node.theatreName}
-                    date={date.node.date}
-                    logo={date.node.logo.fluid.src}
-                    key={date.node.theatreName}
-                    website={date.node.website}
-                  />
-                ))}
-              </TourDateWrapper>
-            </>
-          )}
+          <Header page="TourDates" />
+          <Map node={allContentfulTourDate.edges.map(edge => edge.node)} />
+          <TourDateWrapper>
+            <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>
+              Tour Dates
+            </h1>
+            {allContentfulTourDate.edges.map(date => (
+              <Tour
+                theatreName={date.node.theatreName}
+                date={date.node.date}
+                logo={date.node.logo.fluid.src}
+                key={date.node.theatreName}
+                website={date.node.website}
+              />
+            ))}
+          </TourDateWrapper>
         </Layout>
       )
     }}

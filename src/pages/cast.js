@@ -5,13 +5,9 @@ import Layout from '../components/layout'
 
 const Cast = () => (
   <Layout creative padTop>
-    {isMobile => (
-      <>
-        <Header page="Cast" isMobile={isMobile} />
-        <h1>Crooners Logo</h1>
-        <CastImages />
-      </>
-    )}
+    <Header page="Cast" />
+    <h1>Crooners Logo</h1>
+    <CastImages />
   </Layout>
 )
 

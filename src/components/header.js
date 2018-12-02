@@ -62,44 +62,73 @@ const NavItem = styled.div`
     }};
 `
 
-const Header = ({ isMobile, page }) => {
-  if (isMobile) return <CollapsedHeader page={page} />
-  return (
-    <NavWrapper>
-      <Nav>
-        <Link to="/" style={{ textDecoration: 'none' }}>
-          <NavItem rotate="-2deg" active={page === 'Home'}>
-            Home
-          </NavItem>
-        </Link>
-        <Link to="/about/" style={{ textDecoration: 'none' }}>
-          <NavItem rotate="5deg" drop="10px" active={page === 'About'}>
-            About
-          </NavItem>
-        </Link>
-        <Link to="/cast/" style={{ textDecoration: 'none' }}>
-          <NavItem width="220px" rotate="-2deg" active={page === 'Cast'}>
-            Cast & Creatives
-          </NavItem>
-        </Link>
-        <Link to="/gallery/" style={{ textDecoration: 'none' }}>
-          <NavItem width="120px" rotate="5deg" drop="10px">
-            Gallery
-          </NavItem>
-        </Link>
-        <Link to="/tourdates/" style={{ textDecoration: 'none' }}>
-          <NavItem width="150px" rotate="-4deg" active={page === 'TourDates'}>
-            Tour Dates
-          </NavItem>
-        </Link>
-        <Link to="/shop/" style={{ textDecoration: 'none' }}>
-          <NavItem rotate="5deg" drop="10px">
-            Shop
-          </NavItem>
-        </Link>
-      </Nav>
-    </NavWrapper>
-  )
+class Header extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      screenWidth: () => {
+        if (window) return window.innerWidth
+        return 0
+      },
+    }
+    this.handleResize = this.handleResize.bind(this)
+  }
+
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', this.handleResize)
+    }
+  }
+
+  componentWillUnmount() {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('resize', this.handleResize)
+    }
+  }
+
+  handleResize() {
+    this.setState({ screenWidth: window.innerWidth })
+  }
+  render() {
+    const { page } = this.props
+    if (this.state.screenWidth < 1050) return <CollapsedHeader page={page} />
+    return (
+      <NavWrapper>
+        <Nav>
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <NavItem rotate="-2deg" active={page === 'Home'}>
+              Home
+            </NavItem>
+          </Link>
+          <Link to="/about/" style={{ textDecoration: 'none' }}>
+            <NavItem rotate="5deg" drop="10px" active={page === 'About'}>
+              About
+            </NavItem>
+          </Link>
+          <Link to="/cast/" style={{ textDecoration: 'none' }}>
+            <NavItem width="220px" rotate="-2deg" active={page === 'Cast'}>
+              Cast & Creatives
+            </NavItem>
+          </Link>
+          <Link to="/gallery/" style={{ textDecoration: 'none' }}>
+            <NavItem width="120px" rotate="5deg" drop="10px">
+              Gallery
+            </NavItem>
+          </Link>
+          <Link to="/tourdates/" style={{ textDecoration: 'none' }}>
+            <NavItem width="150px" rotate="-4deg" active={page === 'TourDates'}>
+              Tour Dates
+            </NavItem>
+          </Link>
+          <Link to="/shop/" style={{ textDecoration: 'none' }}>
+            <NavItem rotate="5deg" drop="10px">
+              Shop
+            </NavItem>
+          </Link>
+        </Nav>
+      </NavWrapper>
+    )
+  }
 }
 
 export default Header

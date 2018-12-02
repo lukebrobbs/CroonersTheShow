@@ -12,26 +12,24 @@ const AboutWrapper = styled.div`
 
 const About = () => (
   <Layout>
-    {isMobile => (
-      <AboutWrapper>
-        <Header page="About" isMobile={isMobile} />
-        <h1>Crooners Logo</h1>
-        <h2>ABOUT CROONERS</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe soluta
-          magnam nobis perspiciatis iure adipisci minus obcaecati. Nemo deserunt
-          natus facere maiores totam eaque voluptatibus accusamus repellendus
-          nobis, quam aliquam.
-        </p>
-        <h2>THE STORY</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-          magnam quisquam recusandae! Esse aliquid delectus ipsum quod, iusto
-          temporibus in expedita consequatur voluptate, sunt nisi omnis
-          voluptates libero quisquam praesentium.
-        </p>
-      </AboutWrapper>
-    )}
+    <AboutWrapper>
+      <Header page="About" />
+      <h1>Crooners Logo</h1>
+      <h2>ABOUT CROONERS</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe soluta
+        magnam nobis perspiciatis iure adipisci minus obcaecati. Nemo deserunt
+        natus facere maiores totam eaque voluptatibus accusamus repellendus
+        nobis, quam aliquam.
+      </p>
+      <h2>THE STORY</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+        magnam quisquam recusandae! Esse aliquid delectus ipsum quod, iusto
+        temporibus in expedita consequatur voluptate, sunt nisi omnis voluptates
+        libero quisquam praesentium.
+      </p>
+    </AboutWrapper>
   </Layout>
 )
 
