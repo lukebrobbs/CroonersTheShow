@@ -8,7 +8,7 @@ const BookNowWrapper = styled.div`
   width: 130px;
   position: absolute;
   left: 35%;
-  top: 3vh;
+  top: 3.5vh;
   z-index: 10;
   cursor: pointer;
 `

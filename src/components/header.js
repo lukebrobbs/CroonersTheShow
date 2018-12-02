@@ -96,7 +96,7 @@ class Header extends React.Component {
   }
   render() {
     const { page } = this.props
-    if (this.state.screenWidth < 1050) return <CollapsedHeader page={page} />
+    if (this.state.screenWidth < 1024) return <CollapsedHeader page={page} />
     return (
       <NavWrapper>
         <Nav>
