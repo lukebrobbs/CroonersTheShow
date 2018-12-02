@@ -75,7 +75,7 @@ const CollapsedNavBar = styled.div`
 const Hamburger = styled.img`
   padding: 5px;
   margin: 0;
-  width: 6%;
+  width: 12%;
   height: auto;
   margin-top: 0.5vh;
   position: relative;
@@ -107,8 +107,8 @@ const Hamburger = styled.img`
     rgb(213, 126, 20) 100%
   );
   background-image: ${props => props.isOpen && 'none'};
-  @media screen and (max-width: 700px) {
-    width: 9%;
+  @media screen and (max-width: 400px) {
+    width: 15%;
   }
 `
 

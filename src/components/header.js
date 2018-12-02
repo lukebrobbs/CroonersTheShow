@@ -76,6 +76,7 @@ class Header extends React.Component {
 
   componentDidMount() {
     if (typeof window !== 'undefined') {
+      this.setState({ screenWidth: window.innerWidth })
       window.addEventListener('resize', this.handleResize)
     }
   }
