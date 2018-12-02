@@ -3,6 +3,54 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import HamburgerMenu from '../images/menu.png'
 
+const NavItem = styled.div`
+  font-family: 'Bourton-base';
+  font-size: 22px;
+  position: absolute;
+  left: 35%;
+  top: 20px;
+  z-index: 10;
+  cursor: pointer;
+  text-align: center;
+  background-image: -moz-linear-gradient(
+    25deg,
+    rgb(213, 126, 20) 0%,
+    rgb(252, 196, 69) 38%,
+    rgb(250, 184, 46) 71%,
+    rgb(213, 126, 20) 100%
+  );
+
+  background-image: -webkit-linear-gradient(
+    25deg,
+    rgb(213, 126, 20) 0%,
+    rgb(252, 196, 69) 38%,
+    rgb(250, 184, 46) 71%,
+    rgb(213, 126, 20) 100%
+  );
+
+  background-image: -ms-linear-gradient(
+    25deg,
+    rgb(213, 126, 20) 0%,
+    rgb(252, 196, 69) 38%,
+    rgb(250, 184, 46) 71%,
+    rgb(213, 126, 20) 100%
+  );
+  width: ${props => props.width || '90px'};
+  border-radius: 3px;
+  color: black;
+  margin-top: ${props => props.drop};
+  transform: rotate(${props => props.rotate || 0});
+  :hover {
+    color: white;
+    text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
+  }
+  ${props =>
+    props.active && {
+      color: 'white',
+      textShadow: '1px 1px 10px #fff, 1px 1px 10px #ccc',
+    }};
+`
+
 const CollapsedNavBar = styled.div`
   .menu-content {
     max-height: 0;
@@ -10,35 +58,43 @@ const CollapsedNavBar = styled.div`
     padding: 0 0 0 50px;
   }
   .collapsible-menu {
-    font: 'Bourton-base';
+    font-family: 'Bourton-base';
     font-size: 22px;
-    background-image: -moz-linear-gradient(
+    background-image: ${props =>
+      props.isOpen &&
+      `-moz-linear-gradient(
       25deg,
       rgb(213, 126, 20) 0%,
       rgb(252, 196, 69) 38%,
       rgb(250, 184, 46) 71%,
       rgb(213, 126, 20) 100%
-    );
+    )`};
 
-    background-image: -webkit-linear-gradient(
+     background-image: ${props =>
+       props.isOpen &&
+       `-webkit-linear-gradient(
       25deg,
       rgb(213, 126, 20) 0%,
       rgb(252, 196, 69) 38%,
       rgb(250, 184, 46) 71%,
       rgb(213, 126, 20) 100%
-    );
+    )`};
 
-    background-image: -ms-linear-gradient(
+    background-image: ${props =>
+      props.isOpen &&
+      `-ms-linear-gradient(
       25deg,
       rgb(213, 126, 20) 0%,
       rgb(252, 196, 69) 38%,
       rgb(250, 184, 46) 71%,
       rgb(213, 126, 20) 100%
-    );
-    padding: 0px 30px;
+    )`};
+    background-color: #001025;
+    opacity:10%;
+    padding: 10px 30px;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
     color: black;
-    ${props => !props.isOpen && { height: '0' }};
+    /* ${props => !props.isOpen && { height: '0' }}; */
   }
   .collapsible-menu ul {
     list-style-type: none;
@@ -79,7 +135,6 @@ const Hamburger = styled.img`
   height: auto;
   margin-top: 0.5vh;
   position: relative;
-  top: 10px;
   left: 1%;
   z-index: 10;
   transform: translate(-45%);
@@ -144,6 +199,11 @@ class CollapsedHeader extends React.Component {
               isOpen={this.state.isOpen}
             />
           </label>
+          <Link to="/tourdates">
+            <NavItem rotate="4deg" width="130px">
+              book now!
+            </NavItem>
+          </Link>
           <div className="menu-content">
             <ul>
               <li active={page === 'Home'}>
