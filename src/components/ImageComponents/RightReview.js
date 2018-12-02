@@ -20,7 +20,7 @@ const ReightReview = () => (
         file(relativePath: { eq: "RightReview.png" }) {
           childImageSharp {
             fluid(maxWidth: 200) {
-              ...GatsbyImageSharpFluid_tracedSVG
+              ...GatsbyImageSharpFluid_noBase64
             }
           }
         }
