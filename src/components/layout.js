@@ -19,7 +19,7 @@ class Layout extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      screenWidth: window ? window.innerWidth : 1400,
+      screenWidth: 0,
     }
     this.handleResize = this.handleResize.bind(this)
   }
