@@ -36,5 +36,12 @@ module.exports = {
           'https://croonerstheshow.us13.list-manage.com/subscribe/post?u=d1506e5d410deb1dcb1fa938d&amp;id=e3aea102e3',
       },
     },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: `#f7b300`,
+      },
+    },
   ],
 }
