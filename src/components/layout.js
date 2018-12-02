@@ -51,7 +51,7 @@ const Layout = ({ children, creative, padTop }) => (
         <div
           style={{
             margin: '0 auto',
-            maxWidth: 1100,
+            maxWidth: 1000,
             paddingTop: 0,
             flex: '1 0 auto',
           }}
@@ -71,7 +71,7 @@ const Layout = ({ children, creative, padTop }) => (
 )
 
 Layout.propTypes = {
-  children: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout

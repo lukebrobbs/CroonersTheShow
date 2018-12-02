@@ -8,9 +8,13 @@ import MiddleReview from '../components/ImageComponents/MiddleReview'
 import RightReview from '../components/ImageComponents/RightReview'
 
 const VideoWrapper = styled.div`
-  padding: 5%;
   text-align: center;
   margin: 0;
+  padding-bottom: 5%;
+  padding-top: 5%;
+  @media screen and (max-width: 700px) {
+    padding: 0;
+  }
 `
 const Video = styled.div`
   padding: 32.71% 0 0 0;
@@ -90,10 +94,10 @@ const IndexPage = () => (
                 height: '100%',
               }}
               title="Crooners Title Video"
-              frameborder="0"
-              webkitallowfullscreen
-              mozallowfullscreen
-              allowfullscreen
+              frameBorder="0"
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"
+              allowFullScreen
             />
           </Video>
         </VideoWrapper>

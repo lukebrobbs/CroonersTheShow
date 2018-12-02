@@ -8,7 +8,7 @@ const NavItem = styled.div`
   font-size: 22px;
   position: absolute;
   left: 35%;
-  top: 30px;
+  top: 40px;
   z-index: 10;
   cursor: pointer;
   text-align: center;
@@ -45,7 +45,7 @@ const NavItem = styled.div`
     text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
   }
   ${props =>
-    props.active && {
+    props.selected && {
       color: 'white',
       textShadow: '1px 1px 10px #fff, 1px 1px 10px #ccc',
     }};
@@ -55,9 +55,9 @@ const CollapsedNavBar = styled.div`
   .menu-content {
     max-height: 0;
     overflow: hidden;
-    padding: 0 0 0 50px;
   }
   .collapsible-menu {
+
     font-family: 'Bourton-base';
     font-size: 22px;
     background-image: ${props =>
@@ -90,7 +90,6 @@ const CollapsedNavBar = styled.div`
       rgb(213, 126, 20) 100%
     )`};
     background-color: #001025;
-    opacity:10%;
     padding: 10px 30px;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
     color: black;
@@ -121,17 +120,14 @@ const CollapsedNavBar = styled.div`
   /* Toggle Effect */
   input:checked ~ .menu-content {
     max-height: 100%;
-    position: relative;
-    padding-bottom: 70px;
-    top: 70px;
-    left: 10%;
     z-index: 10;
   }
+
 `
 const Hamburger = styled.img`
   padding: 5px;
   margin: 0;
-  width: 12%;
+  width: 8%;
   height: auto;
   margin-top: 0.5vh;
   position: relative;
@@ -207,7 +203,7 @@ class CollapsedHeader extends React.Component {
           </Link>
           <div className="menu-content">
             <ul>
-              <li active={page === 'Home'}>
+              <li selected={page === 'Home'}>
                 <Link
                   to="/"
                   onClick={this.toggle}
