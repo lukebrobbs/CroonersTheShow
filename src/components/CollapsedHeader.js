@@ -8,7 +8,7 @@ const NavItem = styled.div`
   font-size: 22px;
   position: absolute;
   left: 35%;
-  top: 20px;
+  top: 30px;
   z-index: 10;
   cursor: pointer;
   text-align: center;
@@ -136,6 +136,7 @@ const Hamburger = styled.img`
   margin-top: 0.5vh;
   position: relative;
   left: 1%;
+  top: 10px;
   z-index: 10;
   transform: translate(-45%);
   background-image: -moz-linear-gradient(

@@ -52,8 +52,6 @@ const Layout = ({ children, creative, padTop }) => (
           style={{
             margin: '0 auto',
             maxWidth: 1100,
-            minWidth: 400,
-            padding: '0px 1.0875rem 1.45rem',
             paddingTop: 0,
             flex: '1 0 auto',
           }}

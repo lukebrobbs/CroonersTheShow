@@ -8,8 +8,7 @@ import MiddleReview from '../components/ImageComponents/MiddleReview'
 import RightReview from '../components/ImageComponents/RightReview'
 
 const VideoWrapper = styled.div`
-  padding-top: 7%;
-  padding-bottom: 5%;
+  padding: 5%;
   text-align: center;
   margin: 0;
 `
