@@ -7,6 +7,8 @@ import CreativeTeam from './CreativeTeam'
 import CreativeFooter from './CreativeFooter'
 import Footer from './Footer'
 import tash from '../images/tash.ico'
+import AboutPicture from './ImageComponents/AboutPicture'
+
 import './layout.css'
 
 const LayoutWrapper = styled.div`
@@ -15,7 +17,7 @@ const LayoutWrapper = styled.div`
   height: 100vh;
 `
 
-const Layout = ({ children, creative, padTop }) => (
+const Layout = ({ children, creative, about, padTop }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -48,9 +50,11 @@ const Layout = ({ children, creative, padTop }) => (
           <html lang="en" />
         </Helmet>
         {padTop && <div style={{ paddingTop: '10vh' }} />}
+
         <div
           style={{
-            maxWidth: 1150,
+            maxWidth: '1150px',
+            minWidth: '50%',
             margin: '0 auto',
             paddingTop: 0,
             flex: '1 0 auto',
@@ -58,6 +62,25 @@ const Layout = ({ children, creative, padTop }) => (
         >
           {children}
         </div>
+        {about && (
+          <div
+            style={{
+              width: '100%',
+              flexShrink: '3',
+              backgroundColor: '#201915',
+            }}
+          >
+            <div
+              style={{
+                width: '45%',
+                margin: 'auto',
+                backgroundColor: '#201915',
+              }}
+            >
+              <AboutPicture />
+            </div>
+          </div>
+        )}
         {creative && (
           <>
             <CreativeTeam />

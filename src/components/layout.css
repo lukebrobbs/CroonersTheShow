@@ -29,6 +29,10 @@
 html {
   font-family: 'Bourton-base';
   background-color: #001025;
+  background-image: url('../images/Blue-background.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }

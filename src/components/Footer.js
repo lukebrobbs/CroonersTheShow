@@ -55,7 +55,7 @@ const SocialIcons = styled.div`
   @media screen and (max-width: 1306px) {
     justify-self: center;
     padding-top: 1vh;
-    padding-bottom: 0;
+    padding-bottom: 10px;
   }
 `
 const FooterInput = styled.input`

@@ -5,6 +5,20 @@ import Layout from '../components/layout'
 import Header from '../components/header'
 import Tour from '../components/Tour'
 import Map from '../components/Map'
+import CroonersLogo from '../components/ImageComponents/CroonersLogo'
+
+const Logo = styled.div`
+  width: 30vw;
+  margin: auto;
+  padding-top: 10vh;
+  padding-bottom: 3%;
+  @media screen and (max-width: 1024px) {
+    padding-top: 2%;
+  }
+  @media screen and (max-width: 650px) {
+    width: 80%;
+  }
+`
 
 const TourDateWrapper = styled.div`
   display: grid;
@@ -42,6 +56,9 @@ const Tourdates = () => (
       return (
         <Layout>
           <Header page="TourDates" />
+          <Logo>
+            <CroonersLogo />
+          </Logo>
           <Map node={allContentfulTourDate.edges.map(edge => edge.node)} />
           <TourDateWrapper>
             <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>
