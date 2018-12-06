@@ -85,7 +85,7 @@ const IndexPage = () => (
         <VideoWrapper>
           <Video>
             <iframe
-              src="https://player.vimeo.com/video/304318423?title=0&byline=0&portrait=0"
+              src="https://player.vimeo.com/video/304318423?color=f7b300&title=0&byline=0&portrait=0"
               style={{
                 position: 'absolute',
                 top: '0',
