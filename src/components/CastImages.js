@@ -6,11 +6,14 @@ import JimHeadshot from './ImageComponents/JimHeadshot'
 
 const CastWrapper = styled.div`
   display: grid;
-  margin: 0 auto;
   grid-template-areas:
     'Phil Roman Jim'
     'band band band';
   grid-gap: 2rem;
+  @media screen and (max-width: 1024px) {
+    margin: 0;
+    width: 99vw;
+  }
   @media screen and (max-width: 900px) {
     grid-template-areas:
       'Phil'
@@ -49,25 +52,27 @@ const CastImages = () => {
       <h2 style={{ textAlign: 'center', color: '#f7b300' }}>THE CAST</h2>
       <CastWrapper>
         <CastMemberWrapper name="Phil">
-          <Link to="/cast/phil">
+          <Link to="/cast/Phil">
             <CastImage />
           </Link>
           <h3>PHIL BARLEY</h3>
         </CastMemberWrapper>
         <CastMemberWrapper name="Roman">
-          <Link to="/cast/roman">
+          <Link to="/cast/Roman">
             <CastImage />
           </Link>
           <h3>ROMAN MAREK</h3>
         </CastMemberWrapper>
         <CastMemberWrapper name="Jim">
-          <Link to="/cast/jim">
+          <Link to="/cast/Jim">
             <JimHeadshot />
           </Link>
           <h3>JIM WHITLEY</h3>
         </CastMemberWrapper>
         <BandWrapper>
-          <MiniBigBand />
+          <Link to="/cast/TheMiniBigBand">
+            <MiniBigBand />
+          </Link>
           <h3>THE MINI BIG BAND</h3>
         </BandWrapper>
       </CastWrapper>

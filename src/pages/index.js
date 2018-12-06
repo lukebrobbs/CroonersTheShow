@@ -17,10 +17,10 @@ const VideoWrapper = styled.div`
   }
 `
 const Video = styled.div`
-  padding: 32.71% 0 0 0;
+  padding: 42.71% 0 0 0;
   position: relative;
   @media screen and (max-width: 700px) {
-    padding: 42.71% 0 0 0;
+    padding: 52.71% 0 0 0;
   }
 `
 
@@ -85,7 +85,7 @@ const IndexPage = () => (
         <VideoWrapper>
           <Video>
             <iframe
-              src="https://player.vimeo.com/video/208718552?autoplay=1&color=f7b300&title=0&byline=0&portrait=0"
+              src="https://player.vimeo.com/video/304318423?title=0&byline=0&portrait=0"
               style={{
                 position: 'absolute',
                 top: '0',

@@ -6,11 +6,12 @@ import BookNow from './ImageComponents/BookNow'
 
 const BookNowWrapper = styled.div`
   width: 130px;
-  position: absolute;
-  left: 35%;
-  top: 3.5vh;
   z-index: 10;
   cursor: pointer;
+  margin-top: 3%;
+  @media screen and (max-width: 600px) {
+    margin: auto;
+  }
 `
 
 const CollapsedNavBar = styled.div`
@@ -52,9 +53,10 @@ const CollapsedNavBar = styled.div`
       rgb(213, 126, 20) 100%
     )`};
     background-color: #001025;
-    padding: 10px 30px;
+    padding: 0px 30px 20px;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
     color: black;
+    margin-bottom:5%;
     /* ${props => !props.isOpen && { height: '0' }}; */
   }
   .collapsible-menu ul {
@@ -94,7 +96,7 @@ const Hamburger = styled.img`
   margin-top: 0.5vh;
   position: relative;
   left: 1%;
-  top: 10px;
+  top: 5px;
   z-index: 10;
   transform: translate(-45%);
   background-image: -moz-linear-gradient(
@@ -161,13 +163,17 @@ class CollapsedHeader extends React.Component {
               isOpen={this.state.isOpen}
             />
           </label>
-          <Link to="/tourdates/">
-            <BookNowWrapper>
-              <BookNow />
-            </BookNowWrapper>
-          </Link>
           <div className="menu-content">
             <ul>
+              {this.state.isOpen && (
+                <li>
+                  <Link to="/tourdates/">
+                    <BookNowWrapper>
+                      <BookNow />
+                    </BookNowWrapper>
+                  </Link>
+                </li>
+              )}
               <li selected={page === 'Home'}>
                 <Link
                   to="/"

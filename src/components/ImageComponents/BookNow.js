@@ -1,7 +1,9 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 import Img from 'gatsby-image'
 
+const BookNowWrapper = styled(Img)``
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
  * images with lazy loading and reduced file sizes. The image is loaded using a
@@ -26,7 +28,8 @@ const BookNow = () => (
         }
       }
     `}
-    render={data => <Img fluid={data.file.childImageSharp.fluid} />}
+    render={data => <BookNowWrapper fluid={data.file.childImageSharp.fluid} />}
   />
 )
+
 export default BookNow

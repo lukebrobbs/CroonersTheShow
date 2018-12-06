@@ -7,6 +7,10 @@ const Centered = styled.div`
   background-color: #001025;
   color: white;
   line-height: 1em;
+  @media screen and (max-width: 600px) {
+    width: 70%;
+    margin: auto;
+  }
 `
 
 const CreativeFooter = () => {

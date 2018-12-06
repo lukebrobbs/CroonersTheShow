@@ -36,6 +36,11 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+@media screen and (max-width: 650px) {
+  html {
+    background-image: none;
+  }
+}
 body {
   color: white;
   margin: 0;
@@ -283,6 +288,7 @@ h2 {
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
   line-height: 1.1;
+  color: #f7b300;
 }
 h3 {
   margin-left: 0;
@@ -308,13 +314,14 @@ h4 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 0.55rem;
   color: inherit;
   font-family: 'Bourton-base-drop';
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1rem;
   line-height: 1.1;
+  color: #f7b300;
 }
 h5 {
   margin-left: 0;

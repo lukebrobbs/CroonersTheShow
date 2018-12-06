@@ -17,6 +17,16 @@ const LayoutWrapper = styled.div`
   height: 100vh;
 `
 
+const AboutPictureWrapper = styled.div`
+  width: 45%;
+  margin: auto;
+  background-color: '#201915';
+  @media screen and (max-width: 1000px) {
+    width: 100% !important;
+    margin: 0;
+  }
+`
+
 const Layout = ({ children, creative, about, padTop }) => (
   <StaticQuery
     query={graphql`
@@ -70,7 +80,7 @@ const Layout = ({ children, creative, about, padTop }) => (
               backgroundColor: '#201915',
             }}
           >
-            <div
+            <AboutPictureWrapper
               style={{
                 width: '45%',
                 margin: 'auto',
@@ -78,7 +88,7 @@ const Layout = ({ children, creative, about, padTop }) => (
               }}
             >
               <AboutPicture />
-            </div>
+            </AboutPictureWrapper>
           </div>
         )}
         {creative && (

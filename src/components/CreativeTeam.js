@@ -8,15 +8,24 @@ const CreativeWrapper = styled.div`
   flex-shrink: 2;
 `
 
+const TeamItem = styled.div`
+  padding-bottom: 10px;
+`
+
 const Content = styled.div`
   display: grid;
   color: white;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 5px;
   width: 50%;
   text-align: center;
   margin: auto;
   padding-bottom: 5vh;
+  @media screen and (max-width: 1020px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 const Header = styled.h2`
@@ -24,6 +33,12 @@ const Header = styled.h2`
   grid-column: span 3;
   justify-self: center;
   padding-top: 5vh;
+  @media screen and (max-width: 1020px) {
+    grid-column: span 2;
+  }
+  @media screen and (max-width: 800px) {
+    grid-column: span 1;
+  }
 `
 
 const CreativeTeam = () => {
@@ -31,54 +46,60 @@ const CreativeTeam = () => {
     <CreativeWrapper>
       <Content>
         <Header>The Creative Team</Header>
-        <div style={{ lineHeight: '1.5em' }}>
-          <p>Producers</p>
+        <TeamItem>
+          <h4>Producers</h4>
           <strong>Roman Marek</strong>
           <p>
             And
             <strong> Jonathan Hibbard</strong>
           </p>
-        </div>
-        <div>
-          <p>Script</p>
+        </TeamItem>
+        <TeamItem>
+          <h4>Script</h4>
           <strong>Roman Marek</strong>
-        </div>
-        <div>
-          <p>Co Writer</p>
+          <p />
+        </TeamItem>
+        <TeamItem>
+          <h4>Co Writer</h4>
           <strong>Simon Young</strong>
-        </div>
-        <div>
-          <p>Director</p>
+          <p />
+        </TeamItem>
+        <TeamItem>
+          <h4>Director</h4>
           <strong>Roman Marek</strong>
-        </div>
-        <div>
-          <p>Musical Directors</p>
+          <p />
+        </TeamItem>
+        <TeamItem>
+          <h4>Musical Directors</h4>
           <strong>Jonathan</strong>
           <p>
             And
             <strong> Christopher Hibbard</strong>
           </p>
-        </div>
-        <div>
-          <p>Choreography</p>
+        </TeamItem>
+        <TeamItem>
+          <h4>Choreography</h4>
           <strong>Roman Marek</strong>
           <p>
             And
             <strong> Jim Whitely</strong>
           </p>
-        </div>
-        <div>
-          <p>Costume/Wardrobe</p>
+        </TeamItem>
+        <TeamItem>
+          <h4>Costume/Wardrobe</h4>
           <strong>Rebecca Marek</strong>
-        </div>
-        <div>
-          <p>Graphic Design</p>
+          <p />
+        </TeamItem>
+        <TeamItem>
+          <h4>Graphic Design</h4>
           <strong>Rebecca Pitt</strong>
-        </div>
-        <div>
-          <p>Photography</p>
+          <p />
+        </TeamItem>
+        <TeamItem>
+          <h4>Photography</h4>
           <strong>Stevie Loy</strong>
-        </div>
+          <p />
+        </TeamItem>
       </Content>
     </CreativeWrapper>
   )
