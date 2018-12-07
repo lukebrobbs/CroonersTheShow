@@ -18,11 +18,16 @@ const SliderWrapper = styled.div`
   .slick-dots li.slick-active button:before {
     color: #f7b300;
   }
-  .slick-dots li button:hover:before {
-    color: white;
+  .slick-dots li button:before {
+    color: #f7b300;
   }
-  .slick-dots li button:focus:before {
-    color: white;
+  .slick-dots li button {
+    :hover {
+      color: #f7b300;
+    }
+  }
+  .slick-dots li button:focus {
+    color: #f7b300;
   }
 
   .Slider-inner {

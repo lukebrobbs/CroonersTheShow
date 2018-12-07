@@ -39,9 +39,18 @@ class Gallery extends Component {
   }
 
   componentDidMount() {
+    window.addEventListener('touchmove', this.preventDefault, {
+      passive: false,
+    })
     this.setState({
       nav1: this.slider1,
       nav2: this.slider2,
+    })
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('touchmove', this.preventDefault, {
+      passive: false,
     })
   }
   render() {
