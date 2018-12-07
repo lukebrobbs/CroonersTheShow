@@ -41,8 +41,12 @@ class Gallery extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('touchstart', this.touchStart)
-    window.addEventListener('touchmove', this.preventTouch, { passive: false })
+    if (typeof window !== 'undefined') {
+      window.addEventListener('touchstart', this.touchStart)
+      window.addEventListener('touchmove', this.preventTouch, {
+        passive: false,
+      })
+    }
     this.setState({
       nav1: this.slider1,
       nav2: this.slider2,
@@ -50,10 +54,12 @@ class Gallery extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('touchstart', this.touchStart)
-    window.removeEventListener('touchmove', this.preventTouch, {
-      passive: false,
-    })
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('touchstart', this.touchStart)
+      window.removeEventListener('touchmove', this.preventTouch, {
+        passive: false,
+      })
+    }
   }
 
   touchStart(e) {
