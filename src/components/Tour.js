@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import moment from 'moment'
 
 const TourDateWrapper = styled.div`
   display: inline-grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: 10vh 10vw;
   grid-template-areas: 'img info booknow';
+  text-align: center;
+
   grid-gap: 20px;
   line-height: 5px;
   padding-bottom: 5%;
@@ -97,9 +98,9 @@ const Tour = ({ logo, theatreName, date, website }) => {
       </ImageWrapper>
       <TitleAndDate>
         <p>
-          <strong>{theatreName}</strong>
+          <strong style={{ color: '#f7b300' }}>{theatreName}</strong>
         </p>
-        <p>{moment(date).format('Do MMMM YYYY')}</p>
+        <p>{date}</p>
       </TitleAndDate>
 
       <BookLink href={website} target="about_blank">

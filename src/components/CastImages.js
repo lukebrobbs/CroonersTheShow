@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import MiniBigBand from './ImageComponents/BandImage'
 import JimHeadshot from './ImageComponents/JimHeadshot'
+import PhilHeadshot from './ImageComponents/PhilHeadshot'
+import RomanHeadshot from './ImageComponents/RomanHeadshot'
 
 const CastWrapper = styled.div`
   display: grid;
@@ -28,12 +30,6 @@ const CastMemberWrapper = styled.div`
   text-align: center;
 `
 
-const CastImage = styled.div`
-  height: 250px;
-  width: 250px;
-  border: 1px solid black;
-`
-
 const BandWrapper = styled.div`
   grid-area: band;
   width: 50%;
@@ -53,13 +49,13 @@ const CastImages = () => {
       <CastWrapper>
         <CastMemberWrapper name="Phil">
           <Link to="/cast/Phil">
-            <CastImage />
+            <PhilHeadshot />
           </Link>
           <h3>PHIL BARLEY</h3>
         </CastMemberWrapper>
         <CastMemberWrapper name="Roman">
           <Link to="/cast/Roman">
-            <CastImage />
+            <RomanHeadshot />
           </Link>
           <h3>ROMAN MAREK</h3>
         </CastMemberWrapper>

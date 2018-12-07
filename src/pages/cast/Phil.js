@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { StaticQuery, graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import CastMember from '../../components/CastMember'
 import Header from '../../components/header'
@@ -18,16 +19,47 @@ const Logo = styled.div`
 `
 
 const Phil = () => (
-  <Layout>
-    <Header page="Cast" />
-    <Logo>
-      <CroonersLogo />
-    </Logo>
-    <h2 style={{ textAlign: 'center', marginTop: '5%', marginBottom: '5%' }}>
-      Phil Barley
-    </h2>
-    <CastMember />
-  </Layout>
+  <StaticQuery
+    query={graphql`
+      query {
+        contentfulCastMemeber(
+          id: { eq: "f83d67a1-f193-527c-889d-acd192225cc7" }
+        ) {
+          description {
+            childMarkdownRemark {
+              html
+            }
+          }
+          headshot {
+            fixed(width: 250, height: 250) {
+              src
+            }
+          }
+          castName
+        }
+      }
+    `}
+    render={({
+      contentfulCastMemeber: {
+        headshot: {
+          fixed: { src },
+        },
+        description: {
+          childMarkdownRemark: { html },
+        },
+        castName,
+      },
+    }) => (
+      <Layout>
+        <Header page="Cast" />
+        <Logo>
+          <CroonersLogo />
+        </Logo>
+
+        <CastMember castName={castName} imageUrl={src} description={html} />
+      </Layout>
+    )}
+  />
 )
 
 export default Phil

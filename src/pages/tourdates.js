@@ -32,11 +32,11 @@ const Tourdates = () => (
   <StaticQuery
     query={graphql`
       query {
-        allContentfulTourDate {
+        allContentfulTourDate(sort: { fields: date }) {
           edges {
             node {
               theatreName
-              date
+              date(formatString: "DD-MM-YYYY")
               website
               logo {
                 fluid(maxWidth: 500) {
