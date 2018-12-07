@@ -36,12 +36,13 @@ class Gallery extends Component {
       nav1: null,
       nav2: null,
     }
+    this.touchStart = this.touchStart.bind(this)
+    this.preventTouch = this.preventTouch.bind(this)
   }
 
   componentDidMount() {
-    window.addEventListener('touchmove', this.preventDefault, {
-      passive: false,
-    })
+    window.addEventListener('touchstart', this.touchStart)
+    window.addEventListener('touchmove', this.preventTouch, { passive: false })
     this.setState({
       nav1: this.slider1,
       nav2: this.slider2,
@@ -49,9 +50,29 @@ class Gallery extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('touchmove', this.preventDefault, {
+    window.removeEventListener('touchstart', this.touchStart)
+    window.removeEventListener('touchmove', this.preventTouch, {
       passive: false,
     })
+  }
+
+  touchStart(e) {
+    this.firstClientX = e.touches[0].clientX
+    this.firstClientY = e.touches[0].clientY
+  }
+
+  preventTouch(e) {
+    const minValue = 5 // threshold
+
+    this.clientX = e.touches[0].clientX - this.firstClientX
+    this.clientY = e.touches[0].clientY - this.firstClientY
+
+    // Vertical scrolling does not work when you start swiping horizontally.
+    if (Math.abs(this.clientX) > minValue) {
+      e.preventDefault()
+      e.returnValue = false
+      return false
+    }
   }
   render() {
     return (
