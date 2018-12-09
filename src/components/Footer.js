@@ -92,6 +92,8 @@ const FooterSubmitButton = styled.button`
   box-shadow: 1px 1px 3px black;
   cursor: pointer;
   border-radius: 3px;
+  -webkit-transition: 0.15s ease-in-out !important;
+  transition: 0.15s ease-in-out !important;
   @media screen and (max-width: 1306px) {
     justify-self: center;
   }

@@ -40,6 +40,8 @@ const BookLink = styled.a`
   margin: 0, auto;
   text-decoration: none;
   text-transform: uppercase;
+  -webkit-transition: 0.15s ease-in-out !important;
+  transition: 0.15s ease-in-out !important;
   cursor: pointer;
   :hover {
     color: white;

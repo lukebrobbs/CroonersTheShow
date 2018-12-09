@@ -53,6 +53,8 @@ const NavItem = styled.div`
   color: black;
   margin-top: ${props => props.drop};
   transform: rotate(${props => props.rotate || 0});
+  -webkit-transition: 0.15s ease-in-out !important;
+  transition: 0.15s ease-in-out !important;
   :hover {
     color: white;
     text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;

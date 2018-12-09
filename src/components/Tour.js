@@ -68,6 +68,8 @@ const BookLink = styled.a`
   padding: 0.8em;
   max-width: 45%;
   height: 35%;
+  -webkit-transition: 0.15s ease-in-out !important;
+  transition: 0.15s ease-in-out !important;
   /* margin: 0, auto; */
   text-decoration: none;
   text-transform: uppercase;
