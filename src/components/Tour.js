@@ -21,6 +21,7 @@ const TourDateWrapper = styled.div`
   @media screen and (max-width: 575px) {
     display: block;
     text-align: center;
+    padding-bottom: 8%;
   }
 `
 

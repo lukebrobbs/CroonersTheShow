@@ -23,7 +23,7 @@ const MapWrapper = styled.div`
   height: 600px;
   margin-bottom: 6%;
   width: 97.5vw;
-  margin-left: calc(-50vw + 50%);
+  margin-left: calc(-48.5vw + 50%);
   div {
     position: relative;
   }
