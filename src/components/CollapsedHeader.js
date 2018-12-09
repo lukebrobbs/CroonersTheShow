@@ -230,15 +230,14 @@ class CollapsedHeader extends React.Component {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/shop"
+                <a
+                  href="https://crooners.ecwid.com/"
+                  target="about_blank"
+                  style={{ textDecoration: 'none' }}
                   onClick={this.toggle}
-                  style={{
-                    color: page === 'Shop' ? 'white' : 'black',
-                  }}
                 >
                   Shop
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
