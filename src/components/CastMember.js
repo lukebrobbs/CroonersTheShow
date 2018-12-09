@@ -9,6 +9,9 @@ const Wrapper = styled.div`
   background-color: #0067a6;
   padding: 5%;
   grid-gap: 20px;
+  @media screen and (max-width: 500px) {
+    display: block;
+  }
   a {
     text-decoration: none;
     color: #001025;

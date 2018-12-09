@@ -26,6 +26,7 @@ const TourDateWrapper = styled.div`
 
 const Logo = styled.img`
   object-fit: cover;
+  border: 3px solid #f7b300;
 `
 const ImageWrapper = styled.div`
   width: 50%;

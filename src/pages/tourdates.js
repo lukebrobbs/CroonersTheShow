@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Tour from '../components/Tour'
-import Map from '../components/Map'
+import GoogleMap from '../components/GoogleMap'
 import CroonersLogo from '../components/ImageComponents/CroonersLogo'
 
 const Logo = styled.div`
@@ -19,7 +19,18 @@ const Logo = styled.div`
     width: 80%;
   }
 `
-
+const MapWrapper = styled.div`
+  height: 600px;
+  margin-bottom: 6%;
+  width: 97.5vw;
+  margin-left: calc(-50vw + 50%);
+  div {
+    position: relative;
+  }
+  @media screen and (max-width: 650px) {
+    display: none;
+  }
+`
 const TourDateWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -36,7 +47,7 @@ const Tourdates = () => (
           edges {
             node {
               theatreName
-              date(formatString: "DD-MM-YYYY")
+              date(formatString: "Do MMM YYYY")
               website
               logo {
                 fluid(maxWidth: 500) {
@@ -59,7 +70,11 @@ const Tourdates = () => (
           <Logo>
             <CroonersLogo />
           </Logo>
-          <Map node={allContentfulTourDate.edges.map(edge => edge.node)} />
+          <MapWrapper>
+            <GoogleMap
+              node={allContentfulTourDate.edges.map(edge => edge.node)}
+            />
+          </MapWrapper>
           <TourDateWrapper>
             <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>
               Tour Dates

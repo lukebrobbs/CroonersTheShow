@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Header from '../components/header'
 import CroonersLogo from '../components/ImageComponents/CroonersLogo'
 import Layout from '../components/layout'
+import GalleryVideo from '../components/GalleryVideo'
 
 const Logo = styled.div`
   width: 30vw;
@@ -16,6 +17,10 @@ const Logo = styled.div`
   @media screen and (max-width: 650px) {
     width: 80%;
   }
+`
+const Video = styled.div`
+  padding: 10.71% 0 0 0;
+  position: relative;
 `
 
 const Title = styled.h2`
@@ -96,9 +101,19 @@ class Gallery extends Component {
                 }
               }
             }
+            allContentfulVideos {
+              edges {
+                node {
+                  video
+                }
+              }
+            }
           }
         `}
-        render={({ allContentfulGalleryImages: { edges } }) => {
+        render={({
+          allContentfulGalleryImages: { edges },
+          allContentfulVideos,
+        }) => {
           const content = edges[0].node.image.map(singleImage => (
             <div key={singleImage.fluid.src}>
               <img
@@ -108,6 +123,13 @@ class Gallery extends Component {
               />
             </div>
           ))
+          const videos = allContentfulVideos.edges.map(video => {
+            return (
+              <Video key={video}>
+                <GalleryVideo url={video.node.video} />
+              </Video>
+            )
+          })
           return (
             <Layout>
               <Header page="Gallery" />
@@ -118,7 +140,7 @@ class Gallery extends Component {
                 <Title>Production Photos</Title>
                 <Carousel content={content} />
                 <Title>videos</Title>
-                <Carousel content={content} />
+                <Carousel content={videos} />
               </GalleryWrapper>
             </Layout>
           )

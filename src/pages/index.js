@@ -13,14 +13,14 @@ const VideoWrapper = styled.div`
   padding-bottom: 5%;
   padding-top: 5%;
   @media screen and (max-width: 700px) {
-    padding: 0;
+    padding: 5% 0 5%;
   }
 `
 const Video = styled.div`
   padding: 42.71% 0 0 0;
   position: relative;
   @media screen and (max-width: 700px) {
-    padding: 52.71% 0 0 0;
+    padding: 72.71% 0 0 0;
   }
 `
 
