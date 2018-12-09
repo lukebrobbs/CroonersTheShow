@@ -26,7 +26,7 @@ const Logo = styled.div`
   }
 `
 
-const About = () => (
+const About = ({ location }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -55,7 +55,7 @@ const About = () => (
       }
     `}
     render={({ allContentfulAboutCrooners, allContentfulTheStory }) => (
-      <Layout about>
+      <Layout about pathname={location.pathname}>
         <Header page="About" />
         <Logo>
           <CroonersLogo />

@@ -18,7 +18,7 @@ const Logo = styled.div`
   }
 `
 
-const Phil = () => (
+const Phil = ({ location }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -50,7 +50,7 @@ const Phil = () => (
         castName,
       },
     }) => (
-      <Layout>
+      <Layout pathname={location.pathname}>
         <Header page="Cast" />
         <Logo>
           <CroonersLogo />

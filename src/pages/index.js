@@ -59,9 +59,9 @@ const ReviewWrapper = styled.div`
     justify-self: center;
   }
 `
-const IndexPage = () => (
+const IndexPage = ({ location }) => (
   <>
-    <Layout>
+    <Layout pathname={location.pathname}>
       <div>
         <Header page="Home" />
         <HomePageBg />

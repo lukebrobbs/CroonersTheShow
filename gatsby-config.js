@@ -5,6 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: 'Crooners',
+    siteUrl: 'https://www.croonerstheshow.com',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

@@ -19,8 +19,8 @@ const ShopWrapper = styled.div`
   width: 100%;
 `
 
-const Shop = () => (
-  <Layout>
+const Shop = ({ location }) => (
+  <Layout pathname={location.pathname}>
     <Header page="Shop" />
     <ShopWrapper>
       <Logo>

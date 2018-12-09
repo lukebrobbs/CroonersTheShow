@@ -39,7 +39,7 @@ const TourDateWrapper = styled.div`
   margin: auto;
 `
 
-const Tourdates = () => (
+const Tourdates = ({ location }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -65,7 +65,7 @@ const Tourdates = () => (
     `}
     render={({ allContentfulTourDate }) => {
       return (
-        <Layout>
+        <Layout pathname={location.pathname}>
           <Header page="TourDates" />
           <Logo>
             <CroonersLogo />

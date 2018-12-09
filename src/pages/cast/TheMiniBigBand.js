@@ -19,7 +19,7 @@ const Logo = styled.div`
   }
 `
 
-const TheMiniBigBand = () => (
+const TheMiniBigBand = ({ location }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -51,7 +51,7 @@ const TheMiniBigBand = () => (
         castName,
       },
     }) => (
-      <Layout>
+      <Layout pathname={location.pathname}>
         <Header page="Cast" />
         <Logo>
           <CroonersLogo />

@@ -27,13 +27,14 @@ const AboutPictureWrapper = styled.div`
   }
 `
 
-const Layout = ({ children, creative, about, padTop }) => (
+const Layout = ({ children, creative, about, padTop, pathname }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
         site {
           siteMetadata {
             title
+            siteUrl
           }
         }
       }
@@ -44,16 +45,21 @@ const Layout = ({ children, creative, about, padTop }) => (
           title={data.site.siteMetadata.title}
           meta={[
             { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            {
+              name: 'keywords',
+              content: 'Crooner, music, big band, Swing, Jazz, Show, Theatre',
+            },
+            {
+              name: 'viewport',
+              content:
+                'width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover',
+            },
           ]}
           link={[
             { rel: 'shortcut icon', type: 'image/png', href: `${tash}` },
             {
-              rel: 'stylesheet',
-              href: 'https://unpkg.com/leaflet@1.3.4/dist/leaflet.css',
-              integrity:
-                'sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==',
-              crossorigin: '',
+              rel: 'canonical',
+              href: `${data.site.siteMetadata.siteUrl}${pathname}`,
             },
           ]}
         >
