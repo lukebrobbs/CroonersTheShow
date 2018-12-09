@@ -132,11 +132,15 @@ class Header extends React.Component {
               Tour Dates
             </NavItem>
           </Link>
-          <Link to="/shop/" style={{ textDecoration: 'none' }}>
+          <a
+            href="https://crooners.ecwid.com/"
+            target="about_blank"
+            style={{ textDecoration: 'none' }}
+          >
             <NavItem rotate="5deg" drop="10px" active={page === 'Shop'}>
               Shop
             </NavItem>
-          </Link>
+          </a>
           <Link to="/tourdates/" style={{ textDecoration: 'none' }}>
             <BookNowWrapper>
               <BookNow />
