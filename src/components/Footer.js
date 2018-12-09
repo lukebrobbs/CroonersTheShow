@@ -127,6 +127,7 @@ export default class PageFooter extends React.Component {
     e.preventDefault()
     const { email, name } = this.state
     const { result, msg } = await addToMailChimp(email, { NAME: name })
+    console.log(result, msg)
     const message = result === 'success' ? msg : 'Oops, something went wrong'
     this.setState({ submitted: true, message })
   }

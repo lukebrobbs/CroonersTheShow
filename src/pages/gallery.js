@@ -114,8 +114,8 @@ class Gallery extends Component {
           allContentfulGalleryImages: { edges },
           allContentfulVideos,
         }) => {
-          const content = edges[0].node.image.map(singleImage => (
-            <div key={singleImage.fluid.src}>
+          const content = edges[0].node.image.map((singleImage, index) => (
+            <div key={`${singleImage.fluid.src}${index}`}>
               <img
                 className="Slider-inner-image"
                 src={singleImage.fluid.src}
