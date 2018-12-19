@@ -72,15 +72,14 @@ class Header extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      screenWidth: this.setInitialWindow(),
+      isMobile: false,
     }
     this.handleResize = this.handleResize.bind(this)
-    this.setInitialWindow = this.setInitialWindow.bind(this)
   }
 
   componentDidMount() {
     if (typeof window !== 'undefined') {
-      this.setState({ screenWidth: window.innerWidth })
+      this.handleResize()
       window.addEventListener('resize', this.handleResize)
     }
   }
@@ -90,17 +89,16 @@ class Header extends React.Component {
       window.removeEventListener('resize', this.handleResize)
     }
   }
-  setInitialWindow() {
-    if (typeof window === 'undefined') return 400
-    return window.innerWidth
-  }
   handleResize() {
-    this.setState({ screenWidth: window.innerWidth })
+    let currentIsMobile = window.innerWidth <= 1024
+    if (currentIsMobile !== this.state.isMobile) {
+      this.setState({ isMobile: currentIsMobile })
+    }
   }
   render() {
     const { page } = this.props
-    console.log(this.state.screenWidth)
-    if (this.state.screenWidth <= 1024) return <CollapsedHeader page={page} />
+
+    if (this.state.isMobile) return <CollapsedHeader page={page} />
     return (
       <NavWrapper>
         <Nav>

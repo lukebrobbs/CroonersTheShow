@@ -162,7 +162,6 @@ const Hamburger = styled.button`
 class CollapsedHeader extends React.Component {
   constructor(props) {
     super(props)
-
     this.toggle = this.toggle.bind(this)
     this.state = {
       isOpen: false,
