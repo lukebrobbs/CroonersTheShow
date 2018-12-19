@@ -72,9 +72,10 @@ class Header extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      screenWidth: window && window.innerWidth,
+      screenWidth: this.setInitialWindow(),
     }
     this.handleResize = this.handleResize.bind(this)
+    this.setInitialWindow = this.setInitialWindow.bind(this)
   }
 
   componentDidMount() {
@@ -89,7 +90,10 @@ class Header extends React.Component {
       window.removeEventListener('resize', this.handleResize)
     }
   }
-
+  setInitialWindow() {
+    if (typeof window === 'undefined') return
+    return window.innerWidth
+  }
   handleResize() {
     this.setState({ screenWidth: window.innerWidth })
   }
