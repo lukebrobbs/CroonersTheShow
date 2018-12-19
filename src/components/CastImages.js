@@ -28,16 +28,6 @@ const CastWrapper = styled.div`
 const CastMemberWrapper = styled.div`
   grid-area: ${props => props.name};
   text-align: center;
-  img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-    -webkit-transition: 0.3s ease-in-out !important;
-    transition: 0.3s ease-in-out !important;
-  }
-  :hover img {
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0);
-  }
 `
 
 const BandWrapper = styled.div`
@@ -47,16 +37,6 @@ const BandWrapper = styled.div`
   overflow: hidden;
   justify-self: center;
   text-align: center;
-  img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-    -webkit-transition: 0.3s ease-in-out !important;
-    transition: 0.3s ease-in-out !important;
-  }
-  :hover img {
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0);
-  }
   @media screen and (max-width: 900px) {
     width: 100%;
   }

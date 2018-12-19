@@ -14,12 +14,15 @@ const BookNowWrapper = styled.div`
 `
 
 const CollapsedNavBar = styled.div`
+ position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   .menu-content {
     max-height: 0;
     overflow: hidden;
   }
   .collapsible-menu {
-
     font-family: 'Bourton-base';
     font-size: 22px;
     background-image: ${props =>
