@@ -72,10 +72,7 @@ class Header extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      screenWidth: () => {
-        if (window) return window.innerWidth
-        return 0
-      },
+      screenWidth: window && window.innerWidth,
     }
     this.handleResize = this.handleResize.bind(this)
   }
@@ -98,6 +95,7 @@ class Header extends React.Component {
   }
   render() {
     const { page } = this.props
+    console.log(this.state.screenWidth)
     if (this.state.screenWidth <= 1024) return <CollapsedHeader page={page} />
     return (
       <NavWrapper>
