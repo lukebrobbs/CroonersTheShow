@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import HamburgerMenu from '../images/menu.png'
 import BookNow from './ImageComponents/BookNow'
 
 const BookNowWrapper = styled.div`
@@ -88,10 +87,37 @@ const CollapsedNavBar = styled.div`
   }
 
 `
-const Hamburger = styled.img`
+const Line = styled.div`
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 50%;
+  transform: translate(-50%);
+  transition: 0.4s;
+
+  ${props =>
+    props.isOpen &&
+    props.top && {
+      webkitTransform: 'rotate(-45deg) translate(-12px, 6px)',
+      transform: 'rotate(-45deg) translate(-12px, 6px)',
+    }}
+    ${props =>
+      props.isOpen &&
+      props.middle && {
+        opacity: '0',
+      }}
+    ${props =>
+      props.isOpen &&
+      props.bottom && {
+        webkitTransform: 'rotate(45deg) translate(-10px, -2px)',
+        transform: 'rotate(45deg) translate(-10px, -2px)',
+      }}
+
+`
+const Hamburger = styled.button`
   padding: 5px;
   margin: 0;
-  width: 7%;
+  width: 55px;
   height: auto;
   margin-top: 0.5vh;
   position: relative;
@@ -99,6 +125,7 @@ const Hamburger = styled.img`
   top: 5px;
   z-index: 10;
   transform: translate(-45%);
+  border: 0;
   background-image: -moz-linear-gradient(
     25deg,
     rgb(213, 126, 20) 0%,
@@ -123,11 +150,9 @@ const Hamburger = styled.img`
     rgb(213, 126, 20) 100%
   );
   background-image: ${props => props.isOpen && 'none'};
-  @media screen and (max-width: 700px) {
-    width: 10%;
-  }
-  @media screen and (max-width: 400px) {
-    width: 15%;
+  background-color: transparent;
+  :focus {
+    outline: none;
   }
 `
 
@@ -157,11 +182,11 @@ class CollapsedHeader extends React.Component {
             readOnly
           />
           <label className="NavMenuIcon" htmlFor="menu" onClick={this.toggle}>
-            <Hamburger
-              src={HamburgerMenu}
-              alt="Nav Menu Collape Button"
-              isOpen={this.state.isOpen}
-            />
+            <Hamburger isOpen={this.state.isOpen}>
+              <Line isOpen={this.state.isOpen} top />
+              <Line isOpen={this.state.isOpen} middle />
+              <Line isOpen={this.state.isOpen} bottom />
+            </Hamburger>
           </label>
           <div className="menu-content">
             <ul>
