@@ -26,15 +26,18 @@ const TourDateWrapper = styled.div`
 `
 
 const Logo = styled.img`
-  object-fit: cover;
   border: 3px solid #f7b300;
 `
 const ImageWrapper = styled.div`
-  width: 50%;
+  width: 60%;
   height: auto;
-  justify-self: right;
-  overflow: hidden;
+  object-fit: scale-down;
+
+  justify-self: center;
   grid-area: img;
+  @media screen and (max-width: 900px) {
+    justify-self: right;
+  }
   @media screen and (max-width: 575px) {
     margin: auto;
     padding-top: 5%;
@@ -98,7 +101,9 @@ const Tour = ({ logo, theatreName, date, website }) => {
   return (
     <TourDateWrapper>
       <ImageWrapper>
-        <Logo src={logo} alt="theatreName" />
+        <a href={website}>
+          <Logo src={logo} alt="theatreName" />
+        </a>
       </ImageWrapper>
       <TitleAndDate>
         <p>

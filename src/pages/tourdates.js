@@ -50,7 +50,7 @@ const Tourdates = ({ location }) => (
               date(formatString: "Do MMM YYYY")
               website
               logo {
-                fluid(maxWidth: 500) {
+                fluid(maxWidth: 400, maxHeight: 100) {
                   src
                 }
               }

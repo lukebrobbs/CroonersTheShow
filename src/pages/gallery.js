@@ -19,8 +19,13 @@ const Logo = styled.div`
   }
 `
 const Video = styled.div`
-  padding: 10.71% 0 0 0;
+  padding: 32.71% 0 0 0;
   position: relative;
+  margin: 5% 0;
+  @media screen and (max-width: 700px) {
+    padding: 62.71% 0 0 0;
+    margin: 0;
+  }
 `
 
 const Title = styled.h2`
@@ -140,7 +145,7 @@ class Gallery extends Component {
                 <Title>Production Photos</Title>
                 <Carousel content={content} />
                 <Title>videos</Title>
-                <Carousel content={videos} />
+                {videos}
               </GalleryWrapper>
             </Layout>
           )
