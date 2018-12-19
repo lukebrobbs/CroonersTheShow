@@ -91,7 +91,7 @@ class Header extends React.Component {
     }
   }
   setInitialWindow() {
-    if (typeof window === 'undefined') return
+    if (typeof window === 'undefined') return 400
     return window.innerWidth
   }
   handleResize() {
