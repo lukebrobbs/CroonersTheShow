@@ -148,7 +148,9 @@ export default class PageFooter extends React.Component {
             timeout={500}
             mountOnEnter
           >
-            <p style={{ color: '#f7b300' }}>{this.state.message}</p>
+            <p style={{ color: '#f7b300' }} data-cy="footer-message">
+              {this.state.message}
+            </p>
           </CSSTransition>
           <CSSTransition
             classNames="submitted"
@@ -166,6 +168,7 @@ export default class PageFooter extends React.Component {
               type="text"
               required
               onChange={this.handleChange}
+              data-cy="footer-name"
             />
           </CSSTransition>
           <CSSTransition
@@ -181,6 +184,7 @@ export default class PageFooter extends React.Component {
               value={this.state.email}
               required
               onChange={this.handleChange}
+              data-cy="footer-email"
             />
           </CSSTransition>
           <CSSTransition
@@ -189,13 +193,18 @@ export default class PageFooter extends React.Component {
             timeout={500}
             unmountOnExit
           >
-            <FooterSubmitButton type="submit" row="3" key="footerButton">
+            <FooterSubmitButton
+              type="submit"
+              row="3"
+              key="footerButton"
+              data-cy="footer-submit"
+            >
               <strong>SUBMIT</strong>
             </FooterSubmitButton>
           </CSSTransition>
         </Form>
 
-        <SocialIcons>
+        <SocialIcons data-cy="footer-icons">
           <TwitterImage />
           <FacebookImage />
           <InstagramImage />

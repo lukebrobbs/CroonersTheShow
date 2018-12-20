@@ -100,24 +100,36 @@ class Header extends React.Component {
 
     if (this.state.isMobile) return <CollapsedHeader page={page} />
     return (
-      <NavWrapper>
+      <NavWrapper data-cy="header">
         <Nav>
           <Link to="/" style={{ textDecoration: 'none' }}>
-            <NavItem rotate="-2deg" active={page === 'Home'}>
+            <NavItem rotate="-2deg" active={page === 'Home'} data-cy="nav-home">
               Home
             </NavItem>
           </Link>
-          <Link to="/about/" style={{ textDecoration: 'none' }}>
+          <Link
+            to="/about/"
+            style={{ textDecoration: 'none' }}
+            data-cy="nav-about"
+          >
             <NavItem rotate="5deg" drop="10px" active={page === 'About'}>
               About
             </NavItem>
           </Link>
-          <Link to="/cast/" style={{ textDecoration: 'none' }}>
+          <Link
+            to="/cast/"
+            style={{ textDecoration: 'none' }}
+            data-cy="nav-cast"
+          >
             <NavItem width="220px" rotate="-2deg" active={page === 'Cast'}>
               Cast & Creatives
             </NavItem>
           </Link>
-          <Link to="/gallery/" style={{ textDecoration: 'none' }}>
+          <Link
+            to="/gallery/"
+            style={{ textDecoration: 'none' }}
+            data-cy="nav-gallery"
+          >
             <NavItem
               width="120px"
               rotate="5deg"
@@ -127,7 +139,11 @@ class Header extends React.Component {
               Gallery
             </NavItem>
           </Link>
-          <Link to="/tourdates/" style={{ textDecoration: 'none' }}>
+          <Link
+            to="/tourdates/"
+            style={{ textDecoration: 'none' }}
+            data-cy="nav-tourdates"
+          >
             <NavItem width="150px" rotate="-4deg" active={page === 'TourDates'}>
               Tour Dates
             </NavItem>
@@ -137,7 +153,12 @@ class Header extends React.Component {
             target="about_blank"
             style={{ textDecoration: 'none' }}
           >
-            <NavItem rotate="5deg" drop="10px" active={page === 'Shop'}>
+            <NavItem
+              rotate="5deg"
+              drop="10px"
+              active={page === 'Shop'}
+              data-cy="nav-shop"
+            >
               Shop
             </NavItem>
           </a>

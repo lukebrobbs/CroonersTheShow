@@ -92,6 +92,7 @@ const Layout = ({ children, creative, about, padTop, pathname }) => (
                 margin: 'auto',
                 backgroundColor: '#201915',
               }}
+              data-cy="about-page-picture"
             >
               <AboutPicture />
             </AboutPictureWrapper>

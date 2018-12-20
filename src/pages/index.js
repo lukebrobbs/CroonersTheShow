@@ -98,6 +98,7 @@ const IndexPage = ({ location }) => (
               webkitallowfullscreen="true"
               mozallowfullscreen="true"
               allowFullScreen
+              data-cy="home-page-iframe"
             />
           </Video>
         </VideoWrapper>

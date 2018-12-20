@@ -57,7 +57,7 @@ const About = ({ location }) => (
     render={({ allContentfulAboutCrooners, allContentfulTheStory }) => (
       <Layout about pathname={location.pathname}>
         <Header page="About" />
-        <Logo>
+        <Logo data-cy="about-page-logo">
           <CroonersLogo />
         </Logo>
         <Content>
@@ -68,6 +68,7 @@ const About = ({ location }) => (
                 allContentfulAboutCrooners.edges[0].node.content
                   .childMarkdownRemark.html,
             }}
+            data-cy="about-page-about"
           />
           <SubHeading>THE STORY</SubHeading>
           <div
@@ -76,6 +77,7 @@ const About = ({ location }) => (
                 allContentfulTheStory.edges[0].node.theStory.childMarkdownRemark
                   .html,
             }}
+            data-cy="about-page-the-story"
           />
         </Content>
       </Layout>

@@ -176,15 +176,21 @@ class CollapsedHeader extends React.Component {
     const { page } = this.props
     return (
       <CollapsedNavBar isOpen={this.state.isOpen}>
-        <div className="collapsible-menu">
+        <div className="collapsible-menu" data-cy="collapsed-header">
           <input
             type="checkbox"
             id="menu"
             checked={this.state.isOpen}
             readOnly
           />
-          <label className="NavMenuIcon" htmlFor="menu" onClick={this.toggle}>
-            <Hamburger isOpen={this.state.isOpen}>
+          <label className="NavMenuIcon" htmlFor="menu">
+            <Hamburger
+              isOpen={this.state.isOpen}
+              onClick={this.toggle}
+              data-cy="hamburger"
+              role="button"
+              type="button"
+            >
               <Line isOpen={this.state.isOpen} top />
               <Line isOpen={this.state.isOpen} middle />
               <Line isOpen={this.state.isOpen} bottom />
@@ -208,6 +214,7 @@ class CollapsedHeader extends React.Component {
                   style={{
                     color: page === 'Home' ? 'white' : 'black',
                   }}
+                  data-cy="collapsed-home"
                 >
                   Home
                 </Link>
@@ -219,6 +226,7 @@ class CollapsedHeader extends React.Component {
                   style={{
                     color: page === 'About' ? 'white' : 'black',
                   }}
+                  data-cy="collapsed-about"
                 >
                   About
                 </Link>
@@ -230,6 +238,7 @@ class CollapsedHeader extends React.Component {
                   style={{
                     color: page === 'Cast' ? 'white' : 'black',
                   }}
+                  data-cy="collapsed-cast"
                 >
                   Cast & Creatives
                 </Link>
@@ -241,6 +250,7 @@ class CollapsedHeader extends React.Component {
                   style={{
                     color: page === 'Gallery' ? 'white' : 'black',
                   }}
+                  data-cy="collapsed-gallery"
                 >
                   Gallery
                 </Link>
@@ -252,6 +262,7 @@ class CollapsedHeader extends React.Component {
                   style={{
                     color: page === 'TourDates' ? 'white' : 'black',
                   }}
+                  data-cy="collapsed-tourdates"
                 >
                   Tour Dates
                 </Link>
@@ -262,6 +273,7 @@ class CollapsedHeader extends React.Component {
                   target="about_blank"
                   style={{ textDecoration: 'none' }}
                   onClick={this.toggle}
+                  data-cy="collapsed-shop"
                 >
                   Shop
                 </a>

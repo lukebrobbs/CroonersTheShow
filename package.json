@@ -1,10 +1,11 @@
 {
-  "name": "CroonersTheShow",
+  "name": "Crooners",
   "description": "Crooners Website",
   "version": "1.0.0",
   "author": "Luke Brobbin",
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
+    "cypress": "^3.1.3",
     "gatsby": "^2.0.33",
     "gatsby-image": "^2.0.15",
     "gatsby-plugin-mailchimp": "^4.0.0",
@@ -28,7 +29,9 @@
     "react-leaflet": "^2.1.2",
     "react-slick": "^0.21.0",
     "react-transition-group": "^2.5.0",
+    "serve": "^10.1.1",
     "slick-carousel": "^1.8.1",
+    "start-server-and-test": "^1.7.11",
     "styled-components": "^4.1.1"
   },
   "keywords": [
@@ -38,9 +41,13 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "start": "npm run develop",
+    "start": "serve --no-clipboard --listen 8899",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:run": "cypress run",
+    "cy:dev": "cypress open",
+    "test:e2e:ci": "start-server-and-test start http://localhost:8899 cy:run",
+    "test:e2e:dev": "start-server-and-test develop http://localhost:8000 cy:dev"
   },
   "devDependencies": {
     "prettier": "^1.14.2"

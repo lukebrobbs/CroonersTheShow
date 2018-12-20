@@ -101,7 +101,7 @@ const Tour = ({ logo, theatreName, date, website }) => {
   return (
     <TourDateWrapper>
       <ImageWrapper>
-        <a href={website}>
+        <a href={website} target="about_blank">
           <Logo src={logo} alt="theatreName" />
         </a>
       </ImageWrapper>
