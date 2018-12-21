@@ -4,6 +4,11 @@ orbs:
   cypress: cypress-io/cypress@1.1.0
 
 jobs:
+  build:
+    docker:
+      - image: cypress/base:10
+    steps:
+      - run: npm run build
   test:
     docker:
       - image: cypress/base:10
@@ -13,12 +18,12 @@ jobs:
 workflows:
   build:
     jobs:
-      - cypress/install:
-          build: npm run build
-      - test
+      - build
+      - test:
+          requires:
+            - build
       - cypress/run:
           requires:
-            - cypress/install
             - test
           start: 'npm start'
           wait-on: 'http://localhost:8000'
