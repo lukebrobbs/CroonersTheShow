@@ -4,6 +4,8 @@ orbs:
   cypress: cypress-io/cypress@1.1.0
 jobs:
   tests:
+    docker:
+      - image: circleci/node:10;
     description: 'Jest Unit Tests'
     steps:
       - run: npm test
