@@ -1,18 +1,7 @@
 version: 2.1
 orbs:
-  # use Cypress orb from CircleCI registry
-  cypress: cypress-io/cypress@1.0.1
+  cypress: cypress-io/cypress@1.0.0
 workflows:
   build:
     jobs:
-      # checks out code and installs dependencies once
-      - cypress/install:
-          # and builds the app using this command
-          build: 'npm run build'
-
-      # runs on 3 machines, load balances tests
-      # and records on Cypress Dashboard
-      - cypress/run:
-          requires:
-            - cypress/install
-          start: 'npm run test:e2e:ci' # start server before running tests
+      - cypress/run
