@@ -6,14 +6,15 @@ workflows:
     jobs:
       - cypress/install:
           build: npm run build
-      - ? Unittests
-        description: 'Jest Unit Tests'
-        parameters:
-          to:
-            type: string
-            default: 'Running Unit tests'
-    steps:
-      - run: echo << parameters.to >> npm test
+
+      - unittests:
+          description: 'Jest Unit Tests'
+          parameters:
+            to:
+              type: string
+              default: 'Running Unit tests'
+          steps:
+            - run: echo << parameters.to >> npm test
 
       - cypress/run:
           requires:
