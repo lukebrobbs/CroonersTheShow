@@ -2,19 +2,14 @@ version: 2.1
 
 orbs:
   cypress: cypress-io/cypress@1.1.0
-jobs:
-  tests:
-    docker:
-      - image: circleci/node:10;
-    description: 'Jest Unit Tests'
-    steps:
-      - run: npm test
+
 workflows:
   build:
     jobs:
       - cypress/install:
           build: npm run build
-      - tests
+      - run:
+          command: npm test
       - cypress/run:
           requires:
             - cypress/install
