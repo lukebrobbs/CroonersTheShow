@@ -4,6 +4,9 @@ orbs:
 workflows:
   build:
     jobs:
+      - cypress/install:
+          build: npm run build
       - cypress/run:
-          start: 'npm run test:e2e:ci'
+          requires:
+            - cypress/install
           wait-on: 'http://localhost:8000'
