@@ -8,4 +8,6 @@ workflows:
           build: 'npm run build'
 
       - cypress/run:
+          requires:
+            - cypress/install
           start: 'npm run test:e2e:ci'
