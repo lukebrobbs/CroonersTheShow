@@ -4,28 +4,18 @@ orbs:
   cypress: cypress-io/cypress@1.1.0
 
 jobs:
-  build:
-    docker:
-      - image: cypress/base:10
-    steps:
-      - checkout
-      - run: npm ci
-      - run: npm run build
-
   test:
     docker:
       - image: cypress/base:10
     steps:
       - checkout
+      - run: npm ci
       - run: npm test
 
 workflows:
   build:
     jobs:
-      - build
-      - test:
-          requires:
-            - build
+      - test
       - cypress/run:
           requires:
             - test
