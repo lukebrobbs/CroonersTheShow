@@ -42,7 +42,7 @@ const SliderWrapper = styled.div`
 `
 
 class Gallery extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       nav1: null,
@@ -50,13 +50,13 @@ class Gallery extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.setState({
       nav1: this.slider1,
       nav2: this.slider2,
     })
   }
-  render() {
+  render () {
     const responsive = [
       {
         breakpoint: 1024,

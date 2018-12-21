@@ -42,12 +42,12 @@ const CastMember = ({ description, castName, imageUrl }) => (
       <Title>{castName}</Title>
       <div
         dangerouslySetInnerHTML={{
-          __html: description,
+          __html: description
         }}
       />
     </div>
     <ImageGrid>
-      <Headshot src={imageUrl} alt={`${castName} headshot`} />
+      <Headshot src={imageUrl} alt={`${ castName } headshot`} />
     </ImageGrid>
   </Wrapper>
 )

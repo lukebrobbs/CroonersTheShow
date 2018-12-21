@@ -48,54 +48,54 @@ const NavItem = styled.div`
     rgb(250, 184, 46) 71%,
     rgb(213, 126, 20) 100%
   );
-  width: ${props => props.width || '90px'};
+  width: ${ props => props.width || '90px' };
   border-radius: 3px;
   color: black;
-  margin-top: ${props => props.drop};
-  transform: rotate(${props => props.rotate || 0});
+  margin-top: ${ props => props.drop };
+  transform: rotate(${ props => props.rotate || 0 });
   -webkit-transition: 0.15s ease-in-out !important;
   transition: 0.15s ease-in-out !important;
   :hover {
     color: white;
     text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
   }
-  ${props =>
+  ${ props =>
     props.active && {
       color: 'white',
-      textShadow: '1px 1px 10px #fff, 1px 1px 10px #ccc',
-    }};
+      textShadow: '1px 1px 10px #fff, 1px 1px 10px #ccc'
+    } };
 `
 const BookNowWrapper = styled.div`
   width: 130px;
 `
 class Header extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
-      isMobile: false,
+      isMobile: false
     }
     this.handleResize = this.handleResize.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     if (typeof window !== 'undefined') {
       this.handleResize()
       window.addEventListener('resize', this.handleResize)
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     if (typeof window !== 'undefined') {
       window.removeEventListener('resize', this.handleResize)
     }
   }
-  handleResize() {
+  handleResize () {
     let currentIsMobile = window.innerWidth <= 1024
     if (currentIsMobile !== this.state.isMobile) {
       this.setState({ isMobile: currentIsMobile })
     }
   }
-  render() {
+  render () {
     const { page } = this.props
 
     if (this.state.isMobile) return <CollapsedHeader page={page} />

@@ -11,6 +11,13 @@ jobs:
       - checkout
       - run: npm ci
       - run: npm test
+  lint:
+    docker:
+      - image: cypress/base:10
+    steps:
+      - checkout
+      - run: npm ci
+      - run: npm run lint
 
 workflows:
   build:
@@ -19,5 +26,5 @@ workflows:
       - cypress/run:
           requires:
             - test
-          start: 'npm start'
-          wait-on: 'http://localhost:8000'
+          start: "npm start"
+          wait-on: "http://localhost:8000"

@@ -40,44 +40,44 @@ const GalleryWrapper = styled.div`
   }
 `
 class Gallery extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       nav1: null,
-      nav2: null,
+      nav2: null
     }
     this.touchStart = this.touchStart.bind(this)
     this.preventTouch = this.preventTouch.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     if (typeof window !== 'undefined') {
       window.addEventListener('touchstart', this.touchStart)
       window.addEventListener('touchmove', this.preventTouch, {
-        passive: false,
+        passive: false
       })
     }
     this.setState({
       nav1: this.slider1,
-      nav2: this.slider2,
+      nav2: this.slider2
     })
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     if (typeof window !== 'undefined') {
       window.removeEventListener('touchstart', this.touchStart)
       window.removeEventListener('touchmove', this.preventTouch, {
-        passive: false,
+        passive: false
       })
     }
   }
 
-  touchStart(e) {
+  touchStart (e) {
     this.firstClientX = e.touches[0].clientX
     this.firstClientY = e.touches[0].clientY
   }
 
-  preventTouch(e) {
+  preventTouch (e) {
     const minValue = 5 // threshold
 
     this.clientX = e.touches[0].clientX - this.firstClientX
@@ -90,7 +90,7 @@ class Gallery extends Component {
       return false
     }
   }
-  render() {
+  render () {
     return (
       <StaticQuery
         query={graphql`
@@ -117,10 +117,10 @@ class Gallery extends Component {
         `}
         render={({
           allContentfulGalleryImages: { edges },
-          allContentfulVideos,
+          allContentfulVideos
         }) => {
           const content = edges[0].node.image.map((singleImage, index) => (
-            <div key={`${singleImage.fluid.src}${index}`}>
+            <div key={`${ singleImage.fluid.src }${ index }`}>
               <img
                 className="Slider-inner-image"
                 src={singleImage.fluid.src}

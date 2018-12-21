@@ -26,7 +26,7 @@ const CastWrapper = styled.div`
 `
 
 const CastMemberWrapper = styled.div`
-  grid-area: ${props => props.name};
+  grid-area: ${ props => props.name };
   text-align: center;
 `
 
@@ -44,7 +44,7 @@ const BandWrapper = styled.div`
 
 const CastImages = () => {
   return (
-    <>
+    <React.Fragment>
       <h2 style={{ textAlign: 'center', color: '#f7b300' }}>THE CAST</h2>
       <CastWrapper>
         <CastMemberWrapper name="Phil">
@@ -72,7 +72,7 @@ const CastImages = () => {
           <h3>THE MINI BIG BAND</h3>
         </BandWrapper>
       </CastWrapper>
-    </>
+    </React.Fragment>
   )
 }
 

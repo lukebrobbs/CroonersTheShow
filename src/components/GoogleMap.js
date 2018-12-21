@@ -4,12 +4,12 @@ import croonersPin from '../images/Pin.png'
 import Info from './InfoWindowContent'
 
 export class MapContainer extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {},
+      selectedPlace: {}
     }
     this.onMarkerClick = this.onMarkerClick.bind(this)
     this.onMapClicked = this.onMapClicked.bind(this)
@@ -20,7 +20,7 @@ export class MapContainer extends Component {
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
-      showingInfoWindow: true,
+      showingInfoWindow: true
     })
   }
 
@@ -28,11 +28,11 @@ export class MapContainer extends Component {
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
-        activeMarker: null,
+        activeMarker: null
       })
     }
   }
-  render() {
+  render () {
     return (
       <Map
         google={this.props.google}
@@ -40,54 +40,54 @@ export class MapContainer extends Component {
         style={{
           height: '600px',
           width: '100%',
-          position: 'relative',
+          position: 'relative'
         }}
         initialCenter={{
           lat: 52.578945,
-          lng: -0.927839,
+          lng: -0.927839
         }}
         styles={[
           {
             featureType: 'all',
             elementType: 'labels.text.fill',
-            stylers: [{ color: '#000000' }],
+            stylers: [{ color: '#000000' }]
           },
           {
             featureType: 'administrative',
             elementType: 'geometry.fill',
-            stylers: [{ color: '#000000' }],
+            stylers: [{ color: '#000000' }]
           },
           {
             featureType: 'administrative',
             elementType: 'geometry.stroke',
-            stylers: [{ color: '#144b53' }, { lightness: 14 }, { weight: 1.4 }],
+            stylers: [{ color: '#144b53' }, { lightness: 14 }, { weight: 1.4 }]
           },
           {
             featureType: 'landscape',
             elementType: 'all',
-            stylers: [{ color: '#f7b300' }],
+            stylers: [{ color: '#f7b300' }]
           },
           {
             featureType: 'poi',
             elementType: 'geometry',
-            stylers: [{ color: '#f7b300' }, { lightness: 5 }],
+            stylers: [{ color: '#f7b300' }, { lightness: 5 }]
           },
           {
             featureType: 'road.highway',
             elementType: 'geometry.fill',
-            stylers: [{ color: '#f7b300' }],
+            stylers: [{ color: '#f7b300' }]
           },
           {
             featureType: 'road.highway',
             elementType: 'geometry.stroke',
-            stylers: [{ color: '#f7b300' }, { lightness: 25 }],
+            stylers: [{ color: '#f7b300' }, { lightness: 25 }]
           },
 
           {
             featureType: 'water',
             elementType: 'all',
-            stylers: [{ color: '#0067a6' }],
-          },
+            stylers: [{ color: '#0067a6' }]
+          }
         ]}
         onClick={this.onMapClicked}
       >
@@ -96,7 +96,7 @@ export class MapContainer extends Component {
             name={tourDate.theatreName}
             position={{
               lat: tourDate.location.lat,
-              lng: tourDate.location.lon,
+              lng: tourDate.location.lon
             }}
             date={tourDate.date}
             key={tourDate.theatreName}
@@ -105,7 +105,7 @@ export class MapContainer extends Component {
             icon={{
               url: croonersPin,
               anchor: new this.props.google.maps.Point(16, 29),
-              scaledSize: new this.props.google.maps.Size(38, 30),
+              scaledSize: new this.props.google.maps.Size(38, 30)
             }}
           />
         ))}
@@ -127,5 +127,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: process.env.GATSBY_GOOGLE_MAPS_API_KEY,
+  apiKey: process.env.GATSBY_GOOGLE_MAPS_API_KEY
 })(MapContainer)

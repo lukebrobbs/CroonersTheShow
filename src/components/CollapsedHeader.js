@@ -25,41 +25,41 @@ const CollapsedNavBar = styled.div`
   .collapsible-menu {
     font-family: 'Bourton-base';
     font-size: 22px;
-    background-image: ${props =>
-      props.isOpen &&
+    background-image: ${ props =>
+    props.isOpen &&
       `-moz-linear-gradient(
       25deg,
       rgb(213, 126, 20) 0%,
       rgb(252, 196, 69) 38%,
       rgb(250, 184, 46) 71%,
       rgb(213, 126, 20) 100%
-    )`};
+    )` };
 
-     background-image: ${props =>
-       props.isOpen &&
+     background-image: ${ props =>
+    props.isOpen &&
        `-webkit-linear-gradient(
       25deg,
       rgb(213, 126, 20) 0%,
       rgb(252, 196, 69) 38%,
       rgb(250, 184, 46) 71%,
       rgb(213, 126, 20) 100%
-    )`};
+    )` };
 
-    background-image: ${props =>
-      props.isOpen &&
+    background-image: ${ props =>
+    props.isOpen &&
       `-ms-linear-gradient(
       25deg,
       rgb(213, 126, 20) 0%,
       rgb(252, 196, 69) 38%,
       rgb(250, 184, 46) 71%,
       rgb(213, 126, 20) 100%
-    )`};
+    )` };
     background-color: #001025;
     padding: 0px 30px 20px;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
     color: black;
     margin-bottom:5%;
-    /* ${props => !props.isOpen && { height: '0' }}; */
+    /* ${ props => !props.isOpen && { height: '0' } }; */
   }
   .collapsible-menu ul {
     list-style-type: none;
@@ -98,23 +98,23 @@ const Line = styled.div`
   transform: translate(-50%);
   transition: 0.4s;
 
-  ${props =>
+  ${ props =>
     props.isOpen &&
     props.top && {
       webkitTransform: 'rotate(-45deg) translate(-12px, 6px)',
-      transform: 'rotate(-45deg) translate(-12px, 6px)',
-    }}
-    ${props =>
-      props.isOpen &&
+      transform: 'rotate(-45deg) translate(-12px, 6px)'
+    } }
+    ${ props =>
+    props.isOpen &&
       props.middle && {
-        opacity: '0',
-      }}
-    ${props =>
-      props.isOpen &&
+      opacity: '0'
+    } }
+    ${ props =>
+    props.isOpen &&
       props.bottom && {
-        webkitTransform: 'rotate(45deg) translate(-10px, -2px)',
-        transform: 'rotate(45deg) translate(-10px, -2px)',
-      }}
+      webkitTransform: 'rotate(45deg) translate(-10px, -2px)',
+      transform: 'rotate(45deg) translate(-10px, -2px)'
+    } }
 
 `
 const Hamburger = styled.button`
@@ -152,7 +152,7 @@ const Hamburger = styled.button`
     rgb(250, 184, 46) 71%,
     rgb(213, 126, 20) 100%
   );
-  background-image: ${props => props.isOpen && 'none'};
+  background-image: ${ props => props.isOpen && 'none' };
   background-color: transparent;
   :focus {
     outline: none;
@@ -160,19 +160,19 @@ const Hamburger = styled.button`
 `
 
 class CollapsedHeader extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.toggle = this.toggle.bind(this)
     this.state = {
-      isOpen: false,
+      isOpen: false
     }
   }
-  toggle() {
+  toggle () {
     this.setState({
-      isOpen: !this.state.isOpen,
+      isOpen: !this.state.isOpen
     })
   }
-  render() {
+  render () {
     const { page } = this.props
     return (
       <CollapsedNavBar isOpen={this.state.isOpen}>
@@ -212,7 +212,7 @@ class CollapsedHeader extends React.Component {
                   to="/"
                   onClick={this.toggle}
                   style={{
-                    color: page === 'Home' ? 'white' : 'black',
+                    color: page === 'Home' ? 'white' : 'black'
                   }}
                   data-cy="collapsed-home"
                 >
@@ -224,7 +224,7 @@ class CollapsedHeader extends React.Component {
                   to="/about"
                   onClick={this.toggle}
                   style={{
-                    color: page === 'About' ? 'white' : 'black',
+                    color: page === 'About' ? 'white' : 'black'
                   }}
                   data-cy="collapsed-about"
                 >
@@ -236,7 +236,7 @@ class CollapsedHeader extends React.Component {
                   to="/cast"
                   onClick={this.toggle}
                   style={{
-                    color: page === 'Cast' ? 'white' : 'black',
+                    color: page === 'Cast' ? 'white' : 'black'
                   }}
                   data-cy="collapsed-cast"
                 >
@@ -248,7 +248,7 @@ class CollapsedHeader extends React.Component {
                   to="/gallery"
                   onClick={this.toggle}
                   style={{
-                    color: page === 'Gallery' ? 'white' : 'black',
+                    color: page === 'Gallery' ? 'white' : 'black'
                   }}
                   data-cy="collapsed-gallery"
                 >
@@ -260,7 +260,7 @@ class CollapsedHeader extends React.Component {
                   to="/tourdates"
                   onClick={this.toggle}
                   style={{
-                    color: page === 'TourDates' ? 'white' : 'black',
+                    color: page === 'TourDates' ? 'white' : 'black'
                   }}
                   data-cy="collapsed-tourdates"
                 >

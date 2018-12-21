@@ -62,7 +62,7 @@ const FooterInput = styled.input`
   max-width: 80%;
   max-height: 2rem;
   padding: 10px 10px;
-  grid-area: ${props => props.gridArea};
+  grid-area: ${ props => props.gridArea };
   border: none;
   ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -114,14 +114,14 @@ const Form = styled.form`
   }
 `
 export default class PageFooter extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       name: '',
       email: '',
       submitted: false,
       showSubmitSuccess: false,
-      message: '',
+      message: ''
     }
   }
 
@@ -137,7 +137,7 @@ export default class PageFooter extends React.Component {
     const { value, name } = e.target
     this.setState({ [name]: value })
   }
-  render() {
+  render () {
     return (
       <Footer data-cy="footer">
         <Heading>SIGN UP FOR NEWS</Heading>

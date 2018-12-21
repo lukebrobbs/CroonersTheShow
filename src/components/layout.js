@@ -47,20 +47,21 @@ const Layout = ({ children, creative, about, padTop, pathname }) => (
             { name: 'description', content: 'Sample' },
             {
               name: 'keywords',
-              content: 'Crooner, music, big band, Swing, Jazz, Show, Theatre',
+              content: 'Crooner, music, big band, Swing, Jazz, Show, Theatre'
             },
             {
               name: 'viewport',
               content:
-                'width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover',
-            },
+                // eslint-disable-next-line max-len
+                'width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover'
+            }
           ]}
           link={[
-            { rel: 'shortcut icon', type: 'image/png', href: `${tash}` },
+            { rel: 'shortcut icon', type: 'image/png', href: `${ tash }` },
             {
               rel: 'canonical',
-              href: `${data.site.siteMetadata.siteUrl}${pathname}`,
-            },
+              href: `${ data.site.siteMetadata.siteUrl }${ pathname }`
+            }
           ]}
         >
           <html lang="en" />
@@ -73,7 +74,7 @@ const Layout = ({ children, creative, about, padTop, pathname }) => (
             minWidth: '50%',
             margin: '0 auto',
             paddingTop: 0,
-            flex: '1 0 auto',
+            flex: '1 0 auto'
           }}
         >
           {children}
@@ -83,14 +84,14 @@ const Layout = ({ children, creative, about, padTop, pathname }) => (
             style={{
               width: '100%',
               flexShrink: '3',
-              backgroundColor: '#201915',
+              backgroundColor: '#201915'
             }}
           >
             <AboutPictureWrapper
               style={{
                 width: '45%',
                 margin: 'auto',
-                backgroundColor: '#201915',
+                backgroundColor: '#201915'
               }}
               data-cy="about-page-picture"
             >
@@ -99,10 +100,10 @@ const Layout = ({ children, creative, about, padTop, pathname }) => (
           </div>
         )}
         {creative && (
-          <>
+          <React.Fragment>
             <CreativeTeam />
             <CreativeFooter />
-          </>
+          </React.Fragment>
         )}
         <Footer />
       </LayoutWrapper>
@@ -111,7 +112,7 @@ const Layout = ({ children, creative, about, padTop, pathname }) => (
 )
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Layout

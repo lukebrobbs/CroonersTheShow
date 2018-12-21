@@ -6,10 +6,10 @@ import moment from 'moment'
 import croonersPin from '../images/Pin.png'
 
 class MapComponent extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
-      map: {},
+      map: {}
     }
   }
 
@@ -18,11 +18,11 @@ class MapComponent extends Component {
       iconUrl: croonersPin,
       iconSize: [38, 30],
       iconAnchor: [16, 29],
-      popupAnchor: [-3, -76],
+      popupAnchor: [-3, -76]
     })
   }
 
-  render() {
+  render () {
     if (typeof window !== 'undefined') {
       return (
         <Map
@@ -32,12 +32,13 @@ class MapComponent extends Component {
             height: '600px',
             marginBottom: '6%',
             width: '100vw',
-            marginLeft: 'calc(-50vw + 49%)',
+            marginLeft: 'calc(-50vw + 49%)'
           }}
           scrollWheelZoom={false}
         >
           <TileLayer
-            attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+            // eslint-disable-next-line max-len
+            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           {this.props.node.map(node => {
@@ -64,7 +65,7 @@ class MapComponent extends Component {
                       textDecoration: 'none',
                       border: '1px solid red',
                       textTransform: 'uppercase',
-                      font: 'Bourton-base-drop',
+                      font: 'Bourton-base-drop'
                     }}
                   >
                     Book Now

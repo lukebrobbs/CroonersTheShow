@@ -52,15 +52,15 @@ const ReviewWrapper = styled.div`
   width: 70%;
   padding: 3vh 0 3vh;
   margin: auto;
-  grid-area: ${props => props.name};
+  grid-area: ${ props => props.name };
   @media screen and (max-width: 900px) {
-    height: ${props => (props.name === 'middleReview' ? '80%' : '100%')};
-    width: ${props => (props.name === 'middleReview' ? '80%' : '100%')};
+    height: ${ props => (props.name === 'middleReview' ? '80%' : '100%') };
+    width: ${ props => (props.name === 'middleReview' ? '80%' : '100%') };
     justify-self: center;
   }
 `
 const IndexPage = ({ location }) => (
-  <>
+  <React.Fragment>
     <Layout pathname={location.pathname}>
       <div>
         <Header page="Home" />
@@ -85,13 +85,14 @@ const IndexPage = ({ location }) => (
         <VideoWrapper>
           <Video>
             <iframe
+              // eslint-disable-next-line max-len
               src="https://player.vimeo.com/video/304318423?color=f7b300&title=0&byline=0&portrait=0"
               style={{
                 position: 'absolute',
                 top: '0',
                 left: '0',
                 width: '100%',
-                height: '100%',
+                height: '100%'
               }}
               title="Crooners Title Video"
               frameBorder="0"
@@ -104,7 +105,7 @@ const IndexPage = ({ location }) => (
         </VideoWrapper>
       </div>
     </Layout>
-  </>
+  </React.Fragment>
 )
 
 export default IndexPage
