@@ -2,15 +2,17 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.1.0
 workflows:
+  unittests:
+    jobs:
+      - tests:
+          description: 'Jest Unit Tests'
+          steps:
+            - run: npm test
+
   build:
     jobs:
       - cypress/install:
           build: npm run build
-
-      - unittests:
-          description: 'Jest Unit Tests'
-          steps:
-            - run: npm test
 
       - cypress/run:
           requires:
