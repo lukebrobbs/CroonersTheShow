@@ -6,7 +6,7 @@ orbs:
 jobs:
   test:
     docker:
-      - image: circleci/node:4.8.2-jessie
+      - image: cypress/base:10
     steps:
       - run: npm test
 
