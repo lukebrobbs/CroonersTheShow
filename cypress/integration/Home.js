@@ -19,7 +19,7 @@ describe('Homepage elements', () => {
 })
 
 describe('Navbar', () => {
-  it('Links should take you to correct pages', () => {
+  it('Links should take you to correct pages.', () => {
     cy.get('[data-cy=nav-about]').click()
     cy.location().should(loc => {
       expect(loc.pathname).to.eq('/about/')
