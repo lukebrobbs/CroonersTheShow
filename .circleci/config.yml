@@ -9,13 +9,13 @@ jobs:
       - image: cypress/base:10
     steps:
       - checkout
+      - run: npm ci
       - run: npm run build
   test:
     docker:
       - image: cypress/base:10
     steps:
       - run: npm test
-      - run: npm ci
 
 workflows:
   build:
