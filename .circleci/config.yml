@@ -9,12 +9,8 @@ workflows:
 
       - unittests:
           description: 'Jest Unit Tests'
-          parameters:
-            to:
-              type: string
-              default: 'Running Unit tests'
           steps:
-            - run: echo << parameters.to >> npm test
+            - run: npm test
 
       - cypress/run:
           requires:
