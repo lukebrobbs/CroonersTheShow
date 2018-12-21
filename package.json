@@ -40,7 +40,7 @@
     "develop": "gatsby develop",
     "start": "serve --no-clipboard --listen 8899",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "",
     "cy:run": "cypress run",
     "cy:dev": "cypress open",
     "test:e2e:ci": "start-server-and-test start http://localhost:8899 cy:run",
