@@ -26,5 +26,6 @@ workflows:
       - cypress/run:
           requires:
             - test
+            - lint
           start: "npm start"
           wait-on: "http://localhost:8000"
