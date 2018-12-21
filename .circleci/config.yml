@@ -18,6 +18,11 @@ jobs:
       - checkout
       - run: npm ci
       - run: npm run lint
+  deploy:
+    docker:
+      - image: cypress/base:10
+    steps:
+      - run: curl -X POST -d {} https://api.netlify.com/build_hooks/${NETLIFY_BUILD_HOOK}
 
 workflows:
   build:
@@ -30,3 +35,6 @@ workflows:
             - lint
           start: "npm start"
           wait-on: "http://localhost:8000"
+      - deploy:
+          requires:
+            - cypress/run
