@@ -10,9 +10,9 @@ workflows:
           build: npm run build
       - run:
           command: npm test
+
       - cypress/run:
           requires:
             - cypress/install
-            - tests
           start: 'npm start'
           wait-on: 'http://localhost:8000'
