@@ -38,12 +38,12 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "start": "serve --no-clipboard --listen 8899",
+    "start": "serve --no-clipboard --listen 8000",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "",
     "cy:run": "cypress run",
     "cy:dev": "cypress open",
-    "test:e2e:ci": "start-server-and-test start http://localhost:8899 cy:run",
+    "test:e2e:ci": "start-server-and-test start http://localhost:8000 cy:run",
     "test:e2e:dev": "start-server-and-test develop http://localhost:8000 cy:dev"
   },
   "devDependencies": {
