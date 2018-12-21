@@ -14,4 +14,4 @@ workflows:
             # use previously installed dependencies
             # to avoid installing them on each machine running tests
             - cypress/install
-          start: 'npm start'
+          start: 'cy:run'
