@@ -38,7 +38,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "start": "serve --no-clipboard --listen 8000",
+    "start": "gatsby develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "",
     "cy:run": "cypress run",
