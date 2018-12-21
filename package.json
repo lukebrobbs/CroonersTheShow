@@ -37,6 +37,8 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "predeploy": "CI=1 npm i cypress; npm test:e2e:ci",
+    "deploy": "npm run build",
     "develop": "gatsby develop",
     "start": "serve --no-clipboard --listen 8899",
     "format": "prettier --write \"src/**/*.js\"",

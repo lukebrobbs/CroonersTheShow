@@ -139,7 +139,7 @@ export default class PageFooter extends React.Component {
   }
   render() {
     return (
-      <Footer>
+      <Footer data-cy="footer">
         <Heading>SIGN UP FOR NEWS</Heading>
         <Form onSubmit={this.handleSubmit}>
           <CSSTransition

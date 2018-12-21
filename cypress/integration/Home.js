@@ -4,9 +4,6 @@ describe('Home page renders', () => {
   })
 })
 describe('Homepage elements', () => {
-  it('Should contain a crooners image', () => {
-    cy.get(':nth-child(2) > picture > img')
-  })
   it('Should contain a description paragraph', () => {
     cy.get('.pages__Description-jKfSsb')
   })
