@@ -10,4 +10,4 @@ workflows:
       - cypress/run:
           requires:
             - cypress/install
-          start: 'npm run test:e2e:ci'
+          start: 'npm start'
