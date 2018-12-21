@@ -3,16 +3,22 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.1.0
 
+jobs:
+  test:
+    docker:
+      - image: circleci/node:4.8.2-jessie
+    steps:
+      - run: npm test
+
 workflows:
   build:
     jobs:
       - cypress/install:
           build: npm run build
-      - run:
-          command: npm test
-
+      - test
       - cypress/run:
           requires:
             - cypress/install
+            - test
           start: 'npm start'
           wait-on: 'http://localhost:8000'
