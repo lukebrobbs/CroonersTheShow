@@ -1,16 +1,32 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import BookNow from './ImageComponents/BookNow'
 
 const BookNowWrapper = styled.div`
-  width: 130px;
-  z-index: 10;
-  cursor: pointer;
-  margin-top: 3%;
-  @media screen and (max-width: 600px) {
-    margin: auto;
-  }
+  height: 100px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  width: 200px;
+  z-index: 2000;
+`
+
+const Book = styled.div`
+  background: #94001c;
+  color: #fff;
+  font-size: 1em;
+  height: 50px;
+  left: 50%;
+  letter-spacing: 1px;
+  padding-top: 13px;
+  position: absolute;
+  text-align: left;
+  text-indent: 118px;
+  top: 50%;
+  transform: translate(-35%, -50%) rotate(30deg);
+  width: 200%;
+  z-index: 1000;
 `
 
 const CollapsedNavBar = styled.div`
@@ -21,13 +37,13 @@ const CollapsedNavBar = styled.div`
   .menu-content {
     max-height: 0;
     overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
   }
   .collapsible-menu {
     font-family: 'Bourton-base';
     font-size: 22px;
     background-image: ${ props =>
-    props.isOpen &&
-      `-moz-linear-gradient(
+    `-moz-linear-gradient(
       25deg,
       rgb(213, 126, 20) 0%,
       rgb(252, 196, 69) 38%,
@@ -36,8 +52,7 @@ const CollapsedNavBar = styled.div`
     )` };
 
      background-image: ${ props =>
-    props.isOpen &&
-       `-webkit-linear-gradient(
+    `-webkit-linear-gradient(
       25deg,
       rgb(213, 126, 20) 0%,
       rgb(252, 196, 69) 38%,
@@ -46,8 +61,7 @@ const CollapsedNavBar = styled.div`
     )` };
 
     background-image: ${ props =>
-    props.isOpen &&
-      `-ms-linear-gradient(
+    `-ms-linear-gradient(
       25deg,
       rgb(213, 126, 20) 0%,
       rgb(252, 196, 69) 38%,
@@ -58,7 +72,7 @@ const CollapsedNavBar = styled.div`
     padding: 0px 30px 20px;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
     color: black;
-    margin-bottom:5%;
+
     /* ${ props => !props.isOpen && { height: '0' } }; */
   }
   .collapsible-menu ul {
@@ -85,8 +99,9 @@ const CollapsedNavBar = styled.div`
   }
   /* Toggle Effect */
   input:checked ~ .menu-content {
-    max-height: 100%;
+    max-height: 1000px;
     z-index: 10;
+    transition: max-height 1s ease-in-out;
   }
 
 `
@@ -129,29 +144,7 @@ const Hamburger = styled.button`
   z-index: 10;
   transform: translate(-45%);
   border: 0;
-  background-image: -moz-linear-gradient(
-    25deg,
-    rgb(213, 126, 20) 0%,
-    rgb(252, 196, 69) 38%,
-    rgb(250, 184, 46) 71%,
-    rgb(213, 126, 20) 100%
-  );
-
-  background-image: -webkit-linear-gradient(
-    25deg,
-    rgb(213, 126, 20) 0%,
-    rgb(252, 196, 69) 38%,
-    rgb(250, 184, 46) 71%,
-    rgb(213, 126, 20) 100%
-  );
-
-  background-image: -ms-linear-gradient(
-    25deg,
-    rgb(213, 126, 20) 0%,
-    rgb(252, 196, 69) 38%,
-    rgb(250, 184, 46) 71%,
-    rgb(213, 126, 20) 100%
-  );
+  cursor: pointer;
   background-image: ${ props => props.isOpen && 'none' };
   background-color: transparent;
   :focus {
@@ -198,15 +191,14 @@ class CollapsedHeader extends React.Component {
           </label>
           <div className="menu-content">
             <ul>
-              {this.state.isOpen && (
-                <li>
+              <li>
+                <BookNowWrapper>
                   <Link to="/tourdates/">
-                    <BookNowWrapper>
-                      <BookNow />
-                    </BookNowWrapper>
+                    <Book>BOOK NOW</Book>
                   </Link>
-                </li>
-              )}
+                </BookNowWrapper>
+              </li>
+
               <li selected={page === 'Home'}>
                 <Link
                   to="/"
