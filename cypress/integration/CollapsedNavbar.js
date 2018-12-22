@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable no-undef */
 describe('Collapsed Navbar', () => {
   before(() => {
     cy.visit('/')

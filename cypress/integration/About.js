@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe('About page', () => {
   it('Should render the about page', () => {
     cy.visit('/about')

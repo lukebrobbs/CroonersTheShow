@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe('Home page renders', () => {
   it('Should render the home page', () => {
     cy.visit('/')

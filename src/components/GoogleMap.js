@@ -16,7 +16,7 @@ export class MapContainer extends Component {
   }
 
   onMarkerClick = (props, marker, e) => {
-    props.map.setCenter(marker.getPosition())
+    props.map.panTo(marker.getPosition())
     this.setState({
       selectedPlace: props,
       activeMarker: marker,

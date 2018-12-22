@@ -28,6 +28,11 @@ const CastWrapper = styled.div`
 const CastMemberWrapper = styled.div`
   grid-area: ${ props => props.name };
   text-align: center;
+  -webkit-transition: 0.15s ease-in-out !important;
+  transition: 0.15s ease-in-out !important;
+  :hover {
+    color: #f7b300;
+  }
 `
 
 const BandWrapper = styled.div`
@@ -37,6 +42,11 @@ const BandWrapper = styled.div`
   overflow: hidden;
   justify-self: center;
   text-align: center;
+  -webkit-transition: 0.15s ease-in-out !important;
+  transition: 0.15s ease-in-out !important;
+  :hover {
+    color: #f7b300;
+  }
   @media screen and (max-width: 900px) {
     width: 100%;
   }
@@ -48,25 +58,25 @@ const CastImages = () => {
       <h2 style={{ textAlign: 'center', color: '#f7b300' }}>THE CAST</h2>
       <CastWrapper>
         <CastMemberWrapper name="Phil">
-          <Link to="/cast/Phil">
+          <Link to="/cast/Phil" data-cy="cast-image-Phil">
             <PhilHeadshot />
           </Link>
           <h3>PHIL BARLEY</h3>
         </CastMemberWrapper>
         <CastMemberWrapper name="Roman">
-          <Link to="/cast/Roman">
+          <Link to="/cast/Roman" data-cy="cast-image-Roman">
             <RomanHeadshot />
           </Link>
           <h3>ROMAN MAREK</h3>
         </CastMemberWrapper>
         <CastMemberWrapper name="Jim">
-          <Link to="/cast/Jim">
+          <Link to="/cast/Jim" data-cy="cast-image-Jim">
             <JimHeadshot />
           </Link>
           <h3>JIM WHITLEY</h3>
         </CastMemberWrapper>
         <BandWrapper>
-          <Link to="/cast/TheMiniBigBand">
+          <Link to="/cast/TheMiniBigBand" data-cy="cast-image-Mbb">
             <MiniBigBand />
           </Link>
           <h3>THE MINI BIG BAND</h3>

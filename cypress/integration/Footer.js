@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe('Footer', () => {
   before(() => {
     cy.visit('/')

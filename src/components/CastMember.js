@@ -14,9 +14,12 @@ const Wrapper = styled.div`
   }
   a {
     text-decoration: none;
+    -webkit-transition: 0.15s ease-in-out !important;
+    transition: 0.15s ease-in-out !important;
     color: #001025;
     :hover {
       color: white;
+      opacity: 0.9;
     }
   }
 `
@@ -25,6 +28,8 @@ const Headshot = styled.img`
   width: 100%;
 `
 const ImageGrid = styled.div`
+  width: 250px;
+  height: 250px;
   grid-row: 1;
   grid-column: 3;
 `
@@ -36,7 +41,9 @@ const Title = styled.h2`
 const CastMember = ({ description, castName, imageUrl }) => (
   <Wrapper>
     <div>
-      <Link to="/cast">BACK</Link>
+      <Link to="/cast" data-cy="cast-back">
+        BACK
+      </Link>
     </div>
     <div>
       <Title>{castName}</Title>
