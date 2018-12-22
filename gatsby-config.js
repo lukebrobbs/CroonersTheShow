@@ -34,6 +34,7 @@ module.exports = {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
         endpoint:
+          // eslint-disable-next-line max-len
           'https://croonerstheshow.us13.list-manage.com/subscribe/post?u=d1506e5d410deb1dcb1fa938d&amp;id=e3aea102e3'
       }
     },
