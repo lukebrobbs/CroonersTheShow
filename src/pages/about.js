@@ -17,6 +17,7 @@ const Content = styled.div`
 const Logo = styled.div`
   width: 30vw;
   margin: auto;
+  margin-top: 5%;
   padding-top: 10vh;
   @media screen and (max-width: 1024px) {
     padding-top: 2%;
@@ -66,7 +67,7 @@ const About = ({ location }) => (
             dangerouslySetInnerHTML={{
               __html:
                 allContentfulAboutCrooners.edges[0].node.content
-                  .childMarkdownRemark.html,
+                  .childMarkdownRemark.html
             }}
             data-cy="about-page-about"
           />
@@ -75,7 +76,7 @@ const About = ({ location }) => (
             dangerouslySetInnerHTML={{
               __html:
                 allContentfulTheStory.edges[0].node.theStory.childMarkdownRemark
-                  .html,
+                  .html
             }}
             data-cy="about-page-the-story"
           />

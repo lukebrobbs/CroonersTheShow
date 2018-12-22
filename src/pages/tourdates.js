@@ -10,6 +10,7 @@ import CroonersLogo from '../components/ImageComponents/CroonersLogo'
 const Logo = styled.div`
   width: 30vw;
   margin: auto;
+  margin-top: 5%;
   padding-top: 10vh;
   padding-bottom: 3%;
   @media screen and (max-width: 1024px) {
