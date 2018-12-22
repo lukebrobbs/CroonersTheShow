@@ -20,7 +20,7 @@ const CroonersLogo = () => (
         file(relativePath: { eq: "CroonersLogo.png" }) {
           childImageSharp {
             fluid(maxWidth: 1400) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_noBase64
             }
           }
         }
