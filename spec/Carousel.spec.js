@@ -2,5 +2,5 @@
 // import Carousel from '../components/Carousel'
 
 test('Carousel component', () => {
-  expect(5).toBe(5)
+  expect(1).toBe(1)
 })
