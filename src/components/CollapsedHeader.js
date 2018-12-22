@@ -194,7 +194,9 @@ class CollapsedHeader extends React.Component {
               <li>
                 <BookNowWrapper>
                   <Link to="/tourdates/">
-                    <Book>BOOK NOW</Book>
+                    <Book>
+                      <p>BOOK NOW</p>
+                    </Book>
                   </Link>
                 </BookNowWrapper>
               </li>

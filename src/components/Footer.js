@@ -61,7 +61,7 @@ const SocialIcons = styled.div`
 const FooterInput = styled.input`
   max-width: 80%;
   max-height: 2rem;
-  padding: 10px 10px;
+  padding: 10px 20px;
   grid-area: ${ props => props.gridArea };
   border: none;
   ::placeholder {
@@ -79,6 +79,10 @@ const FooterInput = styled.input`
   @media screen and (max-width: 1306px) {
     justify-self: center;
     min-width: 40%;
+  }
+  @media screen and (max-width: 500px) {
+    margin: 12px;
+    padding: 10px 40px;
   }
 `
 const FooterSubmitButton = styled.button`
