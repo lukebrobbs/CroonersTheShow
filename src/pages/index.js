@@ -43,8 +43,8 @@ const Reviews = styled.div`
   grid-template-areas: 'leftReview middleReview rightReview';
   @media screen and (max-width: 900px) {
     grid-template-areas:
-      'middleReview middleReview middleReview'
-      'leftReview  - rightReview';
+      'middleReview middleReview middleReview middleReview middleReview'
+      'leftReview  leftReview - rightReview rightReview';
   }
 `
 const ReviewWrapper = styled.div`
@@ -59,12 +59,21 @@ const ReviewWrapper = styled.div`
     justify-self: center;
   }
 `
+const HomePageImageWrapper = styled.div`
+  @media screen and (max-width: 650px) {
+    .gatsby-image-wrapper {
+      height: 400px;
+    }
+  }
+`
 const IndexPage = ({ location }) => (
   <React.Fragment>
     <Layout pathname={location.pathname}>
       <div>
         <Header page="Home" />
-        <HomePageBg />
+        <HomePageImageWrapper>
+          <HomePageBg />
+        </HomePageImageWrapper>
         <Description>
           A witty and exhilarating new comedy music show chock full of crooner
           classics, big band swing, and hilarious laugh out loud comedy has been

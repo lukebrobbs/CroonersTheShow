@@ -16,10 +16,10 @@ const Book = styled.div`
   background: #94001c;
   color: #fff;
   font-size: 1em;
-  height: 50px;
+  height: 40px;
   left: 50%;
   letter-spacing: 1px;
-  padding-top: 13px;
+  padding-top: 8px;
   position: absolute;
   text-align: left;
   text-indent: 118px;
@@ -69,7 +69,7 @@ const CollapsedNavBar = styled.div`
       rgb(213, 126, 20) 100%
     )` };
     background-color: #001025;
-    padding: 0px 30px 20px;
+    padding: 0px 30px 10px;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
     color: black;
 
