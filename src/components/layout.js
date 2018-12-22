@@ -44,10 +44,11 @@ const Layout = ({ children, creative, about, padTop, pathname }) => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: 'Sample' },
+            { name: 'description', content: 'A rip roaring comedy music show' },
             {
               name: 'keywords',
-              content: 'Crooner, music, big band, Swing, Jazz, Show, Theatre'
+              content:
+                'Crooner, music, big band, Swing, Jazz, Show, Theatre, comedy'
             },
             {
               name: 'viewport',
