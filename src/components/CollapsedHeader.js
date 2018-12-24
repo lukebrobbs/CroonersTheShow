@@ -38,6 +38,12 @@ const CollapsedNavBar = styled.div`
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    ${ props =>
+    props.isOpen && {
+      maxHeight: '1000px',
+      zIndex: '10',
+      transition: 'max-height 1s ease-in-out'
+    } }
   }
   .collapsible-menu {
     font-family: 'Bourton-base';
@@ -93,15 +99,6 @@ const CollapsedNavBar = styled.div`
     cursor: pointer;
   }
   .collapsible-menu img {
-  }
-  input#menu {
-    display: none;
-  }
-  /* Toggle Effect */
-  input:checked ~ .menu-content {
-    max-height: 1000px;
-    z-index: 10;
-    transition: max-height 1s ease-in-out;
   }
 
 `
@@ -170,12 +167,6 @@ class CollapsedHeader extends React.Component {
     return (
       <CollapsedNavBar isOpen={this.state.isOpen}>
         <div className="collapsible-menu" data-cy="collapsed-header">
-          <input
-            type="checkbox"
-            id="menu"
-            checked={this.state.isOpen}
-            readOnly
-          />
           <label className="NavMenuIcon" htmlFor="menu">
             <Hamburger
               isOpen={this.state.isOpen}
