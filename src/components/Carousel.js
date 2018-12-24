@@ -29,6 +29,10 @@ const SliderWrapper = styled.div`
   .slick-dots li button:focus {
     color: #f7b300;
   }
+  .slick-prev:before,
+  .slick-next:before {
+    color: #f7b300;
+  }
 
   .Slider-inner {
     padding-bottom: 2%;
@@ -46,14 +50,14 @@ class Gallery extends Component {
     super(props)
     this.state = {
       nav1: null,
-      nav2: null,
+      nav2: null
     }
   }
 
   componentDidMount () {
     this.setState({
       nav1: this.slider1,
-      nav2: this.slider2,
+      nav2: this.slider2
     })
   }
   render () {
@@ -62,9 +66,9 @@ class Gallery extends Component {
         breakpoint: 1024,
         settings: {
           arrows: false,
-          dots: true,
-        },
-      },
+          dots: true
+        }
+      }
     ]
     return (
       <SliderWrapper>
