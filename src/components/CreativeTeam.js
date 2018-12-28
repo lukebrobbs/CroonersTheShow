@@ -97,7 +97,7 @@ const CreativeTeam = () => {
         </TeamItem>
         <TeamItem>
           <h4>Photography</h4>
-          <strong>Stevie Loy</strong>
+          <strong>Stevieroy</strong>
           <p />
         </TeamItem>
       </Content>
