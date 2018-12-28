@@ -26,6 +26,9 @@ const Content = styled.div`
   @media screen and (max-width: 800px) {
     grid-template-columns: 1fr;
   }
+  p {
+    opacity: 1;
+  }
 `
 
 const Header = styled.h2`
