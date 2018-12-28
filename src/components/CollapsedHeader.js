@@ -144,9 +144,9 @@ const Hamburger = styled.button`
   cursor: pointer;
   background-image: ${ props => props.isOpen && 'none' };
   background-color: transparent;
-  :focus {
+  /* :focus {
     outline: none;
-  }
+  } */
 `
 
 class CollapsedHeader extends React.Component {
