@@ -155,19 +155,17 @@ class CollapsedHeader extends React.Component {
     return (
       <CollapsedNavBar isOpen={this.state.isOpen}>
         <div className="collapsible-menu" data-cy="collapsed-header">
-          <label className="NavMenuIcon" htmlFor="menu">
-            <Hamburger
-              isOpen={this.state.isOpen}
-              onClick={this.toggle}
-              data-cy="hamburger"
-              role="button"
-              type="button"
-            >
-              <Line isOpen={this.state.isOpen} top />
-              <Line isOpen={this.state.isOpen} middle />
-              <Line isOpen={this.state.isOpen} bottom />
-            </Hamburger>
-          </label>
+          <Hamburger
+            isOpen={this.state.isOpen}
+            onClick={this.toggle}
+            data-cy="hamburger"
+            role="button"
+            type="button"
+          >
+            <Line isOpen={this.state.isOpen} top />
+            <Line isOpen={this.state.isOpen} middle />
+            <Line isOpen={this.state.isOpen} bottom />
+          </Hamburger>
           <div className="menu-content">
             <ul>
               <li>
