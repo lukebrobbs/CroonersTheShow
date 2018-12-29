@@ -20,7 +20,7 @@ const Logo = styled.div`
 
 const Cast = ({ location }) => (
   <Layout creative pathname={location.pathname}>
-    <Header page="Cast" />
+    {/* <Header page="Cast" /> */}
     <Logo>
       <CroonersLogo />
     </Logo>

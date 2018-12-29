@@ -96,14 +96,15 @@ class Header extends React.Component {
     }
   }
   render () {
+    const { isMobile } = this.state
     const { page } = this.props
 
-    if (this.state.isMobile) return <CollapsedHeader page={page} />
+    if (isMobile) return <CollapsedHeader page={page} />
     return (
       <NavWrapper data-cy="header">
         <Nav>
           <Link to="/" style={{ textDecoration: 'none' }}>
-            <NavItem rotate="-2deg" active={page === 'Home'} data-cy="nav-home">
+            <NavItem rotate="-2deg" active={page === '/'} data-cy="nav-home">
               Home
             </NavItem>
           </Link>
@@ -112,7 +113,7 @@ class Header extends React.Component {
             style={{ textDecoration: 'none' }}
             data-cy="nav-about"
           >
-            <NavItem rotate="5deg" drop="10px" active={page === 'About'}>
+            <NavItem rotate="5deg" drop="10px" active={page.includes('/about')}>
               About
             </NavItem>
           </Link>
@@ -121,7 +122,11 @@ class Header extends React.Component {
             style={{ textDecoration: 'none' }}
             data-cy="nav-cast"
           >
-            <NavItem width="220px" rotate="-2deg" active={page === 'Cast'}>
+            <NavItem
+              width="220px"
+              rotate="-2deg"
+              active={page.includes('/cast')}
+            >
               Cast & Creatives
             </NavItem>
           </Link>
@@ -134,7 +139,7 @@ class Header extends React.Component {
               width="120px"
               rotate="5deg"
               drop="10px"
-              active={page === 'Gallery'}
+              active={page.includes('/gallery')}
             >
               Gallery
             </NavItem>
@@ -144,7 +149,11 @@ class Header extends React.Component {
             style={{ textDecoration: 'none' }}
             data-cy="nav-tourdates"
           >
-            <NavItem width="150px" rotate="-4deg" active={page === 'TourDates'}>
+            <NavItem
+              width="150px"
+              rotate="-4deg"
+              active={page.includes('/tourdates')}
+            >
               Tour Dates
             </NavItem>
           </Link>
@@ -156,7 +165,7 @@ class Header extends React.Component {
             <NavItem
               rotate="5deg"
               drop="10px"
-              active={page === 'Shop'}
+              active={page.includes('/shop')}
               data-cy="nav-shop"
             >
               Shop

@@ -144,9 +144,6 @@ const Hamburger = styled.button`
   cursor: pointer;
   background-image: ${ props => props.isOpen && 'none' };
   background-color: transparent;
-  /* :focus {
-    outline: none;
-  } */
 `
 
 class CollapsedHeader extends React.Component {
@@ -192,60 +189,60 @@ class CollapsedHeader extends React.Component {
                 </BookNowWrapper>
               </li>
 
-              <li selected={page === 'Home'}>
+              <li selected={page === '/'}>
                 <Link
                   to="/"
                   onClick={this.toggle}
                   style={{
-                    color: page === 'Home' ? 'white' : 'black'
+                    color: page === '/' ? 'white' : 'black'
                   }}
                   data-cy="collapsed-home"
                 >
                   Home
                 </Link>
               </li>
-              <li>
+              <li selected={page.includes('/about')}>
                 <Link
                   to="/about"
                   onClick={this.toggle}
                   style={{
-                    color: page === 'About' ? 'white' : 'black'
+                    color: page.includes('/about') ? 'white' : 'black'
                   }}
                   data-cy="collapsed-about"
                 >
                   About
                 </Link>
               </li>
-              <li>
+              <li selected={page.includes('/cast')}>
                 <Link
                   to="/cast"
                   onClick={this.toggle}
                   style={{
-                    color: page === 'Cast' ? 'white' : 'black'
+                    color: page.includes('/cast') ? 'white' : 'black'
                   }}
                   data-cy="collapsed-cast"
                 >
                   Cast & Creatives
                 </Link>
               </li>
-              <li>
+              <li selected={page.includes('/gallery')}>
                 <Link
                   to="/gallery"
                   onClick={this.toggle}
                   style={{
-                    color: page === 'Gallery' ? 'white' : 'black'
+                    color: page.includes('/gallery') ? 'white' : 'black'
                   }}
                   data-cy="collapsed-gallery"
                 >
                   Gallery
                 </Link>
               </li>
-              <li>
+              <li selected={page.includes('/tourdates')}>
                 <Link
                   to="/tourdates"
                   onClick={this.toggle}
                   style={{
-                    color: page === 'TourDates' ? 'white' : 'black'
+                    color: page.includes('/tourdates') ? 'white' : 'black'
                   }}
                   data-cy="collapsed-tourdates"
                 >

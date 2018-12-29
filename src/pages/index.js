@@ -70,7 +70,7 @@ const IndexPage = ({ location }) => (
   <React.Fragment>
     <Layout pathname={location.pathname}>
       <div>
-        <Header page="Home" />
+        {/* <Header page="Home" /> */}
         <HomePageImageWrapper>
           <HomePageBg />
         </HomePageImageWrapper>

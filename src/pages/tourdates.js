@@ -40,60 +40,103 @@ const TourDateWrapper = styled.div`
   margin: auto;
 `
 
-const Tourdates = ({ location }) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        allContentfulTourDate(sort: { fields: date }) {
-          edges {
-            node {
-              theatreName
-              date(formatString: "Do MMM YYYY")
-              website
-              logo {
-                fluid(maxWidth: 400, maxHeight: 100) {
-                  src
+// const TourDateSearch = styled.input`
+//   width: 50%;
+//   margin: auto;
+//   @media screen and (min-width: 650px) {
+//     display: none;
+//   }
+// `
+
+class Tourdates extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      searchValue: ''
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.isTourDateInSearch = this.isTourDateInSearch.bind(this)
+  }
+
+  handleChange = event => {
+    const { value } = event.target
+    this.setState({ searchValue: value })
+  }
+
+  isTourDateInSearch = theatreName => {
+    if (!this.state.searchValue.length) return true
+    return theatreName
+      .toUpperCase()
+      .includes(this.state.searchValue.toUpperCase())
+  }
+
+  render () {
+    const { location } = this.props
+    return (
+      <StaticQuery
+        query={graphql`
+          query {
+            allContentfulTourDate(sort: { fields: date }) {
+              edges {
+                node {
+                  theatreName
+                  date(formatString: "Do MMM YYYY")
+                  website
+                  logo {
+                    fluid(maxWidth: 400, maxHeight: 100) {
+                      src
+                    }
+                  }
+                  location {
+                    lat
+                    lon
+                  }
                 }
-              }
-              location {
-                lat
-                lon
               }
             }
           }
-        }
-      }
-    `}
-    render={({ allContentfulTourDate }) => {
-      return (
-        <Layout pathname={location.pathname}>
-          <Header page="TourDates" />
-          <Logo>
-            <CroonersLogo />
-          </Logo>
-          <MapWrapper>
-            <GoogleMap
-              node={allContentfulTourDate.edges.map(edge => edge.node)}
-            />
-          </MapWrapper>
-          <TourDateWrapper>
-            <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>
-              Tour Dates
-            </h1>
-            {allContentfulTourDate.edges.map(date => (
-              <Tour
-                theatreName={date.node.theatreName}
-                date={date.node.date}
-                logo={date.node.logo.fluid.src}
-                key={date.node.theatreName}
-                website={date.node.website}
-              />
-            ))}
-          </TourDateWrapper>
-        </Layout>
-      )
-    }}
-  />
-)
+        `}
+        render={({ allContentfulTourDate }) => {
+          return (
+            <Layout pathname={location.pathname}>
+              {/* <Header page="TourDates" /> */}
+              <Logo>
+                <CroonersLogo />
+              </Logo>
+              <MapWrapper>
+                <GoogleMap
+                  node={allContentfulTourDate.edges.map(edge => edge.node)}
+                />
+              </MapWrapper>
+              <TourDateWrapper>
+                <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>
+                  Tour Dates
+                </h1>
+                {/* <TourDateSearch
+                  value={this.state.searchValue}
+                  onChange={this.handleChange}
+                /> */}
+                {allContentfulTourDate.edges.reduce((dates, date) => {
+                  if (this.isTourDateInSearch(date.node.theatreName)) {
+                    dates.push(
+                      <Tour
+                        theatreName={date.node.theatreName}
+                        date={date.node.date}
+                        logo={date.node.logo.fluid.src}
+                        key={date.node.theatreName}
+                        website={date.node.website}
+                      />
+                    )
+                  }
+                  return dates
+                }, [])}
+              </TourDateWrapper>
+            </Layout>
+          )
+        }}
+      />
+    )
+  }
+}
 
 export default Tourdates

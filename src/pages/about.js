@@ -57,7 +57,7 @@ const About = ({ location }) => (
     `}
     render={({ allContentfulAboutCrooners, allContentfulTheStory }) => (
       <Layout about pathname={location.pathname}>
-        <Header page="About" />
+        {/* <Header page="About" /> */}
         <Logo data-cy="about-page-logo">
           <CroonersLogo />
         </Logo>

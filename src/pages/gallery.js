@@ -138,7 +138,7 @@ class Gallery extends Component {
           })
           return (
             <Layout pathname={this.props.location.pathname}>
-              <Header page="Gallery" />
+              {/* <Header page="Gallery" /> */}
               <Logo>
                 <CroonersLogo />
               </Logo>

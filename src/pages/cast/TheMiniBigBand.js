@@ -53,7 +53,7 @@ const TheMiniBigBand = ({ location }) => (
       }
     }) => (
       <Layout pathname={location.pathname}>
-        <Header page="Cast" />
+        {/* <Header page="Cast" /> */}
         <Logo>
           <CroonersLogo />
         </Logo>
