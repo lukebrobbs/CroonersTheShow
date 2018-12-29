@@ -138,6 +138,7 @@ const Hamburger = styled.button`
   position: relative;
   left: 1%;
   top: 5px;
+  z-index: 1001;
   transform: translate(-45%);
   border: 0;
   cursor: pointer;
