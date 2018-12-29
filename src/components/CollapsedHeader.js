@@ -9,7 +9,6 @@ const BookNowWrapper = styled.div`
   top: 0;
   overflow: hidden;
   width: 200px;
-  z-index: 2000;
 `
 
 const Book = styled.div`
@@ -26,14 +25,14 @@ const Book = styled.div`
   top: 50%;
   transform: translate(-35%, -50%) rotate(30deg);
   width: 200%;
-  z-index: 1000;
+  z-index: 10;
 `
 
 const CollapsedNavBar = styled.div`
  position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 10;
   .menu-content {
     max-height: 0;
     overflow: hidden;
@@ -138,7 +137,7 @@ const Hamburger = styled.button`
   position: relative;
   left: 1%;
   top: 5px;
-  z-index: 1001;
+  z-index: 11;
   transform: translate(-45%);
   border: 0;
   cursor: pointer;
