@@ -133,6 +133,7 @@ const Hamburger = styled.button`
   transform: translate(-45%);
   border: 0;
   cursor: pointer;
+  touch-action: manipulation;
   background-image: ${ props => props.isOpen && 'none' };
   background-color: transparent;
 `
