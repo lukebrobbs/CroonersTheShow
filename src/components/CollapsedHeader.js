@@ -29,7 +29,7 @@ const Book = styled.div`
 `
 
 const CollapsedNavBar = styled.div`
- position: -webkit-sticky; /* Safari */
+  position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
   z-index: 10;
@@ -56,7 +56,7 @@ const CollapsedNavBar = styled.div`
       rgb(213, 126, 20) 100%
     )` };
 
-     background-image: ${ props =>
+    background-image: ${ props =>
     `-webkit-linear-gradient(
       25deg,
       rgb(213, 126, 20) 0%,
@@ -77,8 +77,6 @@ const CollapsedNavBar = styled.div`
     padding: 0px 30px 10px;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
     color: black;
-
-    /* ${ props => !props.isOpen && { height: '0' } }; */
   }
   .collapsible-menu ul {
     list-style-type: none;
@@ -94,12 +92,6 @@ const CollapsedNavBar = styled.div`
       text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
     }
   }
-  .collapsible-menu label {
-    cursor: pointer;
-  }
-  .collapsible-menu img {
-  }
-
 `
 const Line = styled.div`
   width: 35px;
