@@ -15,7 +15,6 @@ import './layout.css'
 const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
 `
 
 const AboutPictureWrapper = styled.div`
