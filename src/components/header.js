@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import CollapsedHeader from './CollapsedHeader'
-import BookNow from './ImageComponents/BookNow'
+import BookNowNav from './BookNowNav'
 
 const NavWrapper = styled.div`
   margin: 0 auto;
@@ -53,9 +53,9 @@ const NavItem = styled.div`
   height: 25px;
   margin-top: ${ props => props.drop };
   transform: rotate(${ props => props.rotate || 0 });
-  -webkit-transition: 0.15s ease-in-out !important;
-  transition: 0.15s ease-in-out !important;
   a {
+    -webkit-transition: 0.15s ease-in-out !important;
+    transition: 0.15s ease-in-out !important;
     display: flex;
     height: 22px;
     justify-content: center; /* align horizontal */
@@ -72,9 +72,7 @@ const NavItem = styled.div`
     } };
   }
 `
-const BookNowWrapper = styled.div`
-  width: 130px;
-`
+
 class Header extends React.Component {
   constructor (props) {
     super(props)
@@ -175,9 +173,7 @@ class Header extends React.Component {
             </a>
           </NavItem>
           <Link to="/tourdates/" style={{ textDecoration: 'none' }}>
-            <BookNowWrapper>
-              <BookNow />
-            </BookNowWrapper>
+            <BookNowNav />
           </Link>
         </Nav>
       </NavWrapper>
