@@ -50,20 +50,27 @@ const NavItem = styled.div`
   );
   width: ${ props => props.width || '90px' };
   border-radius: 3px;
-  color: black;
+  height: 25px;
   margin-top: ${ props => props.drop };
   transform: rotate(${ props => props.rotate || 0 });
   -webkit-transition: 0.15s ease-in-out !important;
   transition: 0.15s ease-in-out !important;
-  :hover {
-    color: white;
-    text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
-  }
-  ${ props =>
+  a {
+    display: flex;
+    height: 22px;
+    justify-content: center; /* align horizontal */
+    align-items: center;
+    color: black;
+    :hover {
+      color: white;
+      text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
+    }
+    ${ props =>
     props.active && {
       color: 'white',
       textShadow: '1px 1px 10px #fff, 1px 1px 10px #ccc'
     } };
+  }
 `
 const BookNowWrapper = styled.div`
   width: 130px;
@@ -103,74 +110,70 @@ class Header extends React.Component {
     return (
       <NavWrapper data-cy="header">
         <Nav>
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <NavItem rotate="-2deg" active={page === '/'} data-cy="nav-home">
+          <NavItem rotate="-2deg" active={page === '/'} data-cy="nav-home">
+            <Link to="/" style={{ textDecoration: 'none' }}>
               Home
-            </NavItem>
-          </Link>
-          <Link
-            to="/about/"
-            style={{ textDecoration: 'none' }}
-            data-cy="nav-about"
-          >
-            <NavItem rotate="5deg" drop="10px" active={page.includes('/about')}>
+            </Link>
+          </NavItem>
+          <NavItem rotate="5deg" drop="10px" active={page.includes('/about')}>
+            <Link
+              to="/about/"
+              style={{ textDecoration: 'none' }}
+              data-cy="nav-about"
+            >
               About
-            </NavItem>
-          </Link>
-          <Link
-            to="/cast/"
-            style={{ textDecoration: 'none' }}
-            data-cy="nav-cast"
-          >
-            <NavItem
-              width="220px"
-              rotate="-2deg"
-              active={page.includes('/cast')}
+            </Link>
+          </NavItem>
+          <NavItem width="220px" rotate="-2deg" active={page.includes('/cast')}>
+            <Link
+              to="/cast/"
+              style={{ textDecoration: 'none' }}
+              data-cy="nav-cast"
             >
               Cast & Creatives
-            </NavItem>
-          </Link>
-          <Link
-            to="/gallery/"
-            style={{ textDecoration: 'none' }}
-            data-cy="nav-gallery"
+            </Link>
+          </NavItem>
+          <NavItem
+            width="120px"
+            rotate="5deg"
+            drop="10px"
+            active={page.includes('/gallery')}
           >
-            <NavItem
-              width="120px"
-              rotate="5deg"
-              drop="10px"
-              active={page.includes('/gallery')}
+            <Link
+              to="/gallery/"
+              style={{ textDecoration: 'none' }}
+              data-cy="nav-gallery"
             >
               Gallery
-            </NavItem>
-          </Link>
-          <Link
-            to="/tourdates/"
-            style={{ textDecoration: 'none' }}
-            data-cy="nav-tourdates"
+            </Link>
+          </NavItem>
+          <NavItem
+            width="150px"
+            rotate="-4deg"
+            active={page.includes('/tourdates')}
           >
-            <NavItem
-              width="150px"
-              rotate="-4deg"
-              active={page.includes('/tourdates')}
+            <Link
+              to="/tourdates/"
+              style={{ textDecoration: 'none' }}
+              data-cy="nav-tourdates"
             >
               Tour Dates
-            </NavItem>
-          </Link>
-          <a
-            href="https://crooners.ecwid.com/"
-            target="about_blank"
-            style={{ textDecoration: 'none' }}
+            </Link>
+          </NavItem>
+          <NavItem
+            rotate="5deg"
+            drop="10px"
+            active={page.includes('/shop')}
+            data-cy="nav-shop"
           >
-            <NavItem
-              rotate="5deg"
-              drop="10px"
-              active={page.includes('/shop')}
-              data-cy="nav-shop"
+            <a
+              href="https://crooners.ecwid.com/"
+              target="about_blank"
+              style={{ textDecoration: 'none' }}
             >
               Shop
-            </NavItem>
-          </a>
+            </a>
+          </NavItem>
           <Link to="/tourdates/" style={{ textDecoration: 'none' }}>
             <BookNowWrapper>
               <BookNow />

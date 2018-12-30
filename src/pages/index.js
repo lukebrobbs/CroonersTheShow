@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/layout'
-import Header from '../components/header'
 import HomePageBg from '../components/ImageComponents/HomePageBg'
 import LeftReview from '../components/ImageComponents/LeftReview'
 import MiddleReview from '../components/ImageComponents/MiddleReview'

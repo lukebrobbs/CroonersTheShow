@@ -4,18 +4,17 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Layout from '../../components/layout'
 import CastMember from '../../components/CastMember'
-import Header from '../../components/header'
 import CroonersLogo from '../../components/ImageComponents/CroonersLogo'
 
 const Logo = styled.div`
   width: 30vw;
   margin: auto;
-  margin-top: 5%;
   padding-top: 10vh;
   @media screen and (max-width: 1024px) {
     padding-top: 2%;
   }
   @media screen and (max-width: 650px) {
+    margin-top: 5%;
     width: 80%;
   }
 `
