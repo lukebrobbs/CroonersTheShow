@@ -18,7 +18,7 @@ const Background = styled.div`
     div {
       transition: 0.3s;
       background-color: white;
-      text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
+      box-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
     }
   }
 `
