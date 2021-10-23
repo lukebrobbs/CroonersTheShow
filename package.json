@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "author": "Luke Brobbin",
   "dependencies": {
-    "babel-plugin-styled-components": "^1.8.0",
+    "babel-plugin-styled-components": "^1.13.3",
     "gatsby": "^2.0.33",
     "gatsby-image": "^2.0.15",
-    "gatsby-plugin-mailchimp": "^4.0.0",
+    "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^2.0.5",
     "gatsby-plugin-nprogress": "^2.0.7",
     "gatsby-plugin-offline": "^2.0.11",
@@ -22,14 +22,13 @@
     "google-maps-react": "^2.0.2",
     "leaflet": "^1.3.4",
     "react": "^16.5.1",
-    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-leaflet": "^2.1.2",
     "react-slick": "^0.21.0",
-    "react-transition-group": "^2.5.0",
+    "react-transition-group": "^4.4.2",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^4.1.1"
+    "styled-components": "^5.3.3"
   },
   "keywords": [
     "Crooners"

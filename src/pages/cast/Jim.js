@@ -24,7 +24,7 @@ const Jim = ({ location }) => (
     query={graphql`
       query {
         contentfulCastMemeber(
-          id: { eq: "e3c67222-a0d3-5337-9ef9-7f4bcc7a95c5" }
+          id: { eq: "fb54b1ab-940a-5820-9fe2-c3c98c0e1e38" }
         ) {
           description {
             childMarkdownRemark {

@@ -24,7 +24,7 @@ const TheMiniBigBand = ({ location }) => (
     query={graphql`
       query {
         contentfulCastMemeber(
-          id: { eq: "3906faeb-effe-5a9b-a147-a3782f19ed5d" }
+          id: { eq: "5f884853-5bf8-55bd-a08e-da187efccf4a" }
         ) {
           description {
             childMarkdownRemark {
