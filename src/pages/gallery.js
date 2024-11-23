@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import Carousel from '../components/Carousel'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import CroonersLogo from '../components/ImageComponents/CroonersLogo'
 import Layout from '../components/layout'
 import GalleryVideo from '../components/GalleryVideo'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const Logo = styled.div`
   width: 30vw;
@@ -39,120 +40,106 @@ const GalleryWrapper = styled.div`
     width: 90vw;
   }
 `
-class Gallery extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      nav1: null,
-      nav2: null
-    }
-    this.touchStart = this.touchStart.bind(this)
-    this.preventTouch = this.preventTouch.bind(this)
-  }
 
-  componentDidMount () {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('touchstart', this.touchStart)
-      window.addEventListener('touchmove', this.preventTouch, {
-        passive: false
-      })
-    }
-    this.setState({
-      nav1: this.slider1,
-      nav2: this.slider2
-    })
-  }
+const Gallery = ({ location }) => {
+  const [, setNav1] = useState(null)
+  const [, setNav2] = useState(null)
+  const slider1Ref = useRef(null)
+  const slider2Ref = useRef(null)
 
-  componentWillUnmount () {
-    if (typeof window !== 'undefined') {
-      window.removeEventListener('touchstart', this.touchStart)
-      window.removeEventListener('touchmove', this.preventTouch, {
-        passive: false
-      })
-    }
-  }
+  const firstClientXRef = useRef(null)
+  const firstClientYRef = useRef(null)
 
-  touchStart (e) {
-    this.firstClientX = e.touches[0].clientX
-    this.firstClientY = e.touches[0].clientY
-  }
-
-  preventTouch (e) {
-    const minValue = 5 // threshold
-
-    this.clientX = e.touches[0].clientX - this.firstClientX
-    this.clientY = e.touches[0].clientY - this.firstClientY
-
-    // Vertical scrolling does not work when you start swiping horizontally.
-    if (Math.abs(this.clientX) > minValue) {
-      e.preventDefault()
-      e.returnValue = false
-      return false
-    }
-  }
-  render () {
-    return (
-      <StaticQuery
-        query={graphql`
-          query {
-            allContentfulGalleryImages {
-              edges {
-                node {
-                  image {
-                    fluid(maxWidth: 1200) {
-                      src
-                    }
-                  }
-                }
-              }
-            }
-            allContentfulVideos {
-              edges {
-                node {
-                  video
-                }
-              }
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulGalleryImages {
+        edges {
+          node {
+            image {
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
-        `}
-        render={({
-          allContentfulGalleryImages: { edges },
-          allContentfulVideos
-        }) => {
-          const content = edges[0].node.image.map((singleImage, index) => (
-            <div key={`${ singleImage.fluid.src }${ index }`}>
-              <img
-                className="Slider-inner-image"
-                src={singleImage.fluid.src}
-                alt="Croners on stage"
-              />
-            </div>
-          ))
-          const videos = allContentfulVideos.edges.map(video => {
-            return (
-              <Video key={video}>
-                <GalleryVideo url={video.node.video} />
-              </Video>
-            )
-          })
-          return (
-            <Layout pathname={this.props.location.pathname}>
-              {/* <Header page="Gallery" /> */}
-              <Logo>
-                <CroonersLogo />
-              </Logo>
-              <GalleryWrapper>
-                <Title>Production Photos</Title>
-                <Carousel content={content} />
-                <Title>videos</Title>
-                {videos}
-              </GalleryWrapper>
-            </Layout>
-          )
-        }}
-      />
+        }
+      }
+      allContentfulVideos {
+        edges {
+          node {
+            video
+          }
+        }
+      }
+    }
+  `)
+
+  useEffect(() => {
+    const handleTouchStart = e => {
+      firstClientXRef.current = e.touches[0].clientX
+      firstClientYRef.current = e.touches[0].clientY
+    }
+
+    const preventTouch = e => {
+      const minValue = 5
+      const clientX = e.touches[0].clientX - firstClientXRef.current
+
+      if (Math.abs(clientX) > minValue) {
+        e.preventDefault()
+        e.returnValue = false
+        return false
+      }
+    }
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('touchstart', handleTouchStart)
+      window.addEventListener('touchmove', preventTouch, { passive: false })
+    }
+
+    setNav1(slider1Ref.current)
+    setNav2(slider2Ref.current)
+
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('touchstart', handleTouchStart)
+        window.removeEventListener('touchmove', preventTouch)
+      }
+    }
+  }, [])
+
+  const content = data.allContentfulGalleryImages.edges.map(edge => {
+    return edge.node.image.map((image, index) => {
+      const img = getImage(image)
+      return (
+        <div key={`gallery-image-${ index }`}>
+          <GatsbyImage
+            className="Slider-inner-image"
+            image={img}
+            alt="Crooners on stage"
+          />
+        </div>
+      )
+    })
+  })
+  const videos = data.allContentfulVideos.edges.map(video => {
+    return (
+      <Video key={video.node.video}>
+        <GalleryVideo url={video.node.video} />
+      </Video>
     )
-  }
+  })
+
+  return (
+    <Layout pathname={location.pathname}>
+      {/* <Header page="Gallery" /> */}
+      <Logo>
+        <CroonersLogo />
+      </Logo>
+      <GalleryWrapper>
+        <Title>Production Photos</Title>
+        <Carousel content={content} />
+        <Title>videos</Title>
+        {videos}
+      </GalleryWrapper>
+    </Layout>
+  )
 }
 
 export default Gallery

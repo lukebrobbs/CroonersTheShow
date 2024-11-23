@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const TourDateWrapper = styled.div`
   display: inline-grid;
@@ -25,8 +26,10 @@ const TourDateWrapper = styled.div`
   }
 `
 
-const Logo = styled.img`
+const Logo = styled(GatsbyImage)`
   border: 3px solid #f7b300;
+  max-width: 400px;
+  max-height: 100px;
 `
 const ImageWrapper = styled.div`
   width: 60%;
@@ -69,14 +72,14 @@ const BookLink = styled.a`
   border: none;
   text-align: center;
   padding: 0.8em;
-  max-width: 45%;
-  height: 35%;
+  width: fit-content;
+  height: fit-content;
   -webkit-transition: 0.15s ease-in-out !important;
   transition: 0.15s ease-in-out !important;
   /* margin: 0, auto; */
   text-decoration: none;
   text-transform: uppercase;
-  :hover {
+  &:hover {
     color: white;
     text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
   }
@@ -98,11 +101,12 @@ const BookLink = styled.a`
 `
 
 const Tour = ({ logo, theatreName, date, website }) => {
+  const imageData = getImage(logo)
   return (
     <TourDateWrapper>
       <ImageWrapper>
         <a href={website} target="about_blank">
-          <Logo src={logo} alt="theatreName" />
+          <Logo image={imageData} alt={theatreName} />
         </a>
       </ImageWrapper>
       <TitleAndDate>

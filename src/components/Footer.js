@@ -101,7 +101,7 @@ const FooterSubmitButton = styled.button`
   @media screen and (max-width: 1306px) {
     justify-self: center;
   }
-  :hover {
+  &:hover {
     color: white;
     text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
   }
@@ -133,14 +133,15 @@ export default class PageFooter extends React.Component {
     e.preventDefault()
     const { email, name } = this.state
     const { result, msg } = await addToMailChimp(email, { NAME: name })
-    console.log(result, msg)
     const message = result === 'success' ? msg : 'Oops, something went wrong'
     this.setState({ submitted: true, message })
   }
+
   handleChange = e => {
     const { value, name } = e.target
     this.setState({ [name]: value })
   }
+
   render () {
     return (
       <Footer data-cy="footer">

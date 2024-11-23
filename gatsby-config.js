@@ -9,6 +9,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-image',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -35,7 +36,7 @@ module.exports = {
       options: {
         endpoint:
           // eslint-disable-next-line max-len
-          'https://croonerstheshow.us13.list-manage.com/subscribe/post?u=d1506e5d410deb1dcb1fa938d&amp;id=e3aea102e3'
+          'https://croonerstheshow.us11.list-manage.com/subscribe/post?u=0ca34c813d340053a881e8c79&amp;id=4da641c8ab&amp;f_id=00bc74e1f0'
       }
     },
     {

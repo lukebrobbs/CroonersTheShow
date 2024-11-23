@@ -61,7 +61,7 @@ const NavItem = styled.div`
     justify-content: center; /* align horizontal */
     align-items: center;
     color: black;
-    :hover {
+    &:hover {
       color: white;
       text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
     }
@@ -94,12 +94,14 @@ class Header extends React.Component {
       window.removeEventListener('resize', this.handleResize)
     }
   }
+
   handleResize () {
-    let currentIsMobile = window.innerWidth <= 1024
+    const currentIsMobile = window.innerWidth <= 1024
     if (currentIsMobile !== this.state.isMobile) {
       this.setState({ isMobile: currentIsMobile })
     }
   }
+
   render () {
     const { isMobile } = this.state
     const { page } = this.props
