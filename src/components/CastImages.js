@@ -12,6 +12,8 @@ const CastWrapper = styled.div`
     'Phil Roman Jim'
     'band band band';
   grid-gap: 2rem;
+  justify-content: center;
+  grid-template-columns: min-content min-content min-content;
   @media screen and (max-width: 1024px) {
     margin: 0;
     width: 99vw;
@@ -22,16 +24,18 @@ const CastWrapper = styled.div`
       'Roman'
       'Jim'
       'band';
+    grid-template-columns: min-content;
   }
 `
 
 const CastMemberWrapper = styled.div`
-  grid-area: ${ props => props.name };
   text-align: center;
+  place-items:center;
   -webkit-transition: 0.15s ease-in-out !important;
   transition: 0.15s ease-in-out !important;
-  :hover {
+  &:hover {
     color: #f7b300;
+    transform: scale(1.05);
   }
 `
 
@@ -44,8 +48,9 @@ const BandWrapper = styled.div`
   text-align: center;
   -webkit-transition: 0.15s ease-in-out !important;
   transition: 0.15s ease-in-out !important;
-  :hover {
+  &:hover {
     color: #f7b300;
+    transform: scale(1.05);
   }
   @media screen and (max-width: 900px) {
     width: 100%;

@@ -1,5 +1,5 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import React, { useState } from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/layout'
 import GoogleMap from '../components/GoogleMap'
@@ -48,102 +48,84 @@ const TourDateWrapper = styled.div`
 //   }
 // `
 
-class Tourdates extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      searchValue: ''
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.isTourDateInSearch = this.isTourDateInSearch.bind(this)
-  }
+const Tourdates = ({ location }) => {
+  const [searchValue, setSearchValue] = useState('')
 
-  handleChange = event => {
-    const { value } = event.target
-    this.setState({ searchValue: value })
-  };
-
-  isTourDateInSearch = theatreName => {
-    if (!this.state.searchValue.length) return true
-    return theatreName
-      .toUpperCase()
-      .includes(this.state.searchValue.toUpperCase())
-  };
-
-  render () {
-    const { location } = this.props
-    return (
-      <StaticQuery
-        query={graphql`
-          query {
-            allContentfulTourDate(sort: { fields: date }) {
-              edges {
-                node {
-                  theatreName
-                  date
-                  website
-                  logo {
-                    fluid(maxWidth: 400, maxHeight: 100) {
-                      src
-                    }
-                  }
-                  location {
-                    lat
-                    lon
-                  }
-                }
-              }
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulTourDate(sort: { date: ASC }) {
+        edges {
+          node {
+            theatreName
+            date
+            website
+            logo {
+              gatsbyImageData(layout: CONSTRAINED)
+            }
+            location {
+              lat
+              lon
             }
           }
-        `}
-        render={({ allContentfulTourDate }) => {
-          return (
-            <Layout pathname={location.pathname}>
-              {/* <Header page="TourDates" /> */}
-              <Logo>
-                <CroonersLogo />
-              </Logo>
-              <MapWrapper>
-                <GoogleMap
-                  node={allContentfulTourDate.edges.map(edge => edge.node)}
-                />
-              </MapWrapper>
-              <TourDateWrapper>
-                <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>
-                  Tour Dates
-                </h1>
-                {/* <TourDateSearch
-                  value={this.state.searchValue}
-                  onChange={this.handleChange}
-                /> */}
-                {allContentfulTourDate.edges.reduce((dates, date) => {
-                  if (
-                    this.isTourDateInSearch(date.node.theatreName) &&
-                    moment(date.node.date).isAfter()
-                  ) {
-                    const momentDate = moment(date.node.date).format(
-                      'Do MMM YYYY'
-                    )
+        }
+      }
+    }
+  `)
 
-                    dates.push(
-                      <Tour
-                        theatreName={date.node.theatreName}
-                        date={momentDate}
-                        logo={date.node.logo.fluid.src}
-                        key={date.node.theatreName}
-                        website={date.node.website}
-                      />
-                    )
-                  }
-                  return dates
-                }, [])}
-              </TourDateWrapper>
-            </Layout>
-          )
-        }}
-      />
-    )
+  const handleChange = event => {
+    setSearchValue(event.target.value)
   }
+
+  const isTourDateInSearch = theatreName => {
+    if (!searchValue.length) return true
+    return theatreName
+      .toUpperCase()
+      .includes(searchValue.toUpperCase())
+  }
+
+  return (
+    <Layout pathname={location.pathname}>
+      {/* <Header page="TourDates" /> */}
+      <Logo>
+        <CroonersLogo />
+      </Logo>
+      <MapWrapper>
+        <GoogleMap
+          node={data.allContentfulTourDate.edges.map(edge => edge.node)}
+        />
+      </MapWrapper>
+      <TourDateWrapper>
+        <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>
+          Tour Dates
+        </h1>
+        {/* <TourDateSearch
+          value={searchValue}
+          onChange={handleChange}
+        /> */}
+        {data.allContentfulTourDate.edges.reduce((dates, date) => {
+          if (
+            isTourDateInSearch(date.node.theatreName) &&
+            moment(date.node.date).isAfter()
+          ) {
+            const momentDate = moment(date.node.date).format(
+              'Do MMM YYYY'
+            )
+
+            dates.push(
+              <Tour
+                theatreName={date.node.theatreName}
+                date={momentDate}
+                logo={date.node.logo.gatsbyImageData}
+                key={date.node.theatreName}
+                website={date.node.website}
+              />
+            )
+          }
+          return dates
+        }, [])}
+      </TourDateWrapper>
+    </Layout>
+  )
 }
 
 export default Tourdates

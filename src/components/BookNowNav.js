@@ -12,7 +12,7 @@ const Background = styled.div`
   transform: rotate(10deg);
   position: relative;
   transition: 0.3s;
-  :hover {
+  &:hover {
     color: rgb(252, 210, 69);
 
     div {

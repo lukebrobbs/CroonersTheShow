@@ -43,7 +43,7 @@ const BookLink = styled.a`
   -webkit-transition: 0.15s ease-in-out !important;
   transition: 0.15s ease-in-out !important;
   cursor: pointer;
-  :hover {
+  &:hover {
     color: white;
     text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
   }

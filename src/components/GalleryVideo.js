@@ -9,10 +9,10 @@ const GalleryVideo = ({ url }) => {
         top: '0',
         left: '0',
         width: '100%',
-        height: '100%'
+        height: '100%',
+        border: 'none'
       }}
       title="Crooners Video"
-      frameBorder="0"
       webkitallowfullscreen="true"
       mozallowfullscreen="true"
       allowFullScreen

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import CastMember from '../../components/CastMember'
 import CroonersLogo from '../../components/ImageComponents/CroonersLogo'
@@ -18,48 +18,37 @@ const Logo = styled.div`
   }
 `
 
-const Phil = ({ location }) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        contentfulCastMemeber(
-          id: { eq: "5bcdf1c0-54c2-5dda-a045-f212cfbf0076" }
-        ) {
-          description {
-            childMarkdownRemark {
-              html
-            }
+const Phil = ({ location }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      contentfulCastMemeber(id: { eq: "f2cca01a-a5f7-515a-bed2-0243e3fc15bc" }) {
+        description {
+          childMarkdownRemark {
+            html
           }
-          headshot {
-            fixed(width: 250, height: 250) {
-              src
-            }
-          }
-          castName
         }
-      }
-    `}
-    render={({
-      contentfulCastMemeber: {
-        headshot: {
-          fixed: { src }
-        },
-        description: {
-          childMarkdownRemark: { html }
-        },
+        headshot {
+          gatsbyImageData(width: 250, height: 250)
+        }
         castName
       }
-    }) => (
-      <Layout pathname={location.pathname}>
-        {/* <Header page="Cast" /> */}
-        <Logo>
-          <CroonersLogo />
-        </Logo>
+    }
+  `)
 
-        <CastMember castName={castName} imageUrl={src} description={html} />
-      </Layout>
-    )}
-  />
-)
+  const {
+    headshot: { gatsbyImageData },
+    description: { childMarkdownRemark: { html } },
+    castName
+  } = data.contentfulCastMemeber
+
+  return (
+    <Layout pathname={location.pathname}>
+      <Logo>
+        <CroonersLogo />
+      </Logo>
+      <CastMember castName={castName} imageUrl={gatsbyImageData} description={html} />
+    </Layout>
+  )
+}
 
 export default Phil

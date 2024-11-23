@@ -87,7 +87,7 @@ const CollapsedNavBar = styled.div`
     padding: 10px;
     text-decoration: none;
     color: black;
-    :hover {
+    &:hover {
       color: white !important;
       text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
     }

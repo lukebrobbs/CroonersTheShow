@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import Layout from '../../components/layout'
 import CastMember from '../../components/CastMember'
@@ -19,48 +19,37 @@ const Logo = styled.div`
   }
 `
 
-const TheMiniBigBand = ({ location }) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        contentfulCastMemeber(
-          id: { eq: "5f884853-5bf8-55bd-a08e-da187efccf4a" }
-        ) {
-          description {
-            childMarkdownRemark {
-              html
-            }
+const TheMiniBigBand = ({ location }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      contentfulCastMemeber(id: { eq: "61f04ccb-2d99-5cea-86c9-2e55e0082498" }) {
+        description {
+          childMarkdownRemark {
+            html
           }
-          headshot {
-            fixed(width: 250, height: 250) {
-              src
-            }
-          }
-          castName
         }
-      }
-    `}
-    render={({
-      contentfulCastMemeber: {
-        headshot: {
-          fixed: { src }
-        },
-        description: {
-          childMarkdownRemark: { html }
-        },
+        headshot {
+          gatsbyImageData(width: 250, height: 250)
+        }
         castName
       }
-    }) => (
-      <Layout pathname={location.pathname}>
-        {/* <Header page="Cast" /> */}
-        <Logo>
-          <CroonersLogo />
-        </Logo>
+    }
+  `)
 
-        <CastMember castName={castName} imageUrl={src} description={html} />
-      </Layout>
-    )}
-  />
-)
+  const {
+    headshot: { gatsbyImageData },
+    description: { childMarkdownRemark: { html } },
+    castName
+  } = data.contentfulCastMemeber
+
+  return (
+    <Layout pathname={location.pathname}>
+      <Logo>
+        <CroonersLogo />
+      </Logo>
+      <CastMember castName={castName} imageUrl={gatsbyImageData} description={html} />
+    </Layout>
+  )
+}
 
 export default TheMiniBigBand

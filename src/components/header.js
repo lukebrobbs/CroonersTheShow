@@ -61,7 +61,7 @@ const NavItem = styled.div`
     justify-content: center; /* align horizontal */
     align-items: center;
     color: black;
-    :hover {
+    &:hover {
       color: white;
       text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
     }

@@ -101,7 +101,7 @@ const FooterSubmitButton = styled.button`
   @media screen and (max-width: 1306px) {
     justify-self: center;
   }
-  :hover {
+  &:hover {
     color: white;
     text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
   }

@@ -22,7 +22,7 @@ const SliderWrapper = styled.div`
     color: #f7b300;
   }
   .slick-dots li button {
-    :hover {
+    &:hover {
       color: #f7b300;
     }
   }

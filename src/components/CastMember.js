@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const Wrapper = styled.div`
   display: grid;
@@ -17,13 +18,13 @@ const Wrapper = styled.div`
     -webkit-transition: 0.15s ease-in-out !important;
     transition: 0.15s ease-in-out !important;
     color: #001025;
-    :hover {
+    &:hover {
       color: white;
       opacity: 0.9;
     }
   }
 `
-const Headshot = styled.img`
+const Headshot = styled(GatsbyImage)`
   border: 4px solid #f7b300;
   width: 100%;
 `
@@ -54,7 +55,7 @@ const CastMember = ({ description, castName, imageUrl }) => (
       />
     </div>
     <ImageGrid>
-      <Headshot src={imageUrl} alt={`${ castName } headshot`} />
+      <Headshot image={imageUrl} alt={`${castName} headshot`} />
     </ImageGrid>
   </Wrapper>
 )
