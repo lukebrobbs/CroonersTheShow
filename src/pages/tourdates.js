@@ -49,7 +49,7 @@ const TourDateWrapper = styled.div`
 // `
 
 const Tourdates = ({ location }) => {
-  const [searchValue, setSearchValue] = useState('')
+  const [searchValue] = useState('')
 
   const data = useStaticQuery(graphql`
     query {
@@ -71,10 +71,6 @@ const Tourdates = ({ location }) => {
       }
     }
   `)
-
-  const handleChange = event => {
-    setSearchValue(event.target.value)
-  }
 
   const isTourDateInSearch = theatreName => {
     if (!searchValue.length) return true

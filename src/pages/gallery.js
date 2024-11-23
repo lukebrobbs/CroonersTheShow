@@ -42,11 +42,11 @@ const GalleryWrapper = styled.div`
 `
 
 const Gallery = ({ location }) => {
-  const [nav1, setNav1] = useState(null)
-  const [nav2, setNav2] = useState(null)
+  const [, setNav1] = useState(null)
+  const [, setNav2] = useState(null)
   const slider1Ref = useRef(null)
   const slider2Ref = useRef(null)
-  
+
   const firstClientXRef = useRef(null)
   const firstClientYRef = useRef(null)
 
@@ -72,15 +72,14 @@ const Gallery = ({ location }) => {
   `)
 
   useEffect(() => {
-    const handleTouchStart = (e) => {
+    const handleTouchStart = e => {
       firstClientXRef.current = e.touches[0].clientX
       firstClientYRef.current = e.touches[0].clientY
     }
 
-    const preventTouch = (e) => {
+    const preventTouch = e => {
       const minValue = 5
       const clientX = e.touches[0].clientX - firstClientXRef.current
-      const clientY = e.touches[0].clientY - firstClientYRef.current
 
       if (Math.abs(clientX) > minValue) {
         e.preventDefault()
@@ -105,18 +104,17 @@ const Gallery = ({ location }) => {
     }
   }, [])
 
-  const content = data.allContentfulGalleryImages.edges.map((edge, index) => {
-    console.log({edge})
+  const content = data.allContentfulGalleryImages.edges.map(edge => {
     return edge.node.image.map((image, index) => {
       const img = getImage(image)
       return (
-        <div key={`gallery-image-${index}`}>
-        <GatsbyImage
-          className="Slider-inner-image"
-          image={img}
-          alt="Crooners on stage" 
-        />
-      </div>
+        <div key={`gallery-image-${ index }`}>
+          <GatsbyImage
+            className="Slider-inner-image"
+            image={img}
+            alt="Crooners on stage"
+          />
+        </div>
       )
     })
   })

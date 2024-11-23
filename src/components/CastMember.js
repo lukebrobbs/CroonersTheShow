@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const Wrapper = styled.div`
   display: grid;
@@ -55,7 +55,7 @@ const CastMember = ({ description, castName, imageUrl }) => (
       />
     </div>
     <ImageGrid>
-      <Headshot image={imageUrl} alt={`${castName} headshot`} />
+      <Headshot image={imageUrl} alt={`${ castName } headshot`} />
     </ImageGrid>
   </Wrapper>
 )

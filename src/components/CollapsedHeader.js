@@ -47,32 +47,28 @@ const CollapsedNavBar = styled.div`
   .collapsible-menu {
     font-family: 'Bourton-base';
     font-size: 22px;
-    background-image: ${ props =>
-    `-moz-linear-gradient(
+    background-image: -moz-linear-gradient(
       25deg,
       rgb(213, 126, 20) 0%,
       rgb(252, 196, 69) 38%,
       rgb(250, 184, 46) 71%,
       rgb(213, 126, 20) 100%
-    )` };
+    )
+    background-image: -webkit-linear-gradient(
+      25deg,
+      rgb(213, 126, 20) 0%,
+      rgb(252, 196, 69) 38%,
+      rgb(250, 184, 46) 71%,
+      rgb(213, 126, 20) 100%
+    )
 
-    background-image: ${ props =>
-    `-webkit-linear-gradient(
+    background-image: -ms-linear-gradient(
       25deg,
       rgb(213, 126, 20) 0%,
       rgb(252, 196, 69) 38%,
       rgb(250, 184, 46) 71%,
       rgb(213, 126, 20) 100%
-    )` };
-
-    background-image: ${ props =>
-    `-ms-linear-gradient(
-      25deg,
-      rgb(213, 126, 20) 0%,
-      rgb(252, 196, 69) 38%,
-      rgb(250, 184, 46) 71%,
-      rgb(213, 126, 20) 100%
-    )` };
+    )
     background-color: #001025;
     padding: 0px 30px 10px;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
@@ -146,11 +142,13 @@ class CollapsedHeader extends React.Component {
       isOpen: false
     }
   }
+
   toggle () {
     this.setState({
       isOpen: !this.state.isOpen
     })
   }
+
   render () {
     const { page } = this.props
     return (

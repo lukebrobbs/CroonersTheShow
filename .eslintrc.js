@@ -1,6 +1,10 @@
 module.exports = {
-  extends: ["standard"],
-  plugins: ["standard", "react"],
+  extends: [
+    'standard',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime'
+  ],
+  plugins: ['react'],
   rules: {
     "no-var": "error", // optional, recommended when using es6+
     "no-unused-vars": 1, // recommended
@@ -17,9 +21,6 @@ module.exports = {
       }
     ],
 
-    // options to emulate prettier setup
-    // semi: ["error", "never"],
-    "max-len": ["error", { code: 80 }],
     "template-curly-spacing": ["error", "always"],
     "arrow-parens": ["error", "as-needed"],
 
@@ -33,18 +34,24 @@ module.exports = {
       }
     ],
 
-    // standard plugin - options
-    "standard/object-curly-even-spacing": ["error", "either"],
-    "standard/array-bracket-even-spacing": ["error", "either"],
-    "standard/computed-property-even-spacing": ["error", "even"],
-    "standard/no-callback-literal": ["error", ["cb", "callback"]],
-
     // react plugin - options
     "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error"
+    "react/jsx-uses-vars": "error",
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": 0,
+    "no-unused-vars": ['error', { argsIgnorePattern: '^_' }],
+    "no-console": ['warn', { allow: ['warn', 'error'] }]
   },
-  parser: "babel-eslint",
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   parserOptions: {
-    ecmaVersion: 8 // optional, recommended 6+
+    ecmaVersion: 2022,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true
+    }
   }
 };

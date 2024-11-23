@@ -37,7 +37,7 @@ const Dot = styled.div`
 const generateDots = () => {
   let left = 6
   let top = 4
-  let returnValue = []
+  const returnValue = []
   for (left; left <= 93; left += 5) {
     returnValue.push(<Dot top="1px" left={`${ left }%`} />)
     returnValue.push(<Dot top="83%" left={`${ left }%`} />)

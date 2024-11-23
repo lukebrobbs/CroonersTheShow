@@ -94,12 +94,14 @@ class Header extends React.Component {
       window.removeEventListener('resize', this.handleResize)
     }
   }
+
   handleResize () {
-    let currentIsMobile = window.innerWidth <= 1024
+    const currentIsMobile = window.innerWidth <= 1024
     if (currentIsMobile !== this.state.isMobile) {
       this.setState({ isMobile: currentIsMobile })
     }
   }
+
   render () {
     const { isMobile } = this.state
     const { page } = this.props

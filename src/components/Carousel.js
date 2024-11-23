@@ -60,6 +60,7 @@ class Gallery extends Component {
       nav2: this.slider2
     })
   }
+
   render () {
     const responsive = [
       {
