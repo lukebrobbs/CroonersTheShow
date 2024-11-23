@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
-import addToMailChimp from 'gatsby-plugin-mailchimp'
 
 import TwitterImage from './ImageComponents/TwitterImage'
 import FacebookImage from './ImageComponents/FacebookImage'
@@ -117,104 +116,123 @@ const Form = styled.form`
     margin-bottom: 0;
   }
 `
-export default class PageFooter extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      name: '',
-      email: '',
-      submitted: false,
-      showSubmitSuccess: false,
-      message: ''
+
+const PageFooter = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    submitted: false,
+    showSubmitSuccess: false,
+    message: ''
+  })
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const { email, name } = formData
+    
+    try {
+      const encodedEmail = encodeURIComponent(email);
+      const response = await fetch(`https://croonerstheshow.us11.list-manage.com/subscribe/post-json?u=0ca34c813d340053a881e8c79&id=4da641c8ab&f_id=00bc74e1f0&EMAIL=${encodedEmail}`, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      // Since we're using no-cors, we can't actually read the response
+      // We'll assume success if no error was thrown
+      setFormData(prev => ({ 
+        ...prev, 
+        submitted: true, 
+        message: 'Thank you for subscribing!' 
+      }))
+    } catch (error) {
+      setFormData(prev => ({ 
+        ...prev, 
+        submitted: true, 
+        message: 'Oops, something went wrong. Please try again later.' 
+      }))
     }
   }
 
-  handleSubmit = async e => {
-    e.preventDefault()
-    const { email, name } = this.state
-    const { result, msg } = await addToMailChimp(email, { NAME: name })
-    const message = result === 'success' ? msg : 'Oops, something went wrong'
-    this.setState({ submitted: true, message })
-  }
-
-  handleChange = e => {
+  const handleChange = (e) => {
     const { value, name } = e.target
-    this.setState({ [name]: value })
+    setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  render () {
-    return (
-      <Footer data-cy="footer">
-        <Heading>SIGN UP FOR NEWS</Heading>
-        <Form onSubmit={this.handleSubmit}>
-          <CSSTransition
-            classNames="example"
-            in={this.state.showSubmitSuccess}
-            timeout={500}
-            mountOnEnter
+  return (
+    <Footer data-cy="footer">
+      <Heading>SIGN UP FOR NEWS</Heading>
+      <Form onSubmit={handleSubmit}>
+        <CSSTransition
+          classNames="example"
+          in={formData.showSubmitSuccess}
+          timeout={500}
+          mountOnEnter
+        >
+          <p style={{ color: '#f7b300' }} data-cy="footer-message">
+            {formData.message}
+          </p>
+        </CSSTransition>
+        <CSSTransition
+          classNames="submitted"
+          in={!formData.submitted}
+          timeout={500}
+          unmountOnExit
+          onExited={() => {
+            setFormData(prev => ({ ...prev, showSubmitSuccess: true }))
+          }}
+        >
+          <FooterInput
+            placeholder="Name:"
+            value={formData.name}
+            name="name"
+            type="text"
+            required
+            onChange={handleChange}
+            data-cy="footer-name"
+          />
+        </CSSTransition>
+        <CSSTransition
+          classNames="submitted"
+          in={!formData.submitted}
+          timeout={500}
+          unmountOnExit
+        >
+          <FooterInput
+            placeholder="Email:"
+            type="email"
+            name="email"
+            value={formData.email}
+            required
+            onChange={handleChange}
+            data-cy="footer-email"
+          />
+        </CSSTransition>
+        <CSSTransition
+          classNames="submitted"
+          in={!formData.submitted}
+          timeout={500}
+          unmountOnExit
+        >
+          <FooterSubmitButton
+            type="submit"
+            row="3"
+            key="footerButton"
+            data-cy="footer-submit"
           >
-            <p style={{ color: '#f7b300' }} data-cy="footer-message">
-              {this.state.message}
-            </p>
-          </CSSTransition>
-          <CSSTransition
-            classNames="submitted"
-            in={!this.state.submitted}
-            timeout={500}
-            unmountOnExit
-            onExited={() => {
-              this.setState({ showSubmitSuccess: true })
-            }}
-          >
-            <FooterInput
-              placeholder="Name:"
-              value={this.state.name}
-              name="name"
-              type="text"
-              required
-              onChange={this.handleChange}
-              data-cy="footer-name"
-            />
-          </CSSTransition>
-          <CSSTransition
-            classNames="submitted"
-            in={!this.state.submitted}
-            timeout={500}
-            unmountOnExit
-          >
-            <FooterInput
-              placeholder="Email:"
-              type="email"
-              name="email"
-              value={this.state.email}
-              required
-              onChange={this.handleChange}
-              data-cy="footer-email"
-            />
-          </CSSTransition>
-          <CSSTransition
-            classNames="submitted"
-            in={!this.state.submitted}
-            timeout={500}
-            unmountOnExit
-          >
-            <FooterSubmitButton
-              type="submit"
-              row="3"
-              key="footerButton"
-              data-cy="footer-submit"
-            >
-              <strong>SUBMIT</strong>
-            </FooterSubmitButton>
-          </CSSTransition>
-        </Form>
+            <strong>SUBMIT</strong>
+          </FooterSubmitButton>
+        </CSSTransition>
+      </Form>
 
-        <SocialIcons data-cy="footer-icons">
-          <TwitterImage />
-          <FacebookImage />
-          <InstagramImage />
-        </SocialIcons>
-      </Footer>
-    )
-  }
+      <SocialIcons data-cy="footer-icons">
+        <TwitterImage />
+        <FacebookImage />
+        <InstagramImage />
+      </SocialIcons>
+    </Footer>
+  )
 }
+
+export default PageFooter
