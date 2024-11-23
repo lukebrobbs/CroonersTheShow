@@ -28,8 +28,10 @@ const Description = styled.p`
   margin: auto;
   margin-top: -80px;
   width: 80%;
+  padding: 0;
   @media screen and (max-width: 1370px) {
     margin-top: -10px;
+    padding: 0 8px
   }
   @media screen and (max-width: 700px) {
     width: 100%;
